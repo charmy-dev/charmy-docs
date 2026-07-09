@@ -1,4 +1,4 @@
-name: Deploy Sphinx Documentation
+name: Build Docs to GH Pages
 
 on:
   # 当主分支有推送时触发
