@@ -1,7 +1,9 @@
 genesis
 =======
 
-.. autoclasstree:: charmy.backend.genesis
+This part will not be included in docs of Charmy itself.
 
-.. automodule:: charmy.backend.genesis
-   :members:
+.. .. autoclasstree:: charmy.backend.genesis
+.. 
+.. .. automodule:: charmy.backend.genesis
+..    :members:
