@@ -5,8 +5,6 @@ on:
   push:
     branches:
       - main
-      # 如果你有 dev/develop 分支需要触发，取消注释下面一行
-      # - dev
 
   # 允许手动触发
   workflow_dispatch:
@@ -44,11 +42,9 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
-
-          pip install sphinx sphinx-rtd-theme sphinx-autodoc-typehints sphinx-copybutton
           
-          git clone https://github.com/charmy-dev/charmy.git
-          cd charmy && pip install .
+          git clone --depth 1 https://github.com/charmy-dev/charmy.git
+          cd charmy && pip install -e .
           cd ..
 
       # 步骤 4: 生成 HTML 文档
