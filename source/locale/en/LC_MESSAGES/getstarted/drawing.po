@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Charmy GUI \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-09 14:09+0800\n"
+"POT-Creation-Date: 2026-07-09 16:32+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -79,7 +79,7 @@ msgid "``DrawnText``"
 msgstr ""
 
 #: ../../source/getstarted/drawing.rst:26
-#: ../../source/getstarted/drawing.rst:145
+#: ../../source/getstarted/drawing.rst:147
 msgid "绘制文字"
 msgstr ""
 
@@ -133,57 +133,61 @@ msgstr ""
 msgid "``DrawnShape`` 的 ``border_width`` 参数： 正值表示向外扩展边框，负值表示向内收缩。 0 表示不绘制边框。"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:164
+#: ../../source/getstarted/drawing.rst:144
+msgid "**然而这一特性并未在Genesis中实现，也并未被设计为强制性需要被后端实现的功能。**"
+msgstr ""
+
+#: ../../source/getstarted/drawing.rst:166
 msgid "Charmy 使用 Cairo 进行文字渲染，字体名需要是系统中已安装的字体。 如果指定字体不存在，Cairo 会回退到默认字体。"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:168
+#: ../../source/getstarted/drawing.rst:170
 msgid "透明度与纹理"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:170
+#: ../../source/getstarted/drawing.rst:172
 msgid "纹理（Texture）是 Charmy 中控制颜色的统一方式："
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:188
+#: ../../source/getstarted/drawing.rst:190
 msgid "偏移与锚点"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:190
+#: ../../source/getstarted/drawing.rst:192
 msgid "``DrawnLine`` 和 ``DrawnShape`` 支持 ``offset`` 和 ``anchor`` 参数："
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:192
+#: ../../source/getstarted/drawing.rst:194
 msgid "**offset**: 整体位置的偏移量（相对于原始坐标）"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:193
+#: ../../source/getstarted/drawing.rst:195
 msgid "**anchor**: 锚点位置，即原始坐标中作为基准的点"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:205
+#: ../../source/getstarted/drawing.rst:207
 msgid "当 ``offset`` 或 ``anchor`` 设置为 ``\"auto\"`` 时， 会自动使用图形边界框的左上角作为默认值。"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:209
+#: ../../source/getstarted/drawing.rst:211
 msgid "SVG 路径绘制"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:211
+#: ../../source/getstarted/drawing.rst:213
 msgid "Charmy 内置了完整的 SVG 路径解析器，可以直接从 SVG 路径字符串创建形状："
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:224
+#: ../../source/getstarted/drawing.rst:226
 msgid ""
 "支持的 SVG 命令： ``M`` （移动到）、 ``L`` （直线）、 ``V`` （垂直线）、 ``H`` （水平线）、 ``C`` "
 "（三次贝塞尔曲线）、 ``S`` （平滑贝塞尔）、 ``Z`` （闭合路径）。"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:228
+#: ../../source/getstarted/drawing.rst:230
 msgid "SVG 解析器目前不支持二次贝塞尔曲线（ ``Q``/``T`` ）和椭圆弧（ ``A`` ）。"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:231
+#: ../../source/getstarted/drawing.rst:233
 msgid ""
 "更多图形绘制 API 请参考 :doc:`graphics 模块 </api/graphics>`、 :doc:`shape 模块 "
 "</api/styles/shape>` 和 :doc:`texture 模块 </api/styles/texture>`。"

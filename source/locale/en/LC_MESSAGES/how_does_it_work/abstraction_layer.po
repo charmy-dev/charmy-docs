@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Charmy GUI \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-09 14:09+0800\n"
+"POT-Creation-Date: 2026-07-09 16:32+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -94,7 +94,7 @@ msgid "``utils.py``"
 msgstr ""
 
 #: ../../source/how_does_it_work/abstraction_layer.rst:33
-msgid "后端工具模块，安全引用 Charmy 上层对象，避免循环导入"
+msgid "后端工具模块，安全引用 Charmy 上层对象，避免循环引入"
 msgstr ""
 
 #: ../../source/how_does_it_work/abstraction_layer.rst:36
@@ -129,90 +129,109 @@ msgid "Genesis 后端"
 msgstr ""
 
 #: ../../source/how_does_it_work/abstraction_layer.rst:81
-msgid "目前唯一的后端实现，使用 **SDL2** 创建和管理窗口，使用 **Cairo** 进行 2D 渲染。"
+msgid ""
+"目前唯一的后端实现，使用 **SDL2** 创建和管理窗口，使用 **Cairo** 进行 2D 渲染。这一后端为Charmy的上层部分提供一套 "
+"可用于可行性验证的API，而并非一个合格且正式的后端选项。您不应该在生产环境内使用它。"
 msgstr ""
 
-#: ../../source/how_does_it_work/abstraction_layer.rst:83
+#: ../../source/how_does_it_work/abstraction_layer.rst:84
 msgid "**SDL2 负责：**"
 msgstr ""
 
-#: ../../source/how_does_it_work/abstraction_layer.rst:85
+#: ../../source/how_does_it_work/abstraction_layer.rst:86
 msgid "窗口创建与管理"
 msgstr ""
 
-#: ../../source/how_does_it_work/abstraction_layer.rst:86
+#: ../../source/how_does_it_work/abstraction_layer.rst:87
 msgid "事件循环（鼠标、键盘、窗口事件）"
 msgstr ""
 
-#: ../../source/how_does_it_work/abstraction_layer.rst:87
+#: ../../source/how_does_it_work/abstraction_layer.rst:88
 msgid "像素缓冲区管理（SDL Surface）"
 msgstr ""
 
-#: ../../source/how_does_it_work/abstraction_layer.rst:88
+#: ../../source/how_does_it_work/abstraction_layer.rst:89
 msgid "窗口刷新 (SDL_UpdateWindowSurface)"
 msgstr ""
 
-#: ../../source/how_does_it_work/abstraction_layer.rst:90
+#: ../../source/how_does_it_work/abstraction_layer.rst:91
 msgid "**Cairo 负责：**"
 msgstr ""
 
-#: ../../source/how_does_it_work/abstraction_layer.rst:92
+#: ../../source/how_does_it_work/abstraction_layer.rst:93
 msgid "矢量图形渲染（线条、形状、贝塞尔曲线）"
 msgstr ""
 
-#: ../../source/how_does_it_work/abstraction_layer.rst:93
+#: ../../source/how_does_it_work/abstraction_layer.rst:94
 msgid "文字渲染"
 msgstr ""
 
-#: ../../source/how_does_it_work/abstraction_layer.rst:94
+#: ../../source/how_does_it_work/abstraction_layer.rst:95
 msgid "图像合成"
 msgstr ""
 
-#: ../../source/how_does_it_work/abstraction_layer.rst:97
+#: ../../source/how_does_it_work/abstraction_layer.rst:98
 msgid ""
 "Genesis 后端的一个设计特点是：Cairo 绘制到内存中的 ``ImageSurface``， 然后通过 "
 "``ctypes.memmove`` 直接拷贝到 SDL2 的窗口 Surface。 这种方式避免了额外的编码/解码开销，性能较好。"
 msgstr ""
 
 #: ../../source/how_does_it_work/abstraction_layer.rst:102
+msgid "这一特性是为了拯救Genesis后端那本就不充裕的性能。"
+msgstr ""
+
+#: ../../source/how_does_it_work/abstraction_layer.rst:105
 msgid "事件桥接"
 msgstr ""
 
-#: ../../source/how_does_it_work/abstraction_layer.rst:104
+#: ../../source/how_does_it_work/abstraction_layer.rst:107
 msgid "Genesis 后端通过 ``sdl2_handle_event()`` 方法将 SDL2 的事件转换为 Charmy 事件："
 msgstr ""
 
-#: ../../source/how_does_it_work/abstraction_layer.rst:124
+#: ../../source/how_does_it_work/abstraction_layer.rst:127
 msgid "渲染流程"
 msgstr ""
 
-#: ../../source/how_does_it_work/abstraction_layer.rst:126
+#: ../../source/how_does_it_work/abstraction_layer.rst:129
 msgid "完整的帧渲染流程："
 msgstr ""
 
-#: ../../source/how_does_it_work/abstraction_layer.rst:152
+#: ../../source/how_does_it_work/abstraction_layer.rst:155
 msgid "Fallback 机制"
 msgstr ""
 
-#: ../../source/how_does_it_work/abstraction_layer.rst:154
+#: ../../source/how_does_it_work/abstraction_layer.rst:157
 msgid "Charmy 的线条和形状系统支持 **fallback** ——如果后端不支持某种图形类型， 会自动降级为其他类型绘制。"
 msgstr ""
 
-#: ../../source/how_does_it_work/abstraction_layer.rst:157
+#: ../../source/how_does_it_work/abstraction_layer.rst:160
 msgid ""
 "例如，Genesis 后端支持 ``CircleArc`` （圆弧）的直接绘制， 但如果某个假想的后端只支持 ``CubicBezier`` "
 "（三次贝塞尔曲线）， Charmy 会自动将圆弧分解为多条贝塞尔曲线："
 msgstr ""
 
-#: ../../source/how_does_it_work/abstraction_layer.rst:168
+#: ../../source/how_does_it_work/abstraction_layer.rst:171
 msgid "Fallback 链示例："
 msgstr ""
 
-#: ../../source/how_does_it_work/abstraction_layer.rst:178
-msgid "这种设计来自于 ``shape.py`` 中每个线条类的 ``fallback()`` 方法："
+#: ../../source/how_does_it_work/abstraction_layer.rst:181
+msgid "这种机制于 ``shape.py`` 中每个线条类的 ``fallback()`` 方法中实现："
 msgstr ""
 
-#: ../../source/how_does_it_work/abstraction_layer.rst:187
+#: ../../source/how_does_it_work/abstraction_layer.rst:192
+msgid "如果您是一位足够偷懒的后端开发者，您只需要确保后端支持绘制直线和三次贝塞尔曲线，就可以透过此fallback机制绘制 Charmy中的任何线条了。"
+msgstr ""
+
+#: ../../source/how_does_it_work/abstraction_layer.rst:195
 msgid "更多细节请参考 ``charmy/backend/`` 目录下的源代码和 ``tests/`` 目录下的测试文件。"
 msgstr ""
+
+#~ msgid "后端工具模块，安全引用 Charmy 上层对象，避免循环导入"
+#~ msgstr ""
+
+#~ msgid "目前唯一的后端实现，使用 **SDL2** 创建和管理窗口，使用 **Cairo** 进行 2D 渲染。"
+#~ msgstr ""
+
+#~ msgid "这种设计来自于 ``shape.py`` 中每个线条类的 ``fallback()`` 方法："
+#~ msgstr ""
 

@@ -1,5 +1,6 @@
 from os import system
 
+system("rmdir /s /q build")
 system("sphinx-build -b gettext ./source build/gettext")
 system("sphinx-intl update -p build/gettext -l en")
 system("sphinx-build -b html -D language=zh_CN ./source build/html/zh_CN")
