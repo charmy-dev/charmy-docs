@@ -45,8 +45,11 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
-          # 如果 requirements.txt 中没有包含 sphinx，取消注释下面一行
-          # pip install sphinx sphinx-rtd-theme sphinx-autodoc-typehints sphinx-copybutton
+          pip install sphinx sphinx-rtd-theme sphinx-autodoc-typehints sphinx-copybutton
+          
+          git clone https://github.com/charmy-dev/charmy.git
+          cd charmy && pip install .
+          cd ..
 
       # 步骤 4: 生成 HTML 文档
       - name: Build HTML documentation
