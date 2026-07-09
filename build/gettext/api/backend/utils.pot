@@ -1,0 +1,29 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, XiangQinxi, rgzz666, littlewhitecloud
+# This file is distributed under the same license as the Charmy GUI package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Charmy GUI \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-09 15:35+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/api/backend/utils.rst:2
+msgid "utils"
+msgstr ""
+
+#: ../../../charmy/charmy/backend/utils.py:docstring of charmy.backend.utils:1
+msgid "Utils for backend, provide a safe way to reference Charmy objects for backends."
+msgstr ""
+
+#: ../../../charmy/charmy/backend/utils.py:docstring of charmy.backend.utils:3
+msgid "This module imports limited parts of Charmy and provide it to backends, allowing backends  referencing Charmy objects while less likely to trigger circular import errors."
+msgstr ""

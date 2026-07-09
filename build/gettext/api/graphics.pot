@@ -1,0 +1,191 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, XiangQinxi, rgzz666, littlewhitecloud
+# This file is distributed under the same license as the Charmy GUI package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Charmy GUI \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-09 15:35+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/api/graphics.rst:2
+msgid "graphics"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics:1
+msgid "A set of classes represent drawn objects on window. Part of the graphics layer of Charmy."
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnObject:1
+msgid "Base class of drawn objects in Charmy."
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnObject.__init__:1
+msgid "To represent a drawn object, inherit this class."
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnLine:1
+msgid "A class used to represent lines drawn to GUI or canvas."
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnLine.__init__:1
+msgid "Used to express lines drawn on GUI or canvas."
+msgstr ""
+
+#: ../../source/api/graphics.rst:0
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnText:0
+msgid "参数"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnLine.__init__:3
+msgid "The line (to be drawn)"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnLine.__init__:4
+msgid "Texture of the drawn line"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnLine.__init__:5
+msgid "Line width"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnLine.__init__:6
+msgid "Position offset of the drawn line"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnLine.__init__:7
+msgid "Point of anchor on the original line"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnLine.texture:1
+msgid "Texture of the drawn line."
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnLine.boundary:1
+msgid "Rect boundary of the drawn line"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnLine.draw:1
+msgid "Draw the line."
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnLine.draw:3
+msgid "The window to draw line to"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnLine.draw:4
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnShape.draw:4
+msgid "Internal use only, the fallback path"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnShape:1
+msgid "A Class used to represent shapes drawn to GUI or canvas."
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnShape.__init__:1
+msgid "Used to express shapes drawn on GUI or canvas."
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnShape.__init__:3
+msgid "The shape (to be drawn)"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnShape.__init__:4
+msgid "styles.texture.Texture inside the drawn shape"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnShape.__init__:5
+msgid "Border width in px, positive for outer and negative for inner"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnShape.__init__:6
+msgid "styles.texture.Texture of the drawn border"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnShape.__init__:7
+msgid "Position offset of the drawn shape"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnShape.__init__:8
+msgid "Point of anchor on the original shape"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnShape.texture:1
+msgid "Texture of the drawn shape."
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnShape.border_texture:1
+msgid "Texture used on the border of the drawn shape."
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnShape.boundary:1
+msgid "Rect boundary of the drawn shape."
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnShape.draw:1
+msgid "Draw the shape using backend."
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnShape.draw:3
+msgid "The window to draw shape to"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnText:1
+msgid "A class used to represent texts drawn to GUI or canvas."
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnText:4
+msgid "Notes For Getting Boundary"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnText:5
+msgid "Text relies on backend to render in most cases, so its boundary should be gotten from backend."
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnText.__init__:1
+msgid "Used to express text drawn on GUI or canvas."
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnText.__init__:3
+msgid "The text content, in Python string"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnText.__init__:4
+msgid "The text style to use"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnText.__init__:5
+msgid "The texture to use on"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnText.__init__:6
+msgid "Position of the drawn text"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnText.__init__:7
+msgid "Point of anchor on the text"
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnText.texture:1
+msgid "Texture of the drawn text."
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnText.boundary:1
+msgid "Rect boundary of the drawn text."
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnText.draw:1
+msgid "Draw the text."
+msgstr ""
+
+#: ../../../charmy/charmy/graphics.py:docstring of charmy.graphics.DrawnText.draw:3
+msgid "The window to draw text to"
+msgstr ""

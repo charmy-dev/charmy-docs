@@ -1,0 +1,145 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, XiangQinxi, rgzz666, littlewhitecloud
+# This file is distributed under the same license as the Charmy GUI package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Charmy GUI \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-09 15:35+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/api/styles/texture.rst:2
+msgid "texture"
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture:1
+msgid "Texture classes in Charmy."
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture:3
+msgid "Charmy provides several types of textures, ranging from basid colors (with trasnsparency) to  more complicated effects such as Gaussian blur implemented by filters."
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture:7
+msgid "Types of Textures"
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture:8
+msgid "Currently, following types of textures are provided."
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture:0
+msgid "Color"
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture:10
+msgid "Represents pure RGBA colors"
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture:0
+msgid "Transparent"
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture:11
+msgid "Represents transparent (not visible) and will not be rendered"
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture:13
+msgid "For details, see docstrings of each class inside this file."
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture:16
+msgid "TextureLike Types"
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture:17
+msgid "TextureLike types are type aliases that are used to represent types that are not subclasses of the  `Texture` base class, but can be used to represent colors. e.g. `tuple[int, int, int, int]` can be  used to represent RGBA colors."
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture:21
+msgid "For full list of TextureLike types, see (NOT WRITTEN YET) section in the document."
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture.Texture:1
+msgid "Texture base class in Charmy."
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture.Texture.find_class_by_type:1
+msgid "Find a texture class by line type, return `None` if not found."
+msgstr ""
+
+#: ../../source/api/styles/texture.rst:0
+msgid "参数"
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture.Texture.find_class_by_type:3
+msgid "Texture type in string"
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture.Texture.from_json:1
+msgid "Create a texture object from json content."
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture.Texture.from_json:3
+msgid "This function is a static method of Texture and its subclasses. It creates and returns a  textre object base on the JSON content given. This will be useful when loading line config  from styles."
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture.Texture.from_json:7
+msgid "The JSON content, either Python dict or raw string data"
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture.Texture.from_json:10
+msgid "JSON Format"
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture.Texture.from_json:11
+msgid "Textures can be represented in JSON in a structured way. Each JSON data must has a `type`  key that defines the type of the texture, and also other keys and values that specify the  params for that texture. The following is an example for pure colors."
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture.Color:1
+msgid "Represents pure colors."
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture.Color.__init__:1
+msgid "Initialize a color object."
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture.Color.__init__:3
+msgid "The RGB(A) tuple or the HEX string that represents the color"
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture.Transparent:1
+msgid "Represents transparent."
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture.Transparent:3
+msgid "Note that, in actual rendering, items with Transparent texture should be skipped."
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture.Transparent.__init__:1
+msgid "Initialize a Transparent object."
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture.ensure_texture:1
+msgid "Convert TextureLike types into Texture objects."
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture.ensure_texture:3
+msgid "The TextureLike value"
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture.ensure_texture:0
+msgid "return texture"
+msgstr ""
+
+#: ../../../charmy/charmy/styles/texture.py:docstring of charmy.styles.texture.ensure_texture:4
+msgid "The converted Texture object."
+msgstr ""

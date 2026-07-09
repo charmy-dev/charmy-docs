@@ -1,0 +1,173 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, XiangQinxi, rgzz666, littlewhitecloud
+# This file is distributed under the same license as the Charmy GUI package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Charmy GUI \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-09 15:35+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/api/backend/template.rst:2
+msgid "template"
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template:1
+msgid "Template backend, identified as `nobackend` in Charmy runtime."
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template:3
+msgid "This is a template of all backends, providing basic fallback for functions that might be used but  not implemented by actual backends. This template backend shall not be used in actual development."
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template:6
+msgid "This backend is identified as `nobackend` in Charmy, and will throw an error when trying to create  window with it."
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.Backend:1
+msgid "This is a template of Backend, does not have any actual function."
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.WindowBase:1
+msgid "Base of the windows, abstracts window-level operations from the base UI lib."
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.WindowBase.__init__:1
+msgid "Initializes the dummy window."
+msgstr ""
+
+#: ../../source/api/backend/template.rst:0
+msgid "参数"
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.WindowBase.__init__:3
+msgid "The backend that this window uses"
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.WindowBase.clear_screen:1
+msgid "To clear all content from a window"
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.WindowBase.draw_background:1
+msgid "Draw the background of the window."
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.WindowBase.draw_background:3
+msgid "This is a fallback of such function, draws a rect that fills the window."
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.WindowBase.draw_background:0
+msgid "return self"
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.WindowBase.draw_background:5
+msgid "The WindowBase itself"
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.WindowBase.hide:1
+msgid "Hides the window, does nothing on a dummy window."
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.WindowBase.set_icon:1
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.WindowBase.set_title:1
+msgid "Set title to window, does nothing on dummy."
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.WindowBase.set_pos:1
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.WindowBase.set_size:1
+msgid "Set window size, does nothing on dummy."
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.WindowBase.show:1
+msgid "Shows the window, does nothing on dummy window."
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.WindowBase.update:1
+msgid "Updates the window, although not supported in nobackend and will throw an error"
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.LineBase:1
+msgid "Set of lines-relating APIs"
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.LineBase.__init__:1
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.ShapeBase.__init__:1
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.TextureBase.__init__:1
+msgid "Not supposed to be instantiated."
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.LineBase.draw_line:1
+msgid "To draw a line on a specific GUI or canvas."
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.LineBase.draw_line:3
+msgid "Args:"
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.LineBase.draw_line:4
+msgid "line: The line to be drawn window: The WindowBase to draw line"
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.ShapeBase:1
+msgid "Set of shape-relating APIs"
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.ShapeBase.draw_shape:1
+msgid "To draw a shape on a specific GUI or canvas."
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.ShapeBase.draw_shape:3
+msgid "The shape to be drawn"
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.ShapeBase.draw_shape:4
+msgid "The WindowBase to draw shape"
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.TextureBase:1
+msgid "Set of texture-relating APIs"
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.TextBase:1
+msgid "Set of text-relating APIs."
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.TextBase.__init__:1
+msgid "Not supported to be instantiated."
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.TextBase.draw_text:1
+msgid "To draw a line or paragraph of text on a specific GUI or canvas."
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.TextBase.get_text_bound:1
+msgid "To get the text's boundary when it is rendered by a specific backend."
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.Backend.__init__:1
+msgid "Initialize a backend"
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.not_implemented_func:1
+msgid "To throw a warning to tell that a specific function is not implemented by the backend."
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.not_implemented_func:3
+msgid "The parameters only affects the warning message."
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.not_implemented_func:5
+msgid "Friendly name of the backend"
+msgstr ""
+
+#: ../../../charmy/charmy/backend/template.py:docstring of charmy.backend.template.not_implemented_func:6
+msgid "Description of the operation"
+msgstr ""
