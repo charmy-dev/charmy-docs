@@ -4,3 +4,4 @@ furo
 sphinx-copybutton
 sphinx
 sphinxcontrib-mermaid
+sphinx-intl
