@@ -317,11 +317,14 @@
 <li><p>各种<code class="docutils literal notranslate"><span class="pre">*SupportState</span></code>类：用于表明是否支持对应后端功能。</p></li>
 <li><p>各种<code class="docutils literal notranslate"><span class="pre">*Base</span></code>类：用于定义对应后端的基本接口和功能。</p></li>
 </ol>
-<p>至于细节可以参见<a class="reference internal" href="../api/backend/template.html"><span class="doc">template</span></a>去查阅有哪些类。</p>
+<p>至于细节可以参见<a class="reference internal" href="../api/backend/template.html"><span class="doc">template</span></a>去查阅有哪些类，或者参见<a class="reference internal" href="../how_does_it_work/abstraction_layer.html"><span class="doc">抽象层</span></a>了解详细的介绍。</p>
 </section>
 <section id="id3">
 <h2>编写后端接口<a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h2>
 <p>这里先用<code class="docutils literal notranslate"><span class="pre">Genesis</span></code>后端作为演示，学习如何编写一个后端接口。</p>
+<blockquote>
+<div><p>如果你是扩展后端库开发者，建议使用<code class="docutils literal notranslate"><span class="pre">charmy-backend-xxx</span></code>作为库名。未来将自动搜索<code class="docutils literal notranslate"><span class="pre">charmy-backend-</span></code>开头的库名，并将其作为备选后端接口使用。</p>
+</div></blockquote>
 <section id="gui">
 <h3>编写GUI后端接口<a class="headerlink" href="#gui" title="链接到此标题。">¶</a></h3>
 <p>先要注明后端的基本信息，包括简写名称、具体名称、版本号和作者等。然后继承<code class="docutils literal notranslate"><span class="pre">template.Backend</span></code>类，并实现必要的接口。</p>
@@ -414,6 +417,7 @@
     <span class="n">Backend</span> <span class="o">=</span> <span class="n">Backend</span>
 </pre></div>
 </div>
+<p>...TODO: 之后你需要实现<code class="docutils literal notranslate"><span class="pre">__init__</span></code>、<code class="docutils literal notranslate"><span class="pre">show</span></code>、<code class="docutils literal notranslate"><span class="pre">update</span></code>和<code class="docutils literal notranslate"><span class="pre">close</span></code>方法，具体实现方式可以参考其他后端的实现。</p>
 <p>那么你就已经完成了<code class="docutils literal notranslate"><span class="pre">GUI接口</span></code>的编写，下一步就是编写<code class="docutils literal notranslate"><span class="pre">图形接口</span></code>用于绘制窗口内部的图形。</p>
 </section>
 </section>
@@ -423,7 +427,7 @@
 </section>
 <section id="id5">
 <h3>使用该接口<a class="headerlink" href="#id5" title="链接到此标题。">¶</a></h3>
-<p>重写<code class="docutils literal notranslate"><span class="pre">charmy/backend/loader.py</span></code>内容中<code class="docutils literal notranslate"><span class="pre">load_backend</span></code>函数，添加你刚刚编写的后端接口。</p>
+<p>如果你是<code class="docutils literal notranslate"><span class="pre">charmy</span></code>的开发者，你只需重写<code class="docutils literal notranslate"><span class="pre">charmy/backend/loader.py</span></code>内容中<code class="docutils literal notranslate"><span class="pre">load_backend</span></code>函数，添加你刚刚编写的后端接口。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_backend</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">[</span><span class="n">Backend</span><span class="p">]:</span>
     <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;auto&quot;</span><span class="p">:</span>
         <span class="c1"># for auto backend</span>
@@ -441,6 +445,15 @@
 <p>之后在 <strong>导入charmy模块前</strong> 使用<code class="docutils literal notranslate"><span class="pre">environ.set()</span></code>函数设定<code class="docutils literal notranslate"><span class="pre">CHARMY_BACKEND</span></code>值来设定应用程序使用的后端接口。例如：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">os</span><span class="w"> </span><span class="kn">import</span> <span class="n">environ</span>
 <span class="n">environ</span><span class="p">[</span><span class="s2">&quot;CHARMY_BACKEND&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;genesis&quot;</span>
+</pre></div>
+</div>
+<p>对于这个可以参见<a class="reference internal" href="../getstarted/custom_app_settings.html"><span class="doc">自定义应用设置</span></a></p>
+<hr class="docutils" />
+<p>如果你是<code class="docutils literal notranslate"><span class="pre">charmy</span></code>扩展库的开发者，你需要注明让使用者在 <strong>创建窗口前</strong> 实例化<code class="docutils literal notranslate"><span class="pre">CharmyManager</span></code>类，并传入你刚刚编写的后端接口类作为参数。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">charmy_extension</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOUR_BACKEND_CLASS</span>  <span class="c1"># Your backend class should be imported from your extension package</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">charmy.cmm</span><span class="w"> </span><span class="kn">import</span> <span class="n">CharmyManager</span>
+
+<span class="n">Manage</span> <span class="o">=</span> <span class="n">CharmyManager</span><span class="p">(</span><span class="n">YOUR_BACKEND_CLASS</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
