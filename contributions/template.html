@@ -331,14 +331,9 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;The Genesis backend.&quot;&quot;&quot;</span>
 
     <span class="n">name</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>            <span class="s2">&quot;genesis&quot;</span>
-    <span class="n">friendly_name</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>   <span class="s2">&quot;Genesis (early development)&quot;</span>
+    <span class="n">friendly_name</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>   <span class="s2">&quot;Genesis&quot;</span>
     <span class="n">version</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>         <span class="s2">&quot;0.1.0&quot;</span>
-    <span class="n">author</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">ClassVar</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span>    <span class="p">[</span><span class="s2">&quot;rgzz666&quot;</span><span class="p">,</span> <span class="s2">&quot;XiangQinXi&quot;</span><span class="p">,</span> <span class="s2">&quot;CodeCrafter&quot;</span><span class="p">]</span>
-
-    <span class="n">WindowBase</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">WindowBase</span><span class="p">]</span>
-    <span class="n">LineBase</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">LineBase</span><span class="p">]</span>
-    <span class="n">ShapeBase</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">ShapeBase</span><span class="p">]</span>
-    <span class="n">TextureBase</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">TextureBase</span><span class="p">]</span>
+    <span class="n">author</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">ClassVar</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span>    <span class="o">...</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;APIs are aliased here.&quot;&quot;&quot;</span>
@@ -360,17 +355,21 @@
 <p>先注明自己支持哪些后端方法，从而防止开发时出现纰漏。如以下代码，在支持的方法名称前面标注了<code class="docutils literal notranslate"><span class="pre">True</span></code>，不支持的方法标注了<code class="docutils literal notranslate"><span class="pre">False</span></code>。如果你不确定是否支持某个方法，可以先标注为<code class="docutils literal notranslate"><span class="pre">False</span></code>，等后续实现后再改为<code class="docutils literal notranslate"><span class="pre">True</span></code>。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">WindowSupportState</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">WindowSupportState</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Flags all supported window features.&quot;&quot;&quot;</span>
-    <span class="n">set_title</span>               <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="n">set_icon</span>                <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="n">set_pos</span>                 <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="n">set_size</span>                <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="n">set_scale_mode</span>          <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="n">set_background</span>          <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="n">translucent</span>             <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">set_title</span>               <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">set_icon</span>                <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">set_pos</span>                 <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">set_size</span>                <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">set_scale_mode</span>          <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">set_background</span>          <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">translucent</span>             <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="n">backdrop</span>                <span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">WindowBackdropSupportState</span><span class="p">]</span> <span class="o">=</span> <span class="n">WindowBackdropSupportState</span>
-    <span class="n">set_state</span>               <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="n">fullscreen</span>              <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">set_state</span>               <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">fullscreen</span>              <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="n">customize_titlebar</span>      <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>如果你实现了一个功能，可以在对应功能的属性上标注为<code class="docutils literal notranslate"><span class="pre">True</span></code>，表示支持该功能。例如以下</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">set_title</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 </section>
@@ -389,13 +388,11 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">backend</span><span class="p">,</span> <span class="n">charmy_window</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Charmy SDL2 Window&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Charmy Window&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">540</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
 
-        <span class="c1"># Create window</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="o">=</span> <span class="o">...</span>
 
-        <span class="c1"># Sync window pos to higher level stuff</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">charmy_window</span><span class="o">.</span><span class="n">_pos</span> <span class="o">=</span> <span class="o">...</span>
 
 
@@ -423,6 +420,29 @@
 <section id="id4">
 <h3>编写图形后端接口<a class="headerlink" href="#id4" title="链接到此标题。">¶</a></h3>
 <p>等待编写...</p>
+</section>
+<section id="id5">
+<h3>使用该接口<a class="headerlink" href="#id5" title="链接到此标题。">¶</a></h3>
+<p>重写<code class="docutils literal notranslate"><span class="pre">charmy/backend/loader.py</span></code>内容中<code class="docutils literal notranslate"><span class="pre">load_backend</span></code>函数，添加你刚刚编写的后端接口。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_backend</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">[</span><span class="n">Backend</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;auto&quot;</span><span class="p">:</span>
+        <span class="c1"># for auto backend</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;genesis&quot;</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;genesis&quot;</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">genesis</span>
+        <span class="k">return</span> <span class="n">genesis</span><span class="o">.</span><span class="n">Backend</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Other backends (including </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">) not supported yet in early dev.&quot;</span>
+            <span class="p">)</span>
+</pre></div>
+</div>
+<p>在其中添加你刚刚编写的后端接口的导入语句，并在<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">name</span> <span class="pre">==</span> <span class="pre">&quot;genesis&quot;:</span></code>中返回你刚刚编写的<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类。</p>
+<p>之后在 <strong>导入charmy模块前</strong> 使用<code class="docutils literal notranslate"><span class="pre">environ.set()</span></code>函数设定<code class="docutils literal notranslate"><span class="pre">CHARMY_BACKEND</span></code>值来设定应用程序使用的后端接口。例如：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">os</span><span class="w"> </span><span class="kn">import</span> <span class="n">environ</span>
+<span class="n">environ</span><span class="p">[</span><span class="s2">&quot;CHARMY_BACKEND&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;genesis&quot;</span>
+</pre></div>
+</div>
 </section>
 </section>
 </section>
@@ -484,6 +504,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#id4">编写图形后端接口</a></li>
+<li><a class="reference internal" href="#id5">使用该接口</a></li>
 </ul>
 </li>
 </ul>

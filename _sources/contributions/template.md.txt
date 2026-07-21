@@ -24,14 +24,9 @@ class Backend(template.Backend):
     """The Genesis backend."""
 
     name: typing.ClassVar[str] =            "genesis"
-    friendly_name: typing.ClassVar[str] =   "Genesis (early development)"
+    friendly_name: typing.ClassVar[str] =   "Genesis"
     version: typing.ClassVar[str] =         "0.1.0"
-    author: typing.ClassVar[list[str]] =    ["rgzz666", "XiangQinXi", "CodeCrafter"]
-
-    WindowBase: type[WindowBase]
-    LineBase: type[LineBase]
-    ShapeBase: type[ShapeBase]
-    TextureBase: type[TextureBase]
+    author: typing.ClassVar[list[str]] =    ...
 
     def __init__(self):
         """APIs are aliased here."""
@@ -49,20 +44,26 @@ class Backend(template.Backend):
 #### 编写`WindowSupportState`类
 
 先注明自己支持哪些后端方法，从而防止开发时出现纰漏。如以下代码，在支持的方法名称前面标注了`True`，不支持的方法标注了`False`。如果你不确定是否支持某个方法，可以先标注为`False`，等后续实现后再改为`True`。
+
 ```python
 class WindowSupportState(template.WindowSupportState):
     """Flags all supported window features."""
-    set_title               : bool = True
-    set_icon                : bool = True
-    set_pos                 : bool = True
-    set_size                : bool = True
-    set_scale_mode          : bool = True
-    set_background          : bool = True
-    translucent             : bool = True
+    set_title               : bool = False
+    set_icon                : bool = False
+    set_pos                 : bool = False
+    set_size                : bool = False
+    set_scale_mode          : bool = False
+    set_background          : bool = False
+    translucent             : bool = False
     backdrop                : type[WindowBackdropSupportState] = WindowBackdropSupportState
-    set_state               : bool = True
-    fullscreen              : bool = True
+    set_state               : bool = False
+    fullscreen              : bool = False
     customize_titlebar      : bool = False
+```
+
+如果你实现了一个功能，可以在对应功能的属性上标注为`True`，表示支持该功能。例如以下
+```python
+    set_title : bool = True
 ```
 
 #### 编写`WindowBase`类
@@ -81,13 +82,11 @@ class WindowBase(template.WindowBase):
         """
         super().__init__(backend, charmy_window)
 
-        self.title: str = "Charmy SDL2 Window"
+        self.title: str = "Charmy Window"
         self.size: tuple[int, int] = (540, 480)
 
-        # Create window
         self.window: typing.Any = ...
 
-        # Sync window pos to higher level stuff
         self.charmy_window._pos = ...
 
 
@@ -110,7 +109,34 @@ class WindowBase(template.WindowBase):
     Backend = Backend
 ```
 
+
+
 那么你就已经完成了`GUI接口`的编写，下一步就是编写`图形接口`用于绘制窗口内部的图形。
 
 ### 编写图形后端接口
 等待编写...
+
+### 使用该接口
+重写`charmy/backend/loader.py`内容中`load_backend`函数，添加你刚刚编写的后端接口。
+
+```python
+def load_backend(name: str) -> type[Backend]:
+    if name == "auto":
+        # for auto backend
+        name = "genesis"
+    if name == "genesis":
+        from . import genesis
+        return genesis.Backend
+    else:
+        raise NotImplementedError(
+            f"Other backends (including {name}) not supported yet in early dev."
+            )
+```
+
+在其中添加你刚刚编写的后端接口的导入语句，并在`if name == "genesis":`中返回你刚刚编写的`Backend`类。
+
+之后在 **导入charmy模块前** 使用`environ.set()`函数设定`CHARMY_BACKEND`值来设定应用程序使用的后端接口。例如：
+```python
+from os import environ
+environ["CHARMY_BACKEND"] = "genesis"
+```
