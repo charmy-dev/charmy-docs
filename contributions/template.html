@@ -320,7 +320,110 @@
 <p>至于细节可以参见<a class="reference internal" href="../api/backend/template.html"><span class="doc">template</span></a>去查阅有哪些类。</p>
 </section>
 <section id="id3">
-<h2>编写后端模板<a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h2>
+<h2>编写后端接口<a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h2>
+<p>这里先用<code class="docutils literal notranslate"><span class="pre">Genesis</span></code>后端作为演示，学习如何编写一个后端接口。</p>
+<section id="gui">
+<h3>编写GUI后端接口<a class="headerlink" href="#gui" title="链接到此标题。">¶</a></h3>
+<p>先要注明后端的基本信息，包括简写名称、具体名称、版本号和作者等。然后继承<code class="docutils literal notranslate"><span class="pre">template.Backend</span></code>类，并实现必要的接口。</p>
+<section id="backend">
+<h4>编写<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类<a class="headerlink" href="#backend" title="链接到此标题。">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Backend</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">Backend</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The Genesis backend.&quot;&quot;&quot;</span>
+
+    <span class="n">name</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>            <span class="s2">&quot;genesis&quot;</span>
+    <span class="n">friendly_name</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>   <span class="s2">&quot;Genesis (early development)&quot;</span>
+    <span class="n">version</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>         <span class="s2">&quot;0.1.0&quot;</span>
+    <span class="n">author</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">ClassVar</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span>    <span class="p">[</span><span class="s2">&quot;rgzz666&quot;</span><span class="p">,</span> <span class="s2">&quot;XiangQinXi&quot;</span><span class="p">,</span> <span class="s2">&quot;CodeCrafter&quot;</span><span class="p">]</span>
+
+    <span class="n">WindowBase</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">WindowBase</span><span class="p">]</span>
+    <span class="n">LineBase</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">LineBase</span><span class="p">]</span>
+    <span class="n">ShapeBase</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">ShapeBase</span><span class="p">]</span>
+    <span class="n">TextureBase</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">TextureBase</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;APIs are aliased here.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">backend_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>name: 后端的简写名称，通常用于命令行参数中指定后端。</p></li>
+<li><p>friendly_name: 后端的具体名称，通常用于显示在界面上。</p></li>
+<li><p>version: 后端的版本号，通常用于显示在界面上。</p></li>
+<li><p>author: 后端的作者列表，通常用于显示在界面上。</p></li>
+</ul>
+</section>
+<section id="windowsupportstate">
+<h4>编写<code class="docutils literal notranslate"><span class="pre">WindowSupportState</span></code>类<a class="headerlink" href="#windowsupportstate" title="链接到此标题。">¶</a></h4>
+<p>先注明自己支持哪些后端方法，从而防止开发时出现纰漏。如以下代码，在支持的方法名称前面标注了<code class="docutils literal notranslate"><span class="pre">True</span></code>，不支持的方法标注了<code class="docutils literal notranslate"><span class="pre">False</span></code>。如果你不确定是否支持某个方法，可以先标注为<code class="docutils literal notranslate"><span class="pre">False</span></code>，等后续实现后再改为<code class="docutils literal notranslate"><span class="pre">True</span></code>。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">WindowSupportState</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">WindowSupportState</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Flags all supported window features.&quot;&quot;&quot;</span>
+    <span class="n">set_title</span>               <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">set_icon</span>                <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">set_pos</span>                 <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">set_size</span>                <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">set_scale_mode</span>          <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">set_background</span>          <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">translucent</span>             <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">backdrop</span>                <span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">WindowBackdropSupportState</span><span class="p">]</span> <span class="o">=</span> <span class="n">WindowBackdropSupportState</span>
+    <span class="n">set_state</span>               <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">fullscreen</span>              <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">customize_titlebar</span>      <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</section>
+<section id="windowbase">
+<h4>编写<code class="docutils literal notranslate"><span class="pre">WindowBase</span></code>类<a class="headerlink" href="#windowbase" title="链接到此标题。">¶</a></h4>
+<p>这是后端使用的GUI窗口类接口，继承自<code class="docutils literal notranslate"><span class="pre">template.WindowBase</span></code>，并实现必要的接口。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">WindowBase</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">WindowBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Window APIs in Genesis backend.&quot;&quot;&quot;</span>
+    <span class="n">supports</span> <span class="o">=</span> <span class="n">WindowSupportState</span><span class="p">()</span>
+    <span class="n">Backend</span> <span class="o">=</span> <span class="n">Backend</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">backend</span><span class="p">:</span> <span class="n">template</span><span class="o">.</span><span class="n">Backend</span><span class="p">,</span> <span class="n">charmy_window</span><span class="p">:</span> <span class="n">_window</span><span class="o">.</span><span class="n">WindowEntity</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Creates a window.</span>
+
+<span class="sd">        :param backend: The backend that this window uses (can be get from CharmyManager)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">backend</span><span class="p">,</span> <span class="n">charmy_window</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Charmy SDL2 Window&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">540</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
+
+        <span class="c1"># Create window</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="o">=</span> <span class="o">...</span>
+
+        <span class="c1"># Sync window pos to higher level stuff</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">charmy_window</span><span class="o">.</span><span class="n">_pos</span> <span class="o">=</span> <span class="o">...</span>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Self</span><span class="p">:</span>
+        <span class="o">...</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">redraw</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="n">charmy_stuff</span><span class="o">.</span><span class="n">styles</span><span class="o">.</span><span class="n">shape</span><span class="o">.</span><span class="n">ShapeRange</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Self</span><span class="p">:</span>
+        <span class="o">...</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">...</span>
+
+</pre></div>
+</div>
+<p>首先第一步继承模板类，并设定Backend类属性为你刚刚编写的<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类型，设定<code class="docutils literal notranslate"><span class="pre">supports</span></code>为你刚刚编写的<code class="docutils literal notranslate"><span class="pre">WindowSupportState</span></code>实例。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">WindowBase</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">WindowBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Window APIs in Genesis backend.&quot;&quot;&quot;</span>
+    <span class="n">supports</span> <span class="o">=</span> <span class="n">WindowSupportState</span><span class="p">()</span>
+    <span class="n">Backend</span> <span class="o">=</span> <span class="n">Backend</span>
+</pre></div>
+</div>
+<p>那么你就已经完成了<code class="docutils literal notranslate"><span class="pre">GUI接口</span></code>的编写，下一步就是编写<code class="docutils literal notranslate"><span class="pre">图形接口</span></code>用于绘制窗口内部的图形。</p>
+</section>
+</section>
+<section id="id4">
+<h3>编写图形后端接口<a class="headerlink" href="#id4" title="链接到此标题。">¶</a></h3>
+<p>等待编写...</p>
+</section>
 </section>
 </section>
 
@@ -373,7 +476,16 @@
             <ul>
 <li><a class="reference internal" href="#">模板</a><ul>
 <li><a class="reference internal" href="#id2">模板结构</a></li>
-<li><a class="reference internal" href="#id3">编写后端模板</a></li>
+<li><a class="reference internal" href="#id3">编写后端接口</a><ul>
+<li><a class="reference internal" href="#gui">编写GUI后端接口</a><ul>
+<li><a class="reference internal" href="#backend">编写<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类</a></li>
+<li><a class="reference internal" href="#windowsupportstate">编写<code class="docutils literal notranslate"><span class="pre">WindowSupportState</span></code>类</a></li>
+<li><a class="reference internal" href="#windowbase">编写<code class="docutils literal notranslate"><span class="pre">WindowBase</span></code>类</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4">编写图形后端接口</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
