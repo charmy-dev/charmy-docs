@@ -9,10 +9,12 @@
 2. 各种`*SupportState`类：用于表明是否支持对应后端功能。
 3. 各种`*Base`类：用于定义对应后端的基本接口和功能。
 
-至于细节可以参见{doc}`/api/backend/template`去查阅有哪些类。
+至于细节可以参见{doc}`/api/backend/template`去查阅有哪些类，或者参见{doc}`/how_does_it_work/abstraction_layer`了解详细的介绍。
 
 ## 编写后端接口
 这里先用`Genesis`后端作为演示，学习如何编写一个后端接口。
+
+> 如果你是扩展后端库开发者，建议使用`charmy-backend-xxx`作为库名。未来将自动搜索`charmy-backend-`开头的库名，并将其作为备选后端接口使用。
 
 ### 编写GUI后端接口
 先要注明后端的基本信息，包括简写名称、具体名称、版本号和作者等。然后继承`template.Backend`类，并实现必要的接口。
@@ -109,7 +111,7 @@ class WindowBase(template.WindowBase):
     Backend = Backend
 ```
 
-
+...TODO: 之后你需要实现`__init__`、`show`、`update`和`close`方法，具体实现方式可以参考其他后端的实现。
 
 那么你就已经完成了`GUI接口`的编写，下一步就是编写`图形接口`用于绘制窗口内部的图形。
 
@@ -117,7 +119,7 @@ class WindowBase(template.WindowBase):
 等待编写...
 
 ### 使用该接口
-重写`charmy/backend/loader.py`内容中`load_backend`函数，添加你刚刚编写的后端接口。
+如果你是`charmy`的开发者，你只需重写`charmy/backend/loader.py`内容中`load_backend`函数，添加你刚刚编写的后端接口。
 
 ```python
 def load_backend(name: str) -> type[Backend]:
@@ -139,4 +141,17 @@ def load_backend(name: str) -> type[Backend]:
 ```python
 from os import environ
 environ["CHARMY_BACKEND"] = "genesis"
+```
+
+对于这个可以参见{doc}`/getstarted/custom_app_settings`
+
+---
+
+如果你是`charmy`扩展库的开发者，你需要注明让使用者在 **创建窗口前** 实例化`CharmyManager`类，并传入你刚刚编写的后端接口类作为参数。
+
+```python
+from charmy_extension import YOUR_BACKEND_CLASS  # Your backend class should be imported from your extension package
+from charmy.cmm import CharmyManager
+
+Manage = CharmyManager(YOUR_BACKEND_CLASS)
 ```
