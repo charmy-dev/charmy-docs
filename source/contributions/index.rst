@@ -173,3 +173,12 @@ API 文档自动生成
             """初始化 SampleClass。"""
             self.likes_spam = likes_spam
             self.eggs = 0
+
+
+目录
+------
+
+.. toctree::
+   :maxdepth: 2
+
+   template
