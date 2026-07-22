@@ -26,6 +26,12 @@
 
    GitHub 仓库：https://github.com/XiangQinxi/charmy
 
+.. toctree::
+   :maxdepth: 2
+
+   backend
+   widget
+
 如何贡献
 ------------------------------
 
@@ -174,11 +180,3 @@ API 文档自动生成
             self.likes_spam = likes_spam
             self.eggs = 0
 
-
-目录
-------
-
-.. toctree::
-   :maxdepth: 2
-
-   template
