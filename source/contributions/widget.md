@@ -111,7 +111,7 @@ DrawnShape(
 ```
 
 ### 组件事件绑定
-接下来需要使用`bind`来绑定事件，从而触发`点击`事件，或触发`碰到鼠标`更新`state`以刷新样式，更多请参阅{doc}`api/event`。
+接下来需要使用`bind`来绑定事件，从而触发`点击`事件，或触发`碰到鼠标`更新`state`以刷新样式，更多请参阅{doc}`/api/event`。
 
 ```python
         self.bind(
@@ -128,7 +128,7 @@ DrawnShape(
             )
 ```
 
-第一个参数为事件类型，请参阅{doc}`api/utils/event_types`。
+第一个参数为事件类型，请参阅{doc}`/api/utils/event_types`。
 
 第二个参数为事件回调函数，当触发该事件类型时就调用该方法，需填入参数以接收回调参数。这里`self.config(state="hover")`用于更新组件状态
 
