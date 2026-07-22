@@ -410,7 +410,7 @@
 </section>
 <section id="id4">
 <h3>组件事件绑定<a class="headerlink" href="#id4" title="链接到此标题。">¶</a></h3>
-<p>接下来需要使用<code class="docutils literal notranslate"><span class="pre">bind</span></code>来绑定事件，从而触发<code class="docutils literal notranslate"><span class="pre">点击</span></code>事件，或触发<code class="docutils literal notranslate"><span class="pre">碰到鼠标</span></code>更新<code class="docutils literal notranslate"><span class="pre">state</span></code>以刷新样式，更多请参阅<span class="xref std std-doc">api/event</span>。</p>
+<p>接下来需要使用<code class="docutils literal notranslate"><span class="pre">bind</span></code>来绑定事件，从而触发<code class="docutils literal notranslate"><span class="pre">点击</span></code>事件，或触发<code class="docutils literal notranslate"><span class="pre">碰到鼠标</span></code>更新<code class="docutils literal notranslate"><span class="pre">state</span></code>以刷新样式，更多请参阅<a class="reference internal" href="../api/event.html"><span class="doc">event</span></a>。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span>
             <span class="n">MouseClick</span><span class="p">,</span> 
             <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_click</span><span class="p">(),</span> <span class="p">{</span><span class="s2">&quot;button&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="n">_is_internal</span><span class="o">=</span><span class="kc">True</span>
@@ -425,7 +425,7 @@
             <span class="p">)</span>
 </pre></div>
 </div>
-<p>第一个参数为事件类型，请参阅<span class="xref std std-doc">api/utils/event_types</span>。</p>
+<p>第一个参数为事件类型，请参阅<a class="reference internal" href="../api/utils/event_types.html"><span class="doc">event_types</span></a>。</p>
 <p>第二个参数为事件回调函数，当触发该事件类型时就调用该方法，需填入参数以接收回调参数。这里<code class="docutils literal notranslate"><span class="pre">self.config(state=&quot;hover&quot;)</span></code>用于更新组件状态</p>
 <p><code class="docutils literal notranslate"><span class="pre">multithread</span></code>是用来选择是否将事件放入额外线程中，而不是主线程。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span><span class="w"> </span><span class="nf">bind</span><span class="p">(</span>
