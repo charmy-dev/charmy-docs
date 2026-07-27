@@ -6,7 +6,7 @@
 <link rel="index" title="索引" href="../genindex.html"><link rel="search" title="搜索" href="../search.html"><link rel="next" title="组件开发" href="widget.html"><link rel="prev" title="贡献指南" href="index.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>后端开发 - Charmy GUI 0.1.0 文档</title>
+        <title>后端开发指南 - Charmy GUI 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -261,7 +261,7 @@
 <p class="caption" role="heading"><span class="caption-text">其他：</span></p>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">贡献指南</a><input aria-label="Toggle navigation of 贡献指南" checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">后端开发</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">后端开发指南</a></li>
 <li class="toctree-l2"><a class="reference internal" href="widget.html">组件开发</a></li>
 </ul>
 </li>
@@ -308,23 +308,23 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="id1">
-<h1>后端开发<a class="headerlink" href="#id1" title="链接到此标题。">¶</a></h1>
-<p>作为多后端的GUI库，支持使用多种后端来构建应用程序，为了统一接口，我们提供了一个模板来帮助开发者快速上手。以下是模板的基本结构和使用方法。</p>
+<h1>后端开发指南<a class="headerlink" href="#id1" title="链接到此标题。">¶</a></h1>
+<p>作为多后端的GUI库，Charmy支持使用多种后端来构建应用程序，为了统一接口并确保每个未被支持的功能都有对应的fallback，我们提供了一个可供继承的模板来帮助开发者快速上手。以下是模板的基本结构和使用方法。</p>
 <section id="id2">
-<h2>模板结构<a class="headerlink" href="#id2" title="链接到此标题。">¶</a></h2>
-<p>模板主要包含以下几个部分：</p>
+<h2>后端的基本结构<a class="headerlink" href="#id2" title="链接到此标题。">¶</a></h2>
+<p>一个有效的Charmy后端主要应当包含以下几个部分：</p>
 <ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Backend</span></code>类：用于定义后端的基本接口和功能。</p></li>
-<li><p>各种<code class="docutils literal notranslate"><span class="pre">*SupportState</span></code>类：用于表明是否支持对应后端功能。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Backend</span></code>类：用于定义后端的基本接口和功能，以及后端的元信息（也就是您的署名处）。</p></li>
+<li><p>各种<code class="docutils literal notranslate"><span class="pre">*SupportState</span></code>类：用于标记当前后端是否支持某些特性。</p></li>
 <li><p>各种<code class="docutils literal notranslate"><span class="pre">*Base</span></code>类：用于定义对应后端的基本接口和功能。</p></li>
 </ol>
 <p>至于细节可以参见<a class="reference internal" href="../api/backend/template.html"><span class="doc">template</span></a>去查阅有哪些类，或者参见<a class="reference internal" href="../how_does_it_work/abstraction_layer.html"><span class="doc">抽象层</span></a>了解详细的介绍。</p>
 </section>
 <section id="id3">
 <h2>编写后端接口<a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h2>
-<p>这里先用<code class="docutils literal notranslate"><span class="pre">Genesis</span></code>后端作为演示，学习如何编写一个后端接口。</p>
+<p>我们将会基于Genesis后端的代码为基础，在本文中讲述如何为Charmy开发一个有效可用的后端。</p>
 <blockquote>
-<div><p>如果你是扩展后端库开发者，建议使用<code class="docutils literal notranslate"><span class="pre">charmy-backend-xxx</span></code>作为库名。未来将自动搜索<code class="docutils literal notranslate"><span class="pre">charmy-backend-</span></code>开头的库名，并将其作为备选后端接口使用。</p>
+<div><p>如果你是扩展后端库开发者，建议使用<code class="docutils literal notranslate"><span class="pre">charmy-backend-xxx</span></code>作为库名。未来将支持自动搜索所有名称以<code class="docutils literal notranslate"><span class="pre">charmy-backend-</span></code>开头的包，并将其加入备选后端。</p>
 </div></blockquote>
 <section id="gui">
 <h3>编写GUI后端接口<a class="headerlink" href="#gui" title="链接到此标题。">¶</a></h3>
@@ -348,40 +348,33 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>name: 后端的简写名称，通常用于命令行参数中指定后端。</p></li>
-<li><p>friendly_name: 后端的具体名称，通常用于显示在界面上。</p></li>
-<li><p>version: 后端的版本号，通常用于显示在界面上。</p></li>
-<li><p>author: 后端的作者列表，通常用于显示在界面上。</p></li>
+<li><p>name: 后端的名称，最好为字母+下划线这样的安全格式，用于标识，需确保唯一。</p></li>
+<li><p>friendly_name: 后端的用户友好名称，用于人类阅读，暂无实际用途。</p></li>
+<li><p>version: 后端的版本号，可能用于检查更新等，暂无实际用途。</p></li>
+<li><p>author: 后端的作者列表，暂无实际用途。</p></li>
 </ul>
 </section>
 <section id="windowsupportstate">
 <h4>编写<code class="docutils literal notranslate"><span class="pre">WindowSupportState</span></code>类<a class="headerlink" href="#windowsupportstate" title="链接到此标题。">¶</a></h4>
-<p>先注明自己支持哪些后端方法，从而防止开发时出现纰漏。如以下代码，在支持的方法名称前面标注了<code class="docutils literal notranslate"><span class="pre">True</span></code>，不支持的方法标注了<code class="docutils literal notranslate"><span class="pre">False</span></code>。如果你不确定是否支持某个方法，可以先标注为<code class="docutils literal notranslate"><span class="pre">False</span></code>，等后续实现后再改为<code class="docutils literal notranslate"><span class="pre">True</span></code>。</p>
+<p>后端应当注明自己支持哪些后端方法，从而防止开发时出现纰漏。如以下代码，在支持的方法名称前面标注了<code class="docutils literal notranslate"><span class="pre">True</span></code>，不支持的方法标注了<code class="docutils literal notranslate"><span class="pre">False</span></code>。如果你不确定是否支持某个方法，可以先标注为<code class="docutils literal notranslate"><span class="pre">False</span></code>，等后续实现后再改为<code class="docutils literal notranslate"><span class="pre">True</span></code>。</p>
+<p>如果Charmy的后续更新加入了新的后端特性，而您却没有跟进的话，也并不需要额外添加更新来标记新特性为不支持，因为它们会在模板中默认标记为<code class="docutils literal notranslate"><span class="pre">False</span></code>，然后被继承到您的后端里。</p>
+<p>综上所述，具体的实现应当为：后端继承template中对应的<code class="docutils literal notranslate"><span class="pre">*SupportState</span></code>类，然后标记自身支持的特性为<code class="docutils literal notranslate"><span class="pre">True</span></code>，并（可选）标记自身明确不会支持的特性为<code class="docutils literal notranslate"><span class="pre">False</span></code>。</p>
+<p>以下是一个例子，这个后端声明其支持为窗口设定标题与图标，但明确声明其不支持设定窗口在屏幕上的位置。而对于缩放模式等，后端并未明确进行声明，Charmy会将其视为不支持这些特性。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">WindowSupportState</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">WindowSupportState</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Flags all supported window features.&quot;&quot;&quot;</span>
-    <span class="n">set_title</span>               <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="n">set_icon</span>                <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">set_title</span>               <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">set_icon</span>                <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="n">set_pos</span>                 <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="n">set_size</span>                <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="n">set_scale_mode</span>          <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="n">set_background</span>          <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="n">translucent</span>             <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="n">backdrop</span>                <span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">WindowBackdropSupportState</span><span class="p">]</span> <span class="o">=</span> <span class="n">WindowBackdropSupportState</span>
-    <span class="n">set_state</span>               <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="n">fullscreen</span>              <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="n">customize_titlebar</span>      <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-</pre></div>
-</div>
-<p>如果你实现了一个功能，可以在对应功能的属性上标注为<code class="docutils literal notranslate"><span class="pre">True</span></code>，表示支持该功能。例如以下</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">set_title</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">set_size</span>                <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="c1"># set_scale_mode          : bool = False</span>
 </pre></div>
 </div>
 </section>
 <section id="windowbase">
 <h4>编写<code class="docutils literal notranslate"><span class="pre">WindowBase</span></code>类<a class="headerlink" href="#windowbase" title="链接到此标题。">¶</a></h4>
-<p>这是后端使用的GUI窗口类接口，继承自<code class="docutils literal notranslate"><span class="pre">template.WindowBase</span></code>，并实现必要的接口。</p>
+<p>这是后端使用的GUI窗口类接口，应当继承自<code class="docutils literal notranslate"><span class="pre">template.WindowBase</span></code>，并实现必要的功能。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">WindowBase</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">WindowBase</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Window APIs in Genesis backend.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Window APIs implementation.&quot;&quot;&quot;</span>
     <span class="n">supports</span> <span class="o">=</span> <span class="n">WindowSupportState</span><span class="p">()</span>
     <span class="n">Backend</span> <span class="o">=</span> <span class="n">Backend</span>
 
@@ -391,9 +384,6 @@
 <span class="sd">        :param backend: The backend that this window uses (can be get from CharmyManager)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">backend</span><span class="p">,</span> <span class="n">charmy_window</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Charmy Window&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">540</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="o">=</span> <span class="o">...</span>
 
@@ -411,15 +401,16 @@
 
 </pre></div>
 </div>
-<p>首先第一步继承模板类，并设定Backend类属性为你刚刚编写的<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类型，设定<code class="docutils literal notranslate"><span class="pre">supports</span></code>为你刚刚编写的<code class="docutils literal notranslate"><span class="pre">WindowSupportState</span></code>实例。</p>
+<p>首先继承模板类，并设定Backend类属性为你刚刚编写的<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类型，设定<code class="docutils literal notranslate"><span class="pre">supports</span></code>类属性为你刚刚编写的<code class="docutils literal notranslate"><span class="pre">WindowSupportState</span></code>实例。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">WindowBase</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">WindowBase</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Window APIs in Genesis backend.&quot;&quot;&quot;</span>
     <span class="n">supports</span> <span class="o">=</span> <span class="n">WindowSupportState</span><span class="p">()</span>
     <span class="n">Backend</span> <span class="o">=</span> <span class="n">Backend</span>
 </pre></div>
 </div>
-<p>...TODO: 之后你需要实现<code class="docutils literal notranslate"><span class="pre">__init__</span></code>、<code class="docutils literal notranslate"><span class="pre">show</span></code>、<code class="docutils literal notranslate"><span class="pre">update</span></code>和<code class="docutils literal notranslate"><span class="pre">close</span></code>方法，具体实现方式可以参考其他后端的实现。</p>
-<p>那么你就已经完成了<code class="docutils literal notranslate"><span class="pre">GUI接口</span></code>的编写，下一步就是编写<code class="docutils literal notranslate"><span class="pre">图形接口</span></code>用于绘制窗口内部的图形。</p>
+<p>之后，编写一个<code class="docutils literal notranslate"><span class="pre">__init__</span></code>函数。这个初始化函数应当接收两个参数，分别为<code class="docutils literal notranslate"><span class="pre">backend</span></code>用于接收所使用的后端，和<code class="docutils literal notranslate"><span class="pre">window</span></code>用于接收Charmy控件层的窗口对象。您的初始化函数应当实现包括但不限于以下内容：为<code class="docutils literal notranslate"><span class="pre">super()</span></code>进行初始化、调用相关第三方包创建一个窗口、向Charmy控件层汇报窗口位置（透过设定<code class="docutils literal notranslate"><span class="pre">window</span></code>参数中传入的窗口的<code class="docutils literal notranslate"><span class="pre">_pos</span></code>属性）。</p>
+<p>之后你需要实现<code class="docutils literal notranslate"><span class="pre">__init__</span></code>、<code class="docutils literal notranslate"><span class="pre">show</span></code>、<code class="docutils literal notranslate"><span class="pre">update</span></code>和<code class="docutils literal notranslate"><span class="pre">close</span></code>方法，具体实现方式可以参考其他后端的实现。本文将会持续补充这些内容。</p>
+<p>如此，您便完成了窗口相关接口的开发。</p>
 </section>
 </section>
 <section id="id4">
@@ -516,8 +507,8 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">后端开发</a><ul>
-<li><a class="reference internal" href="#id2">模板结构</a></li>
+<li><a class="reference internal" href="#">后端开发指南</a><ul>
+<li><a class="reference internal" href="#id2">后端的基本结构</a></li>
 <li><a class="reference internal" href="#id3">编写后端接口</a><ul>
 <li><a class="reference internal" href="#gui">编写GUI后端接口</a><ul>
 <li><a class="reference internal" href="#backend">编写<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类</a></li>

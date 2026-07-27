@@ -259,7 +259,7 @@
 <p class="caption" role="heading"><span class="caption-text">其他：</span></p>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="contributions/index.html">贡献指南</a><input aria-label="Toggle navigation of 贡献指南" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="contributions/backend.html">后端开发</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributions/backend.html">后端开发指南</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributions/widget.html">组件开发</a></li>
 </ul>
 </li>
@@ -405,6 +405,8 @@
         <li><a href="api/utils/event_types.html#charmy.utils.event_types.MouseScroll.__init__">__init__() （charmy.utils.event_types.MouseScroll 方法）</a>
 </li>
         <li><a href="api/utils/event_types.html#charmy.utils.event_types.ProfileChanged.__init__">__init__() （charmy.utils.event_types.ProfileChanged 方法）</a>
+</li>
+        <li><a href="api/utils/event_types.html#charmy.utils.event_types.VarChanged.__init__">__init__() （charmy.utils.event_types.VarChanged 方法）</a>
 </li>
         <li><a href="api/utils/event_types.html#charmy.utils.event_types.WidgetConfigure.__init__">__init__() （charmy.utils.event_types.WidgetConfigure 方法）</a>
 </li>
@@ -1025,10 +1027,10 @@
 </li>
         <li><a href="api/styles/shape.html#charmy.styles.shape.CubicBezier.flatten">flatten() （charmy.styles.shape.CubicBezier 方法）</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/styles/shape.html#charmy.styles.shape.Curve.flatten">flatten() （charmy.styles.shape.Curve 方法）</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/styles/shape.html#charmy.styles.shape.QuadraticBezier.flatten">flatten() （charmy.styles.shape.QuadraticBezier 方法）</a>
 </li>
         <li><a href="api/styles/shape.html#charmy.styles.shape.SingleShape.flatten">flatten() （charmy.styles.shape.SingleShape 方法）</a>
@@ -1056,6 +1058,8 @@
         <li><a href="api/styles/text_style.html#charmy.styles.text_style.TextStyle.from_json">from_json()（charmy.styles.text_style.TextStyle 静态方法）</a>
 </li>
         <li><a href="api/styles/texture.html#charmy.styles.texture.Texture.from_json">from_json()（charmy.styles.texture.Texture 静态方法）</a>
+</li>
+        <li><a href="api/styles/shape.html#charmy.styles.shape.SingleShape.from_profile_value">from_profile_value()（charmy.styles.shape.SingleShape 静态方法）</a>
 </li>
         <li><a href="api/backend/template.html#charmy.backend.template.Backend.WindowBase.fullscreen">fullscreen（charmy.backend.template.Backend.WindowBase 属性）</a>
 </li>
@@ -1350,13 +1354,11 @@
 </li>
         <li><a href="api/utils/event_types.html#charmy.utils.event_types.WidgetResize.old_size">old_size（charmy.utils.event_types.WidgetResize 属性）</a>
 </li>
-        <li><a href="api/event.html#charmy.event.EventHandling.on">on() （charmy.event.EventHandling 方法）</a>
-</li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="api/widgets/button.html#charmy.widgets.button.Button.on_click">on_click（charmy.widgets.button.Button 属性）</a>
+        <li><a href="api/event.html#charmy.event.EventHandling.on">on() （charmy.event.EventHandling 方法）</a>
 </li>
-        <li><a href="api/widgets/widget.html#charmy.widgets.widget.WidgetProfile.on_value_change">on_value_change()（charmy.widgets.widget.WidgetProfile 静态方法）</a>
+        <li><a href="api/widgets/button.html#charmy.widgets.button.Button.on_click">on_click（charmy.widgets.button.Button 属性）</a>
 </li>
         <li><a href="api/const.html#charmy.const.Orient">Orient（charmy.const 中的类）</a>
 </li>
@@ -1412,8 +1414,6 @@
 </li>
         <li><a href="api/utils/event_types.html#charmy.utils.event_types.ProfileChanged">ProfileChanged（charmy.utils.event_types 中的类）</a>
 </li>
-        <li><a href="api/utils/type_checking.html#charmy.utils.type_checking.ProfileProp">ProfileProp()（在 charmy.utils.type_checking 模块中）</a>
-</li>
         <li><a href="api/widgets/button.html#charmy.widgets.button.Button.profiles">profiles（charmy.widgets.button.Button 属性）</a>
 </li>
         <li><a href="api/widgets/widget.html#charmy.widgets.widget.Widget.profiles">profiles（charmy.widgets.widget.Widget 属性）</a>
@@ -1453,6 +1453,8 @@
         <li><a href="api/styles/shape.html#charmy.styles.shape.Rect">Rect（charmy.styles.shape 中的类）</a>
 </li>
         <li><a href="api/utils/event_types.html#charmy.utils.event_types.WidgetUpdate.redraw">redraw（charmy.utils.event_types.WidgetUpdate 属性）</a>
+</li>
+        <li><a href="api/widgets/widget.html#charmy.widgets.widget.WidgetProfile.references">references()（charmy.widgets.widget.WidgetProfile 类方法）</a>
 </li>
         <li><a href="api/styles/text_style.html#charmy.styles.text_style.WEIGHT.REGULAR">REGULAR（charmy.styles.text_style.WEIGHT 属性）</a>
 </li>
@@ -1536,10 +1538,10 @@
 </li>
         <li><a href="api/styles/shape.html#charmy.styles.shape.CircleArc.start_orient">start_orient（charmy.styles.shape.CircleArc 属性）</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/styles/shape.html#charmy.styles.shape.EllipseArc.start_orient">start_orient（charmy.styles.shape.EllipseArc 属性）</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="api/styles/shape.html#charmy.styles.shape.CircleArc.start_point">start_point（charmy.styles.shape.CircleArc 属性）</a>
 </li>
         <li><a href="api/styles/shape.html#charmy.styles.shape.CubicBezier.start_point">start_point（charmy.styles.shape.CubicBezier 属性）</a>
@@ -1575,6 +1577,8 @@
         <li><a href="api/utils/event_types.html#charmy.utils.event_types.MouseRawEvent.subject">subject（charmy.utils.event_types.MouseRawEvent 属性）</a>
 </li>
         <li><a href="api/utils/event_types.html#charmy.utils.event_types.ProfileChanged.subject">subject（charmy.utils.event_types.ProfileChanged 属性）</a>
+</li>
+        <li><a href="api/utils/event_types.html#charmy.utils.event_types.VarChanged.subject">subject（charmy.utils.event_types.VarChanged 属性）</a>
 </li>
         <li><a href="api/utils/event_types.html#charmy.utils.event_types.WidgetEvent.subject">subject（charmy.utils.event_types.WidgetEvent 属性）</a>
 </li>
@@ -1710,6 +1714,8 @@
 </li>
         <li><a href="api/utils/event_types.html#charmy.utils.event_types.ProfileChanged.type">type（charmy.utils.event_types.ProfileChanged 属性）</a>
 </li>
+        <li><a href="api/utils/event_types.html#charmy.utils.event_types.VarChanged.type">type（charmy.utils.event_types.VarChanged 属性）</a>
+</li>
         <li><a href="api/utils/event_types.html#charmy.utils.event_types.WidgetConfigure.type">type（charmy.utils.event_types.WidgetConfigure 属性）</a>
 </li>
         <li><a href="api/utils/event_types.html#charmy.utils.event_types.WidgetDestroy.type">type（charmy.utils.event_types.WidgetDestroy 属性）</a>
@@ -1742,10 +1748,12 @@
 </li>
         <li><a href="api/styles/text_style.html#charmy.styles.text_style.TextStyle.underlined">underlined（charmy.styles.text_style.TextStyle 属性）</a>
 </li>
-        <li><a href="api/backend/template.html#charmy.backend.template.Backend.WindowBase.update">update() （charmy.backend.template.Backend.WindowBase 方法）</a>
+        <li><a href="api/utils/var.html#charmy.utils.var.unpack_var">unpack_var()（在 charmy.utils.var 模块中）</a>
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/backend/template.html#charmy.backend.template.Backend.WindowBase.update">update() （charmy.backend.template.Backend.WindowBase 方法）</a>
+</li>
         <li><a href="api/cmm.html#charmy.cmm.CharmyManager.update">update() （charmy.cmm.CharmyManager 方法）</a>
 </li>
         <li><a href="api/widgets/window.html#charmy.widgets.window.Window.update">update() （charmy.widgets.window.Window 方法）</a>
@@ -1765,6 +1773,8 @@
         <li><a href="api/styles/theme.html#charmy.styles.theme.Theme.validate_theme_existed">validate_theme_existed()（charmy.styles.theme.Theme 类方法）</a>
 </li>
         <li><a href="api/utils/var.html#charmy.utils.var.Var.value">value（charmy.utils.var.Var 属性）</a>
+</li>
+        <li><a href="api/utils/event_types.html#charmy.utils.event_types.VarChanged">VarChanged（charmy.utils.event_types 中的类）</a>
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>

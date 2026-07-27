@@ -261,7 +261,7 @@
 <p class="caption" role="heading"><span class="caption-text">其他：</span></p>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../contributions/index.html">贡献指南</a><input aria-label="Toggle navigation of 贡献指南" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../contributions/backend.html">后端开发</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributions/backend.html">后端开发指南</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../contributions/widget.html">组件开发</a></li>
 </ul>
 </li>
@@ -311,11 +311,15 @@
 <h1>var<a class="headerlink" href="#var" title="链接到此标题。">¶</a></h1>
 <pre  class="mermaid">
         classDiagram
+  EventHandling &lt;|-- Var
   Generic &lt;|-- Var
-    </pre><dl class="py class" id="module-charmy.utils.var">
+    </pre><p id="module-charmy.utils.var">Charmy vars.</p>
+<p>These are used to implement thing like C(++) pointers. A var will be able to be referenced or 
+modified from somewhere else, providing experience like C(++) pointers.</p>
+<dl class="py class">
 <dt class="sig sig-object py" id="charmy.utils.var.Var">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.var.</span></span><span class="sig-name descname"><span class="pre">Var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">default_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">VarType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.var.Var" title="链接到此定义。">¶</a></dt>
-<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">VarType</span></code>]</p>
+<dd><p>基类：<a class="reference internal" href="../event.html#charmy.event.EventHandling" title="charmy.event.EventHandling"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventHandling</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">VarType</span></code>]</p>
 <p>Aimed to provide experience like C vars with pointers.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>default_value: The initial _value of the variable.
@@ -330,8 +334,25 @@ value_type: The type of the variable.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="charmy.utils.var.Var.value">
 <span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">VarType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#charmy.utils.var.Var.value" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The value stored in the var.</p>
+</dd></dl>
 
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="charmy.utils.var.unpack_var">
+<span class="sig-prename descclassname"><span class="pre">charmy.utils.var.</span></span><span class="sig-name descname"><span class="pre">unpack_var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var_or_val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#charmy.utils.var.Var" title="charmy.utils.var.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">[</span></span><span class="pre">VarType</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">VarType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">VarType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.utils.var.unpack_var" title="链接到此定义。">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">charmy.utils.var.</span></span><span class="sig-name descname"><span class="pre">unpack_var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var_or_val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#charmy.utils.var.Var" title="charmy.utils.var.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">[</span></span><span class="pre">VarType</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">VarType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">VarType</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">VarType</span></span></span></dt>
+<dd><p>To convert a var to its value if param 1 is a var, otherwise return the param 1 as-is.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>var_or_val</strong> -- The var to dispatch or the value to return as-is</p></li>
+<li><p><strong>default</strong> -- Value to return if the value of the var is False</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -397,6 +418,7 @@ value_type: The type of the variable.</p>
 <li><a class="reference internal" href="#charmy.utils.var.Var.value"><code class="docutils literal notranslate"><span class="pre">Var.value</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#charmy.utils.var.unpack_var"><code class="docutils literal notranslate"><span class="pre">unpack_var()</span></code></a></li>
 </ul>
 </li>
 </ul>
