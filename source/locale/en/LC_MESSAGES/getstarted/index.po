@@ -19,19 +19,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: ../../source/getstarted/index.rst:6
+#: ../../source/get_started/index.rst:6
 msgid "快速开始："
 msgstr ""
 
-#: ../../source/getstarted/index.rst:15
+#: ../../source/get_started/index.rst:15
 msgid "深入进阶："
 msgstr ""
 
-#: ../../source/getstarted/index.rst:2
+#: ../../source/get_started/index.rst:2
 msgid "快速开始"
 msgstr ""
 
-#: ../../source/getstarted/index.rst:4
+#: ../../source/get_started/index.rst:4
 msgid "带你快速上手 Charmy！"
 msgstr ""
 

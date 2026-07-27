@@ -19,175 +19,175 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: ../../source/getstarted/drawing.rst:2
+#: ../../source/get_started/drawing.rst:2
 msgid "自定义绘图"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:4
+#: ../../source/get_started/drawing.rst:4
 msgid ""
 "Charmy 的 **图形层** 提供了直接绘制线条、形状和文字的能力。 你可以直接使用 ``graphics`` 模块中的 "
 "``DrawnLine`` 、 ``DrawnShape`` 、 ``DrawnText`` 在窗口上绘制内容，无需通过控件。"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:9
+#: ../../source/get_started/drawing.rst:9
 msgid "基本概念"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:11
+#: ../../source/get_started/drawing.rst:11
 msgid "图形层位于后端层和控件层之间，三个核心类："
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:16
+#: ../../source/get_started/drawing.rst:16
 msgid "类"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:17
+#: ../../source/get_started/drawing.rst:17
 msgid "用途"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:18
+#: ../../source/get_started/drawing.rst:18
 msgid "示例"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:19
+#: ../../source/get_started/drawing.rst:19
 msgid "``DrawnLine``"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:20
-#: ../../source/getstarted/drawing.rst:32
+#: ../../source/get_started/drawing.rst:20
+#: ../../source/get_started/drawing.rst:32
 msgid "绘制线条"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:21
+#: ../../source/get_started/drawing.rst:21
 msgid "直线、折线、圆弧、贝塞尔曲线"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:22
+#: ../../source/get_started/drawing.rst:22
 msgid "``DrawnShape``"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:23
+#: ../../source/get_started/drawing.rst:23
 msgid "绘制填充形状"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:24
+#: ../../source/get_started/drawing.rst:24
 msgid "矩形、圆角矩形、多边形、SVG 路径"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:25
+#: ../../source/get_started/drawing.rst:25
 msgid "``DrawnText``"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:26
-#: ../../source/getstarted/drawing.rst:147
+#: ../../source/get_started/drawing.rst:26
+#: ../../source/get_started/drawing.rst:147
 msgid "绘制文字"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:27
+#: ../../source/get_started/drawing.rst:27
 msgid "带样式的文字"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:29
+#: ../../source/get_started/drawing.rst:29
 msgid "所有 ``Drawn*`` 对象创建后需要调用 ``.draw()`` 才会实际加入渲染队列。"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:34
+#: ../../source/get_started/drawing.rst:34
 msgid "直线："
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:50
+#: ../../source/get_started/drawing.rst:50
 msgid "折线："
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:62
+#: ../../source/get_started/drawing.rst:62
 msgid "圆弧："
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:76
+#: ../../source/get_started/drawing.rst:76
 msgid "贝塞尔曲线："
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:90
+#: ../../source/get_started/drawing.rst:90
 msgid ""
 "``DrawnLine`` 的 ``width`` 参数控制线宽，单位为像素。 纹理参数可以是 ``(R, G, B)`` 或 ``(R, G, "
 "B, A)`` 元组。"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:94
+#: ../../source/get_started/drawing.rst:94
 msgid "绘制形状"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:96
+#: ../../source/get_started/drawing.rst:96
 msgid "矩形："
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:109
+#: ../../source/get_started/drawing.rst:109
 msgid "圆角矩形："
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:121
+#: ../../source/get_started/drawing.rst:121
 msgid "多边形（任意形状）："
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:140
+#: ../../source/get_started/drawing.rst:140
 msgid "``DrawnShape`` 的 ``border_width`` 参数： 正值表示向外扩展边框，负值表示向内收缩。 0 表示不绘制边框。"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:144
+#: ../../source/get_started/drawing.rst:144
 msgid "**然而这一特性并未在Genesis中实现，也并未被设计为强制性需要被后端实现的功能。**"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:166
+#: ../../source/get_started/drawing.rst:166
 msgid "Charmy 使用 Cairo 进行文字渲染，字体名需要是系统中已安装的字体。 如果指定字体不存在，Cairo 会回退到默认字体。"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:170
+#: ../../source/get_started/drawing.rst:170
 msgid "透明度与纹理"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:172
+#: ../../source/get_started/drawing.rst:172
 msgid "纹理（Texture）是 Charmy 中控制颜色的统一方式："
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:190
+#: ../../source/get_started/drawing.rst:190
 msgid "偏移与锚点"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:192
+#: ../../source/get_started/drawing.rst:192
 msgid "``DrawnLine`` 和 ``DrawnShape`` 支持 ``offset`` 和 ``anchor`` 参数："
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:194
+#: ../../source/get_started/drawing.rst:194
 msgid "**offset**: 整体位置的偏移量（相对于原始坐标）"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:195
+#: ../../source/get_started/drawing.rst:195
 msgid "**anchor**: 锚点位置，即原始坐标中作为基准的点"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:207
+#: ../../source/get_started/drawing.rst:207
 msgid "当 ``offset`` 或 ``anchor`` 设置为 ``\"auto\"`` 时， 会自动使用图形边界框的左上角作为默认值。"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:211
+#: ../../source/get_started/drawing.rst:211
 msgid "SVG 路径绘制"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:213
+#: ../../source/get_started/drawing.rst:213
 msgid "Charmy 内置了完整的 SVG 路径解析器，可以直接从 SVG 路径字符串创建形状："
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:226
+#: ../../source/get_started/drawing.rst:226
 msgid ""
 "支持的 SVG 命令： ``M`` （移动到）、 ``L`` （直线）、 ``V`` （垂直线）、 ``H`` （水平线）、 ``C`` "
 "（三次贝塞尔曲线）、 ``S`` （平滑贝塞尔）、 ``Z`` （闭合路径）。"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:230
+#: ../../source/get_started/drawing.rst:230
 msgid "SVG 解析器目前不支持二次贝塞尔曲线（ ``Q``/``T`` ）和椭圆弧（ ``A`` ）。"
 msgstr ""
 
-#: ../../source/getstarted/drawing.rst:233
+#: ../../source/get_started/drawing.rst:233
 msgid ""
 "更多图形绘制 API 请参考 :doc:`graphics 模块 </api/graphics>`、 :doc:`shape 模块 "
 "</api/styles/shape>` 和 :doc:`texture 模块 </api/styles/texture>`。"

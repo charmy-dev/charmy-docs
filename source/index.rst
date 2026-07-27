@@ -66,7 +66,7 @@ Charmy 是一个跨平台的 Python GUI 库，采用 **三层架构** 设计，�
    :maxdepth: 3
    :caption: 主要内容：
 
-   getstarted/index
+   get_started/index
    how_does_it_work/index
    api/index
 

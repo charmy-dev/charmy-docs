@@ -19,55 +19,55 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: ../../source/getstarted/custom_app_settings.rst:2
+#: ../../source/get_started/custom_app_settings.rst:2
 msgid "自定义应用设置"
 msgstr ""
 
-#: ../../source/getstarted/custom_app_settings.rst:4
+#: ../../source/get_started/custom_app_settings.rst:4
 msgid "你可以在导入 Charmy 之前或运行时设置配置，自定义应用行为。"
 msgstr ""
 
-#: ../../source/getstarted/custom_app_settings.rst:7
+#: ../../source/get_started/custom_app_settings.rst:7
 msgid "1. 环境变量设置（导入前）"
 msgstr ""
 
-#: ../../source/getstarted/custom_app_settings.rst:9
+#: ../../source/get_started/custom_app_settings.rst:9
 msgid "在导入 ``charmy`` 之前设置环境变量，影响全局行为："
 msgstr ""
 
-#: ../../source/getstarted/custom_app_settings.rst:18
+#: ../../source/get_started/custom_app_settings.rst:18
 msgid ""
 "如果不设置，``Configs.default_backend`` 默认为 ``\"auto\"``， 而 ``\"auto\"`` 在 "
 "``loader.py`` 中被解析为 ``\"genesis\"``。"
 msgstr ""
 
-#: ../../source/getstarted/custom_app_settings.rst:22
+#: ../../source/get_started/custom_app_settings.rst:22
 msgid "2. 调试标志（运行时）"
 msgstr ""
 
-#: ../../source/getstarted/custom_app_settings.rst:24
+#: ../../source/get_started/custom_app_settings.rst:24
 msgid "Charmy 提供了一组调试标志，位于 ``cm.const.DEBUG_FLAGS``："
 msgstr ""
 
-#: ../../source/getstarted/custom_app_settings.rst:46
+#: ../../source/get_started/custom_app_settings.rst:46
 msgid "3. 主循环帧率控制"
 msgstr ""
 
-#: ../../source/getstarted/custom_app_settings.rst:48
+#: ../../source/get_started/custom_app_settings.rst:48
 msgid "``cm.mainloop(interval)`` 的参数 ``interval`` 控制每帧之间的等待时间："
 msgstr ""
 
-#: ../../source/getstarted/custom_app_settings.rst:57
+#: ../../source/get_started/custom_app_settings.rst:57
 msgid ""
 "如果设置了 ``DEBUG_FLAGS.WAIT_AFTER_EACH_FRAME``， 它会覆盖 ``mainloop()`` 的 "
 "``interval`` 参数。"
 msgstr ""
 
-#: ../../source/getstarted/custom_app_settings.rst:61
+#: ../../source/get_started/custom_app_settings.rst:61
 msgid "4. 自定义后端行为"
 msgstr ""
 
-#: ../../source/getstarted/custom_app_settings.rst:63
+#: ../../source/get_started/custom_app_settings.rst:63
 msgid "如果未来你开发了自己的后端，可以通过 ``CharmyManager`` 手动指定："
 msgstr ""
 
