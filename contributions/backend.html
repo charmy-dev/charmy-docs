@@ -418,16 +418,22 @@
 </section>
 <section id="id5">
 <h3>选定并使用您的后端<a class="headerlink" href="#id5" title="链接到此标题。">¶</a></h3>
-<p>Charmy提供了一种允许方便且优雅的途径来加载自定义后端，而并不需要提前设定环境变量（虽然这<strong>可能</strong>也会作为一种备选方式，并在将来实现）。</p>
+<blockquote>
+<div><p>注意：鉴于本节之内容逐渐完整，并不再适合作为后端开发指南的一部分，故可能未来会被移至别处，届时将会提供超链接供跳转查阅。</p>
+</div></blockquote>
+<p>Charmy提供了一种方便且优雅的途径来加载自定义后端，而并不需要提前设定环境变量（虽然这<strong>可能</strong>也会作为一种备选方式，并在将来实现）。</p>
 <p>在您引入Charmy时，并不会加载任何后端（包括默认后端），若要手动指定后端，您需要在程式创建第一个窗口之前，手动创建<code class="docutils literal notranslate"><span class="pre">CharmyManager</span></code>实例，并指定要使用的后端。下文将会详细描述。</p>
 <section id="id6">
 <h4>手动引入并加载后端<a class="headerlink" href="#id6" title="链接到此标题。">¶</a></h4>
 <p>本节将会描述如何手动引入后端包并将其加载。</p>
 <p>首先，您需要加载后端。在文件头的<code class="docutils literal notranslate"><span class="pre">import</span></code>段，引入您的后端包，然后取得<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类，这将是整个后端的入口点。注意，您并不需要显式地声明新变量并存储<code class="docutils literal notranslate"><span class="pre">Backend</span></code>。</p>
-<p>在此步骤中，我们假设您已经引入了Charmy，如果尚未引入，则请至文件<code class="docutils literal notranslate"><span class="pre">import</span></code>段将其引入。此时请将取得<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类传入<code class="docutils literal notranslate"><span class="pre">charmy.CharmyManager()</span></code>，作为参数来实例化一个<code class="docutils literal notranslate"><span class="pre">CharmyManager</span></code>。</p>
-<p>此<code class="docutils literal notranslate"><span class="pre">CharmyManager</span></code>所管理的所有窗口将会基于您所给定的后端。</p>
-<p>如果您决定在此应用中只使用这一个后端，那么此时可以直接跳入您的GUI逻辑。Charmy在初始化窗口时，会自动检查可用的<code class="docutils literal notranslate"><span class="pre">CharmyManager</span></code>。如果只有一个 <code class="docutils literal notranslate"><span class="pre">CharmyManager</span></code>可用，则会自动选定它。</p>
-<p>如果您决定在此应用中使用多个后端，例如（包括但不限于）：同时提供一个本地GUI和一个远程的WebUI界面，那么您需要为每个后端初始化一个 <code class="docutils literal notranslate"><span class="pre">CharmyManager</span></code>，然后为每个窗口指定所使用的 <code class="docutils literal notranslate"><span class="pre">CharmyManager</span></code>。</p>
+<p>在此步骤中，我们假设您已经引入了Charmy，如果尚未引入，则请至文件头的<code class="docutils literal notranslate"><span class="pre">import</span></code>段将其引入。此时请将取得<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类传入<code class="docutils literal notranslate"><span class="pre">charmy.CharmyManager()</span></code>，作为参数来实例化一个<code class="docutils literal notranslate"><span class="pre">CharmyManager</span></code>（下称“管理器”）。</p>
+<p>此管理器所管理的所有窗口将会基于您所给定的后端。</p>
+<p>如果您决定在此应用中只使用这一个后端，那么此时可以直接跳入您的GUI逻辑。Charmy在初始化窗口时，会自动检查可用的管理器。如果只有一个可用，则会自动选定它。</p>
+<p>如果您决定在此应用中使用多个后端，例如（包括但不限于）：同时提供一个本地GUI和一个远程的WebUI界面，那么您需要为每个后端初始化一个管理器，然后为每个窗口指定所使用的管理器。</p>
+<blockquote>
+<div><p>Charmy的后端和管理器为一对多关系，即每个管理器仅可使用一个后端，但您可以使用一个后端创建多个管理器。这样做可能会允许您更方便地为不同作用的窗口分组，但通常我们不会用到这一特性。</p>
+</div></blockquote>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The order of importing Charmy and backend does not matter</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">your_local_backend</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">your_web_backend</span>
