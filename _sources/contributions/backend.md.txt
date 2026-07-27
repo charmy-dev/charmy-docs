@@ -2,9 +2,10 @@
 
 作为多后端的GUI库，Charmy支持使用多种后端来构建应用程序，为了统一接口并确保每个未被支持的功能都有对应的fallback，我们提供了一个可供继承的模板，通常您的后端应当基于此模板开发。以下是模板的基本结构和使用方法。
 
-
 ## 后端的基本结构
+
 一个有效的Charmy后端主要应当包含以下几个部分：
+
 1. `Backend`类：用于定义后端的基本接口和功能，以及后端的元信息（也就是您的署名处）。
 2. 各种`*SupportState`类：用于标记当前后端是否支持某些特性。
 3. 各种`*Base`类：用于定义对应后端的基本接口和功能。
@@ -12,11 +13,13 @@
 至于细节可以参见{doc}`/api/backend/template`去查阅有哪些类，或者参见{doc}`/how_does_it_work/abstraction_layer`了解详细的介绍。
 
 ## 编写后端接口
+
 我们将会基于Genesis后端的代码为基础，在本文中讲述如何为Charmy开发一个有效可用的后端。
 
 > 如果你是扩展后端库开发者，建议使用`charmy-backend-xxx`作为库名。未来将支持自动搜索所有名称以`charmy-backend-`开头的包，并将其加入备选后端。
 
 ### 编写GUI后端接口
+
 先要注明后端的基本信息，包括简写名称、具体名称、版本号和作者等。然后继承`template.Backend`类，并实现必要的接口。
 
 #### 编写`Backend`类
@@ -64,6 +67,7 @@ class WindowSupportState(template.WindowSupportState):
 ```
 
 #### 编写`WindowBase`类
+
 这是后端使用的GUI窗口类接口，应当继承自`template.WindowBase`，并实现必要的功能。
 
 ```python
@@ -92,10 +96,9 @@ class WindowBase(template.WindowBase):
 
     def close(self):
         ...
-
 ```
 
-首先继承模板类，并设定Backend类属性为你刚刚编写的`Backend`类型，设定`supports`类属性为你刚刚编写的`WindowSupportState`实例。
+首先继承模板类，并设`Backend`类属性为你刚刚编写的`Backend`类，设定`supports`类属性为你刚刚编写的`WindowSupportState`实例。
 
 ```python
 class WindowBase(template.WindowBase):
@@ -111,42 +114,25 @@ class WindowBase(template.WindowBase):
 如此，您便完成了窗口相关接口的开发。
 
 ### 编写图形后端接口
+
 等待编写...
 
-### 使用该接口
-如果你是`charmy`的开发者，你只需重写`charmy/backend/loader.py`内容中`load_backend`函数，添加你刚刚编写的后端接口。
+### 选定并使用您的后端
 
-```python
-def load_backend(name: str) -> type[Backend]:
-    if name == "auto":
-        # for auto backend
-        name = "genesis"
-    if name == "genesis":
-        from . import genesis
-        return genesis.Backend
-    else:
-        raise NotImplementedError(
-            f"Other backends (including {name}) not supported yet in early dev."
-            )
-```
+Charmy提供了一种允许方便且优雅的途径来加载自定义后端，而并不需要提前设定环境变量（虽然这**可能**也会作为一种备选方式，并在将来实现）。
 
-在其中添加你刚刚编写的后端接口的导入语句，并在`if name == "genesis":`中返回你刚刚编写的`Backend`类。
+在您引入Charmy时，并不会加载任何后端（包括默认后端），若要手动指定后端，您需要在程式创建第一个窗口之前，手动创建`CharmyManager`实例，并指定要使用的后端。下文将会详细描述。
 
-之后在 **导入charmy模块前** 使用`environ.set()`函数设定`CHARMY_BACKEND`值来设定应用程序使用的后端接口。例如：
-```python
-from os import environ
-environ["CHARMY_BACKEND"] = "genesis"
-```
+#### 手动引入并加载
 
-对于这个可以参见{doc}`/getstarted/custom_app_settings`
+本节将会描述如何手动引入后端包并将其加载。
 
----
+首先，您需要加载后端。在文件头`import`段，引入您的后端包，然后取得`Backend`类，这将是整个后端的入口点。注意，您并不需要显式地声明新变量并存储`Backend`。
 
-如果你是`charmy`扩展库的开发者，你需要注明让使用者在 **创建窗口前** 实例化`CharmyManager`类，并传入你刚刚编写的后端接口类作为参数。
+在此步骤中，我们假设您已经引入了Charmy，如果尚未引入，则请至文件`import`段将其引入。此时请将取得`Backend`类传入`charmy.CharmyManager()`，作为参数来实例化一`CharmyManager`。
 
-```python
-from charmy_extension import YOUR_BACKEND_CLASS  # Your backend class should be imported from your extension package
-from charmy.cmm import CharmyManager
+此`CharmyManager`所管理的所有窗口将会基于您所给定的后端。
 
-Manage = CharmyManager(YOUR_BACKEND_CLASS)
-```
+如果您决定在此应用中只使用这一个后端，那么此时可以直接跳入您的GUI逻辑。Charmy在初始化窗口时，会自动检查可用的`CharmyManager`。如果只有一个 `CharmyManager`可用，则会自动选定它。
+
+如果您决定在此应用中使用多个后端，例如（包括但不限于）：同时提供一个本地GUI和一个远程的WebUI界面，那么您需要为每个后端初始化一个 `CharmyManager`，然后为每个窗口指定所使用的 `CharmyManager`。

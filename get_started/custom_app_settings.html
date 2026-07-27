@@ -3,10 +3,10 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="索引" href="../genindex.html"><link rel="search" title="搜索" href="../search.html"><link rel="next" title="窗口配置" href="window_config.html"><link rel="prev" title="安装 Charmy" href="install.html">
+<link rel="index" title="索引" href="../genindex.html"><link rel="search" title="搜索" href="../search.html"><link rel="next" title="事件处理" href="event_handling.html"><link rel="prev" title="窗口配置" href="window_config.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>第一个应用 - Charmy GUI 0.1.0 文档</title>
+        <title>自定义应用设置 - Charmy GUI 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -201,9 +201,9 @@
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">快速开始</a><input aria-label="Toggle navigation of 快速开始" checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="install.html">安装 Charmy</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">第一个应用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first_app.html">第一个应用</a></li>
 <li class="toctree-l2"><a class="reference internal" href="window_config.html">窗口配置</a></li>
-<li class="toctree-l2"><a class="reference internal" href="custom_app_settings.html">自定义应用设置</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">自定义应用设置</a></li>
 <li class="toctree-l2"><a class="reference internal" href="event_handling.html">事件处理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="layout.html">布局与定位</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drawing.html">自定义绘图</a></li>
@@ -285,12 +285,12 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="https://github.com/XiangQinxi/charmy/blob/master/docs/source/getstarted/first_app.rst?plain=true" title="View this page">
+  <a class="muted-link" href="https://github.com/XiangQinxi/charmy/blob/master/docs/source/get_started/custom_app_settings.rst?plain=true" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/XiangQinxi/charmy/edit/master/docs/source/getstarted/first_app.rst" rel="edit" title="Edit this page">
+  <a class="muted-link" href="https://github.com/XiangQinxi/charmy/edit/master/docs/source/get_started/custom_app_settings.rst" rel="edit" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -308,106 +308,66 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="id1">
-<h1>第一个应用<a class="headerlink" href="#id1" title="链接到此标题。">¶</a></h1>
-<p>下面带你一步步创建第一个 Charmy 应用。</p>
-<section id="charmy">
-<h2>1. 导入 Charmy<a class="headerlink" href="#charmy" title="链接到此标题。">¶</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">charmy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cm</span>
-</pre></div>
-</div>
-</section>
+<h1>自定义应用设置<a class="headerlink" href="#id1" title="链接到此标题。">¶</a></h1>
+<p>你可以在导入 Charmy 之前或运行时设置配置，自定义应用行为。</p>
 <section id="id2">
-<h2>2. 创建窗口<a class="headerlink" href="#id2" title="链接到此标题。">¶</a></h2>
-<p>有两种方式创建窗口：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">window</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Window Title&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">Window</span></code> 继承自 <code class="docutils literal notranslate"><span class="pre">WindowEntity</span></code> （后端窗口实体）+ <code class="docutils literal notranslate"><span class="pre">Container</span></code> （容器能力）。
-大部分时候你只需要用 <code class="docutils literal notranslate"><span class="pre">cm.Window()</span></code> 。</p>
-<p>设置窗口背景色：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">window</span><span class="o">.</span><span class="n">background</span> <span class="o">=</span> <span class="p">(</span><span class="mi">230</span><span class="p">,</span> <span class="mi">230</span><span class="p">,</span> <span class="mi">230</span><span class="p">)</span>  <span class="c1"># (R, G, B) or (R, G, B, A)</span>
-</pre></div>
-</div>
-</section>
-<section id="id3">
-<h2>3. 添加按钮<a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_click</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Button clicked!&quot;</span><span class="p">)</span>
+<h2>1. 环境变量设置（导入前）<a class="headerlink" href="#id2" title="链接到此标题。">¶</a></h2>
+<p>在导入 <code class="docutils literal notranslate"><span class="pre">charmy</span></code> 之前设置环境变量，影响全局行为：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">os</span><span class="w"> </span><span class="kn">import</span> <span class="n">environ</span>
 
-<span class="n">button</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Click me!&quot;</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="n">on_click</span><span class="p">)</span>
-<span class="n">button</span><span class="o">.</span><span class="n">place</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">40</span><span class="p">))</span>  <span class="c1"># place(pos, size)</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">place()</span></code> 方法的参数：</p>
-<ul class="simple">
-<li><p>第一个参数 <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> ：控件在父容器中的位置（相对于父容器的偏移）</p></li>
-<li><p>第二个参数 <code class="docutils literal notranslate"><span class="pre">(width,</span> <span class="pre">height)</span></code> （可选）：控件的尺寸</p></li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">小技巧</p>
-<p>也可以使用 <code class="docutils literal notranslate"><span class="pre">with</span></code> 语句上下文自动设置父容器：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">window</span><span class="p">:</span>
-    <span class="n">button</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Click me!&quot;</span><span class="p">)</span>
-    <span class="n">button</span><span class="o">.</span><span class="n">place</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span>
-</pre></div>
-</div>
-<p>在 <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">window:</span></code> 块内创建的控件会自动以 <code class="docutils literal notranslate"><span class="pre">window</span></code> 为父容器。</p>
-</div>
-</section>
-<section id="id4">
-<h2>4. 运行应用<a class="headerlink" href="#id4" title="链接到此标题。">¶</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cm</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">mainloop()</span></code> 会进入主事件循环，不断处理窗口事件和更新界面。
-程序会一直运行直到所有窗口被关闭。</p>
-</section>
-<section id="id5">
-<h2>完整的代码<a class="headerlink" href="#id5" title="链接到此标题。">¶</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">charmy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cm</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">on_click</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello from Charmy!&quot;</span><span class="p">)</span>
-
-<span class="n">window</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;My First Charmy Application&quot;</span><span class="p">)</span>
-<span class="n">window</span><span class="o">.</span><span class="n">background</span> <span class="o">=</span> <span class="p">(</span><span class="mi">230</span><span class="p">,</span> <span class="mi">230</span><span class="p">,</span> <span class="mi">230</span><span class="p">)</span>
-
-<span class="n">button</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Click me!&quot;</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="n">on_click</span><span class="p">)</span>
-<span class="n">button</span><span class="o">.</span><span class="n">place</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">40</span><span class="p">))</span>
-
-<span class="n">cm</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+<span class="n">environ</span><span class="p">[</span><span class="s2">&quot;CHARMY_BACKEND&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;genesis&quot;</span>   <span class="c1"># 指定后端（目前唯一选项）</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>关于 Button 的已知限制：</p>
-<ul class="simple">
-<li><p>Button 目前使用 Bootstrap 风格的默认样式（浅灰背景、黑色文字）</p></li>
-<li><p>悬停效果（暗色背景 + 白色文字）由事件系统驱动，需要鼠标事件正确传递</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">on_click</span></code> 回调在 Button 初始化时绑定到 <code class="docutils literal notranslate"><span class="pre">MouseClick</span></code> 事件（条件：左键）</p></li>
-<li><p>目前 Button 不支持文本以外的内容（如图标）</p></li>
-</ul>
+<p>如果不设置，<code class="docutils literal notranslate"><span class="pre">Configs.default_backend</span></code> 默认为 <code class="docutils literal notranslate"><span class="pre">&quot;auto&quot;</span></code>，
+而 <code class="docutils literal notranslate"><span class="pre">&quot;auto&quot;</span></code> 在 <code class="docutils literal notranslate"><span class="pre">loader.py</span></code> 中被解析为 <code class="docutils literal notranslate"><span class="pre">&quot;genesis&quot;</span></code>。</p>
 </div>
 </section>
-<section id="id6">
-<h2>更复杂的例子：绑定事件<a class="headerlink" href="#id6" title="链接到此标题。">¶</a></h2>
-<p>Button 的 <code class="docutils literal notranslate"><span class="pre">on_click</span></code> 参数是最简单的用法。你也可以直接使用 <code class="docutils literal notranslate"><span class="pre">bind()</span></code> 方法：</p>
+<section id="id3">
+<h2>2. 调试标志（运行时）<a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h2>
+<p>Charmy 提供了一组调试标志，位于 <code class="docutils literal notranslate"><span class="pre">cm.const.DEBUG_FLAGS</span></code>：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">charmy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cm</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">on_enter</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mouse entered button area&quot;</span><span class="p">)</span>
+<span class="c1"># 绘制所有控件的边界框（红色半透明矩形）</span>
+<span class="c1"># 用于调试控件布局和碰撞检测</span>
+<span class="n">cm</span><span class="o">.</span><span class="n">const</span><span class="o">.</span><span class="n">DEBUG_FLAGS</span><span class="o">.</span><span class="n">DRAW_OBJECTS_BOUNDARY</span> <span class="o">=</span> <span class="kc">True</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">on_leave</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mouse left button area&quot;</span><span class="p">)</span>
+<span class="c1"># 每帧等待时间（用于观察绘制过程或降低 CPU 占用）</span>
+<span class="c1">#   True     → 等待 0.5 秒</span>
+<span class="c1">#   False    → 不等待（默认）</span>
+<span class="c1">#   浮点数   → 自定义等待秒数，如 0.1 表示每秒约 10 帧</span>
+<span class="n">cm</span><span class="o">.</span><span class="n">const</span><span class="o">.</span><span class="n">DEBUG_FLAGS</span><span class="o">.</span><span class="n">WAIT_AFTER_EACH_FRAME</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">cm</span><span class="o">.</span><span class="n">const</span><span class="o">.</span><span class="n">DEBUG_FLAGS</span><span class="o">.</span><span class="n">WAIT_AFTER_EACH_FRAME</span> <span class="o">=</span> <span class="mf">0.1</span>
 
-<span class="n">window</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
-<span class="n">btn</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Track mouse&quot;</span><span class="p">)</span>
+<span class="c1"># 标记被重绘的区域</span>
+<span class="c1"># 每次重绘的区域会以紫色半透明矩形高亮显示</span>
+<span class="n">cm</span><span class="o">.</span><span class="n">const</span><span class="o">.</span><span class="n">DEBUG_FLAGS</span><span class="o">.</span><span class="n">MARK_REDRAWS</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2>3. 主循环帧率控制<a class="headerlink" href="#id4" title="链接到此标题。">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">cm.mainloop(interval)</span></code> 的参数 <code class="docutils literal notranslate"><span class="pre">interval</span></code> 控制每帧之间的等待时间：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cm</span><span class="o">.</span><span class="n">mainloop</span><span class="p">(</span><span class="mf">0.016</span><span class="p">)</span>    <span class="c1"># 约 60 FPS（16ms）</span>
+<span class="n">cm</span><span class="o">.</span><span class="n">mainloop</span><span class="p">(</span><span class="mf">0.033</span><span class="p">)</span>    <span class="c1"># 约 30 FPS（33ms）</span>
+<span class="n">cm</span><span class="o">.</span><span class="n">mainloop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>        <span class="c1"># 不等待，尽可能快地运行（高 CPU 占用）</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>如果设置了 <code class="docutils literal notranslate"><span class="pre">DEBUG_FLAGS.WAIT_AFTER_EACH_FRAME</span></code>，
+它会覆盖 <code class="docutils literal notranslate"><span class="pre">mainloop()</span></code> 的 <code class="docutils literal notranslate"><span class="pre">interval</span></code> 参数。</p>
+</div>
+</section>
+<section id="id5">
+<h2>4. 自定义后端行为<a class="headerlink" href="#id5" title="链接到此标题。">¶</a></h2>
+<p>如果未来你开发了自己的后端，可以通过 <code class="docutils literal notranslate"><span class="pre">CharmyManager</span></code> 手动指定：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">charmy.cmm</span><span class="w"> </span><span class="kn">import</span> <span class="n">CharmyManager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">my_backend</span><span class="w"> </span><span class="kn">import</span> <span class="n">MyBackend</span>
 
-<span class="n">btn</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">event_types</span><span class="o">.</span><span class="n">MouseEnter</span><span class="p">,</span> <span class="n">on_enter</span><span class="p">)</span>
-<span class="n">btn</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">event_types</span><span class="o">.</span><span class="n">MouseLeave</span><span class="p">,</span> <span class="n">on_leave</span><span class="p">)</span>
-
-<span class="n">btn</span><span class="o">.</span><span class="n">place</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">40</span><span class="p">))</span>
-<span class="n">cm</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+<span class="n">manager</span> <span class="o">=</span> <span class="n">CharmyManager</span><span class="p">(</span><span class="n">MyBackend</span><span class="p">())</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">manager</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -418,23 +378,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="window_config.html">
+          <a class="next-page" href="event_handling.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">窗口配置</div>
+                <div class="title">事件处理</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="install.html">
+          <a class="prev-page" href="window_config.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">安装 Charmy</div>
+                <div class="title">窗口配置</div>
                 
               </div>
             </a>
@@ -468,13 +428,11 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">第一个应用</a><ul>
-<li><a class="reference internal" href="#charmy">1. 导入 Charmy</a></li>
-<li><a class="reference internal" href="#id2">2. 创建窗口</a></li>
-<li><a class="reference internal" href="#id3">3. 添加按钮</a></li>
-<li><a class="reference internal" href="#id4">4. 运行应用</a></li>
-<li><a class="reference internal" href="#id5">完整的代码</a></li>
-<li><a class="reference internal" href="#id6">更复杂的例子：绑定事件</a></li>
+<li><a class="reference internal" href="#">自定义应用设置</a><ul>
+<li><a class="reference internal" href="#id2">1. 环境变量设置（导入前）</a></li>
+<li><a class="reference internal" href="#id3">2. 调试标志（运行时）</a></li>
+<li><a class="reference internal" href="#id4">3. 主循环帧率控制</a></li>
+<li><a class="reference internal" href="#id5">4. 自定义后端行为</a></li>
 </ul>
 </li>
 </ul>

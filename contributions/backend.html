@@ -199,15 +199,15 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">主要内容：</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../getstarted/index.html">快速开始</a><input aria-label="Toggle navigation of 快速开始" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getstarted/install.html">安装 Charmy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getstarted/first_app.html">第一个应用</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getstarted/window_config.html">窗口配置</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getstarted/custom_app_settings.html">自定义应用设置</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getstarted/event_handling.html">事件处理</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getstarted/layout.html">布局与定位</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getstarted/drawing.html">自定义绘图</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getstarted/debugging.html">调试与故障排查</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../get_started/index.html">快速开始</a><input aria-label="Toggle navigation of 快速开始" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../get_started/install.html">安装 Charmy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_started/first_app.html">第一个应用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_started/window_config.html">窗口配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_started/custom_app_settings.html">自定义应用设置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_started/event_handling.html">事件处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_started/layout.html">布局与定位</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_started/drawing.html">自定义绘图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_started/debugging.html">调试与故障排查</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../how_does_it_work/index.html">工作原理</a><input aria-label="Toggle navigation of 工作原理" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -398,10 +398,9 @@
 
     <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="o">...</span>
-
 </pre></div>
 </div>
-<p>首先继承模板类，并设定Backend类属性为你刚刚编写的<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类型，设定<code class="docutils literal notranslate"><span class="pre">supports</span></code>类属性为你刚刚编写的<code class="docutils literal notranslate"><span class="pre">WindowSupportState</span></code>实例。</p>
+<p>首先继承模板类，并设<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类属性为你刚刚编写的<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类，设定<code class="docutils literal notranslate"><span class="pre">supports</span></code>类属性为你刚刚编写的<code class="docutils literal notranslate"><span class="pre">WindowSupportState</span></code>实例。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">WindowBase</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">WindowBase</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Window APIs in Genesis backend.&quot;&quot;&quot;</span>
     <span class="n">supports</span> <span class="o">=</span> <span class="n">WindowSupportState</span><span class="p">()</span>
@@ -418,36 +417,18 @@
 <p>等待编写...</p>
 </section>
 <section id="id5">
-<h3>使用该接口<a class="headerlink" href="#id5" title="链接到此标题。">¶</a></h3>
-<p>如果你是<code class="docutils literal notranslate"><span class="pre">charmy</span></code>的开发者，你只需重写<code class="docutils literal notranslate"><span class="pre">charmy/backend/loader.py</span></code>内容中<code class="docutils literal notranslate"><span class="pre">load_backend</span></code>函数，添加你刚刚编写的后端接口。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_backend</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">[</span><span class="n">Backend</span><span class="p">]:</span>
-    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;auto&quot;</span><span class="p">:</span>
-        <span class="c1"># for auto backend</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;genesis&quot;</span>
-    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;genesis&quot;</span><span class="p">:</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">genesis</span>
-        <span class="k">return</span> <span class="n">genesis</span><span class="o">.</span><span class="n">Backend</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;Other backends (including </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">) not supported yet in early dev.&quot;</span>
-            <span class="p">)</span>
-</pre></div>
-</div>
-<p>在其中添加你刚刚编写的后端接口的导入语句，并在<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">name</span> <span class="pre">==</span> <span class="pre">&quot;genesis&quot;:</span></code>中返回你刚刚编写的<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类。</p>
-<p>之后在 <strong>导入charmy模块前</strong> 使用<code class="docutils literal notranslate"><span class="pre">environ.set()</span></code>函数设定<code class="docutils literal notranslate"><span class="pre">CHARMY_BACKEND</span></code>值来设定应用程序使用的后端接口。例如：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">os</span><span class="w"> </span><span class="kn">import</span> <span class="n">environ</span>
-<span class="n">environ</span><span class="p">[</span><span class="s2">&quot;CHARMY_BACKEND&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;genesis&quot;</span>
-</pre></div>
-</div>
-<p>对于这个可以参见<a class="reference internal" href="../getstarted/custom_app_settings.html"><span class="doc">自定义应用设置</span></a></p>
-<hr class="docutils" />
-<p>如果你是<code class="docutils literal notranslate"><span class="pre">charmy</span></code>扩展库的开发者，你需要注明让使用者在 <strong>创建窗口前</strong> 实例化<code class="docutils literal notranslate"><span class="pre">CharmyManager</span></code>类，并传入你刚刚编写的后端接口类作为参数。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">charmy_extension</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOUR_BACKEND_CLASS</span>  <span class="c1"># Your backend class should be imported from your extension package</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">charmy.cmm</span><span class="w"> </span><span class="kn">import</span> <span class="n">CharmyManager</span>
-
-<span class="n">Manage</span> <span class="o">=</span> <span class="n">CharmyManager</span><span class="p">(</span><span class="n">YOUR_BACKEND_CLASS</span><span class="p">)</span>
-</pre></div>
-</div>
+<h3>选定并使用您的后端<a class="headerlink" href="#id5" title="链接到此标题。">¶</a></h3>
+<p>Charmy提供了一种允许方便且优雅的途径来加载自定义后端，而并不需要提前设定环境变量（虽然这<strong>可能</strong>也会作为一种备选方式，并在将来实现）。</p>
+<p>在您引入Charmy时，并不会加载任何后端（包括默认后端），若要手动指定后端，您需要在程式创建第一个窗口之前，手动创建<code class="docutils literal notranslate"><span class="pre">CharmyManager</span></code>实例，并指定要使用的后端。下文将会详细描述。</p>
+<section id="id6">
+<h4>手动引入并加载<a class="headerlink" href="#id6" title="链接到此标题。">¶</a></h4>
+<p>本节将会描述如何手动引入后端包并将其加载。</p>
+<p>首先，您需要加载后端。在文件头<code class="docutils literal notranslate"><span class="pre">import</span></code>段，引入您的后端包，然后取得<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类，这将是整个后端的入口点。注意，您并不需要显式地声明新变量并存储<code class="docutils literal notranslate"><span class="pre">Backend</span></code>。</p>
+<p>在此步骤中，我们假设您已经引入了Charmy，如果尚未引入，则请至文件<code class="docutils literal notranslate"><span class="pre">import</span></code>段将其引入。此时请将取得<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类传入<code class="docutils literal notranslate"><span class="pre">charmy.CharmyManager()</span></code>，作为参数来实例化一<code class="docutils literal notranslate"><span class="pre">CharmyManager</span></code>。</p>
+<p>此<code class="docutils literal notranslate"><span class="pre">CharmyManager</span></code>所管理的所有窗口将会基于您所给定的后端。</p>
+<p>如果您决定在此应用中只使用这一个后端，那么此时可以直接跳入您的GUI逻辑。Charmy在初始化窗口时，会自动检查可用的<code class="docutils literal notranslate"><span class="pre">CharmyManager</span></code>。如果只有一个 <code class="docutils literal notranslate"><span class="pre">CharmyManager</span></code>可用，则会自动选定它。</p>
+<p>如果您决定在此应用中使用多个后端，例如（包括但不限于）：同时提供一个本地GUI和一个远程的WebUI界面，那么您需要为每个后端初始化一个 <code class="docutils literal notranslate"><span class="pre">CharmyManager</span></code>，然后为每个窗口指定所使用的 <code class="docutils literal notranslate"><span class="pre">CharmyManager</span></code>。</p>
+</section>
 </section>
 </section>
 </section>
@@ -517,7 +498,10 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#id4">编写图形后端接口</a></li>
-<li><a class="reference internal" href="#id5">使用该接口</a></li>
+<li><a class="reference internal" href="#id5">选定并使用您的后端</a><ul>
+<li><a class="reference internal" href="#id6">手动引入并加载</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

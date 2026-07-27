@@ -3,10 +3,10 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="索引" href="../genindex.html"><link rel="search" title="搜索" href="../search.html"><link rel="next" title="自定义绘图" href="drawing.html"><link rel="prev" title="事件处理" href="event_handling.html">
+<link rel="index" title="索引" href="../genindex.html"><link rel="search" title="搜索" href="../search.html"><link rel="next" title="第一个应用" href="first_app.html"><link rel="prev" title="快速开始" href="index.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>布局与定位 - Charmy GUI 0.1.0 文档</title>
+        <title>安装 Charmy - Charmy GUI 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -200,12 +200,12 @@
   <p class="caption" role="heading"><span class="caption-text">主要内容：</span></p>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">快速开始</a><input aria-label="Toggle navigation of 快速开始" checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="install.html">安装 Charmy</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">安装 Charmy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="first_app.html">第一个应用</a></li>
 <li class="toctree-l2"><a class="reference internal" href="window_config.html">窗口配置</a></li>
 <li class="toctree-l2"><a class="reference internal" href="custom_app_settings.html">自定义应用设置</a></li>
 <li class="toctree-l2"><a class="reference internal" href="event_handling.html">事件处理</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">布局与定位</a></li>
+<li class="toctree-l2"><a class="reference internal" href="layout.html">布局与定位</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drawing.html">自定义绘图</a></li>
 <li class="toctree-l2"><a class="reference internal" href="debugging.html">调试与故障排查</a></li>
 </ul>
@@ -285,12 +285,12 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="https://github.com/XiangQinxi/charmy/blob/master/docs/source/getstarted/layout.rst?plain=true" title="View this page">
+  <a class="muted-link" href="https://github.com/XiangQinxi/charmy/blob/master/docs/source/get_started/install.rst?plain=true" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/XiangQinxi/charmy/edit/master/docs/source/getstarted/layout.rst" rel="edit" title="Edit this page">
+  <a class="muted-link" href="https://github.com/XiangQinxi/charmy/edit/master/docs/source/get_started/install.rst" rel="edit" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -307,172 +307,116 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="id1">
-<h1>布局与定位<a class="headerlink" href="#id1" title="链接到此标题。">¶</a></h1>
-<p>Charmy 的控件通过 <strong>布局配置文件 (LayoutProfile)</strong> 来确定位置和大小。
-目前支持手动定位（<code class="docutils literal notranslate"><span class="pre">PlaceLayout</span></code>），自动布局管理（<code class="docutils literal notranslate"><span class="pre">ManagedLayout</span></code>）有待实现。</p>
-<section id="id2">
-<h2>坐标系<a class="headerlink" href="#id2" title="链接到此标题。">¶</a></h2>
-<p>Charmy 使用和大多数 GUI 框架相同的坐标系：</p>
-<ul class="simple">
-<li><p><strong>原点 (0, 0)</strong> 在父容器的左上角</p></li>
-<li><p><strong>X 轴</strong> 向右递增</p></li>
-<li><p><strong>Y 轴</strong> 向下递增</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(0, 0) ──────────→ X
-   │
-   │
-   ↓
-   Y
-</pre></div>
-</div>
-</section>
-<section id="place">
-<h2>绝对位置 (<code class="docutils literal notranslate"><span class="pre">place</span></code>)<a class="headerlink" href="#place" title="链接到此标题。">¶</a></h2>
-<p>使用 <code class="docutils literal notranslate"><span class="pre">place()</span></code> 方法将控件放置在父容器的指定位置：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># widget.place(pos, size)</span>
-<span class="c1">#   pos  ─ (x, y) 相对于父容器的偏移</span>
-<span class="c1">#   size ─ (width, height) 可选，控件的尺寸</span>
-
-<span class="n">button</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Button&quot;</span><span class="p">)</span>
-<span class="n">button</span><span class="o">.</span><span class="n">place</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>              <span class="c1"># 只指定位置</span>
-<span class="n">button</span><span class="o">.</span><span class="n">place</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">40</span><span class="p">))</span>   <span class="c1"># 同时指定位置和大小</span>
-</pre></div>
-</div>
-<p>如果 <code class="docutils literal notranslate"><span class="pre">size</span></code> 未指定，控件会使用其 Profile 中定义的默认大小
-（Button 的默认大小为 72×28）。</p>
-<div class="admonition note">
-<p class="admonition-title">备注</p>
-<p><code class="docutils literal notranslate"><span class="pre">place()</span></code> 实际上创建了一个 <code class="docutils literal notranslate"><span class="pre">PlaceProfile</span></code> 并赋值给 <code class="docutils literal notranslate"><span class="pre">widget.layout_profile</span></code>：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 以下等价：</span>
-<span class="n">button</span><span class="o">.</span><span class="n">place</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">40</span><span class="p">))</span>
-<span class="c1"># 等同于：</span>
-<span class="n">button</span><span class="o">.</span><span class="n">layout_profile</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">layout_profiles</span><span class="o">.</span><span class="n">PlaceProfile</span><span class="p">(</span>
-    <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">40</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</section>
-<section id="id3">
-<h2>相对位置与绝对位置<a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h2>
-<p>控件有两个位置属性：</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">pos</span></code> — 相对于父容器的偏移（局部坐标）</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">abs_pos</span></code> — 相对于根容器（Window）的偏移（全局坐标）</p></li>
-</ul>
-<p>对于直接放在窗口上的控件，两者相同。
-对于嵌套在容器中的控件，<code class="docutils literal notranslate"><span class="pre">abs_pos</span></code> 会递归累加父容器的位置：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">window</span><span class="p">:</span>
-    <span class="n">container</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Frame</span><span class="p">()</span>      <span class="c1"># 容器放在 window 上</span>
-    <span class="n">container</span><span class="o">.</span><span class="n">place</span><span class="p">((</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span>
-
-    <span class="k">with</span> <span class="n">container</span><span class="p">:</span>
-        <span class="n">btn</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Button in the Container&quot;</span><span class="p">)</span>
-        <span class="n">btn</span><span class="o">.</span><span class="n">place</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>     <span class="c1"># pos=(10,10), abs_pos=(40,40)</span>
-</pre></div>
-</div>
+          <section id="charmy">
+<h1>安装 Charmy<a class="headerlink" href="#charmy" title="链接到此标题。">¶</a></h1>
 <div class="admonition caution">
 <p class="admonition-title">小心</p>
-<p><code class="docutils literal notranslate"><span class="pre">Frame</span></code> 目前是空壳实现，继承自 <code class="docutils literal notranslate"><span class="pre">Widget</span></code> + <code class="docutils literal notranslate"><span class="pre">Container</span></code>，
-但还没有实际的背景绘制和子控件裁剪功能。</p>
+<p>Python 版本要求 <strong>&gt;= 3.11</strong>！</p>
+</div>
+<section id="pip">
+<h2>使用 pip 安装（推荐）<a class="headerlink" href="#pip" title="链接到此标题。">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>charmy-gui
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>项目仍处于早期开发阶段，可能尚未发布到 PyPI。
+如果上方命令失败，请使用下面的源码安装方式。</p>
 </div>
 </section>
-<section id="id4">
-<h2>容器系统<a class="headerlink" href="#id4" title="链接到此标题。">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Container</span></code> 是一个混入类（Mixin），为控件提供容纳子控件的能力。</p>
-<p>目前继承 Container 的类：</p>
+<section id="id1">
+<h2>从源码安装<a class="headerlink" href="#id1" title="链接到此标题。">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/XiangQinxi/charmy.git
+<span class="nb">cd</span><span class="w"> </span>charmy
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> 会以可编辑模式安装，你对源码的修改会即时生效，
+适合开发和调试。</p>
+</div>
+</section>
+<section id="id2">
+<h2>后端依赖<a class="headerlink" href="#id2" title="链接到此标题。">¶</a></h2>
+<p>Charmy 将底层图形框架抽象为 <strong>后端</strong> 。目前唯一可用的后端是 <strong>Genesis</strong> ，
+它使用 SDL2 创建窗口、Cairo 进行 2D 渲染。</p>
+<p>安装 Genesis 后端所需的依赖：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pysdl2<span class="w"> </span>pysdl2-dll<span class="w"> </span>pycairo
+</pre></div>
+</div>
+<p>各平台注意事项：</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
-<tr class="row-odd"><th class="head"><p>类</p></th>
-<th class="head"><p>说明</p></th>
+<tr class="row-odd"><th class="head"><p>平台</p></th>
+<th class="head"><p>注意事项</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Window</span></code></p></td>
-<td><p>顶层窗口，也是容器</p></td>
+<tr class="row-even"><td><p>Windows</p></td>
+<td><dl class="simple">
+<dt>通常直接 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> 即可，无需额外配置。</dt><dd><p>如果 <code class="docutils literal notranslate"><span class="pre">pycairo</span></code> 安装失败，尝试从 <a class="reference external" href="https://github.com/pygobject/pycairo">https://github.com/pygobject/pycairo</a> 下载 wheel。</p>
+</dd>
+</dl>
+</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Frame</span></code></p></td>
-<td><p>框架容器（空壳，待实现）</p></td>
+<tr class="row-odd"><td><p>macOS</p></td>
+<td><dl class="simple">
+<dt>可能需要先安装 Cairo 库： <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">cairo</span></code></dt><dd><p>然后再 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pycairo</span></code></p>
+</dd>
+</dl>
+</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Container</span></code> 本身</p></td>
-<td><p>不直接实例化</p></td>
+<tr class="row-even"><td><p>Linux (Debian/Ubuntu)</p></td>
+<td><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">libcairo2-dev</span> <span class="pre">pkg-config</span></code></dt><dd><p>然后再 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pycairo</span></code></p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Linux (Fedora/RHEL)</p></td>
+<td><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">install</span> <span class="pre">cairo-devel</span> <span class="pre">pkg-config</span></code></dt><dd><p>然后再 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pycairo</span></code></p>
+</dd>
+</dl>
+</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>子控件的管理：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">window</span><span class="o">.</span><span class="n">children</span>          <span class="c1"># 所有子控件列表</span>
-<span class="n">button</span> <span class="ow">in</span> <span class="n">window</span>         <span class="c1"># 检查 button 是否属于 window</span>
-<span class="n">window</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">btn</span><span class="p">)</span>    <span class="c1"># 手动添加子控件（通常由 Widget.__init__ 自动调用）</span>
-</pre></div>
-</div>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>子控件的绘制顺序由 <code class="docutils literal notranslate"><span class="pre">Container.draw_children()</span></code> 递归处理：
-先绘制手动放置的控件（<code class="docutils literal notranslate"><span class="pre">place</span></code> 层），再绘制自动布局的控件（<code class="docutils literal notranslate"><span class="pre">managed</span></code> 层）。
-同一层内，后添加的控件绘制在上层（显示在前面）。</p>
+<p><code class="docutils literal notranslate"><span class="pre">pysdl2-dll</span></code> 包含了 SDL2 的预编译动态库，通常情况下不需要手动安装 SDL2。
+如果遇到 SDL2 相关的错误，可以尝试从 <a class="reference external" href="https://libsdl.org">https://libsdl.org</a> 下载最新版本的 SDL2。</p>
 </div>
 </section>
-<section id="id5">
-<h2>上下文管理器<a class="headerlink" href="#id5" title="链接到此标题。">¶</a></h2>
-<p>使用 <code class="docutils literal notranslate"><span class="pre">with</span></code> 语句可以自动设置父容器：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">window</span><span class="p">:</span>
-    <span class="c1"># 在此创建的控件自动以 window 为父容器</span>
-    <span class="n">button</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Auto parent&quot;</span><span class="p">)</span>
-    <span class="n">button</span><span class="o">.</span><span class="n">place</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<section id="id3">
+<h2>验证安装<a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h2>
+<p>创建一个 Python 文件，写入以下代码并运行：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">charmy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cm</span>
 
-    <span class="k">with</span> <span class="n">frame</span><span class="p">:</span>
-        <span class="c1"># 嵌套容器</span>
-        <span class="n">inner_btn</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Inner Button&quot;</span><span class="p">)</span>
-        <span class="n">inner_btn</span><span class="o">.</span><span class="n">place</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">160</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Charmy GUI&quot;</span><span class="p">)</span>
+<span class="n">cm</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>这等价于显式指定 parent：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">button</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Parent&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
+<p>如果出现一个灰色窗口，说明安装成功！</p>
 </section>
-<section id="id6">
-<h2>控件大小<a class="headerlink" href="#id6" title="链接到此标题。">¶</a></h2>
-<p>控件的大小通过以下方式确定（按优先级从高到低）：</p>
-<ol class="arabic simple">
-<li><p><strong>布局指定的大小</strong>：<code class="docutils literal notranslate"><span class="pre">place(pos,</span> <span class="pre">size)</span></code> 中的 size 参数</p></li>
-<li><p><strong>Profile 中指定的大小</strong>：控件 profile 中 <code class="docutils literal notranslate"><span class="pre">size</span></code> 属性的值</p></li>
-<li><p><strong>Profile 回退</strong>：如果当前状态的 profile 未指定 <code class="docutils literal notranslate"><span class="pre">size</span></code>，
-会逐级回退到 <code class="docutils literal notranslate"><span class="pre">default</span></code> 状态的 profile</p></li>
-<li><p><strong>默认值</strong>：如果都未指定，返回 <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">0)</span></code></p></li>
-</ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">button</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Test&quot;</span><span class="p">)</span>
-<span class="n">button</span><span class="o">.</span><span class="n">place</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>           <span class="c1"># 使用 profile 默认大小 (72, 28)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">button</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>               <span class="c1"># → (72, 28)</span>
+<section id="id4">
+<h2>常见问题<a class="headerlink" href="#id4" title="链接到此标题。">¶</a></h2>
+<p><strong>Q: 导入 charmy 时报错 ``No module named 'sdl2'``</strong></p>
+<p>A: 没有安装 SDL2 依赖。执行 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pysdl2</span> <span class="pre">pysdl2-dll</span></code></p>
+<p><strong>Q: 导入 charmy 时报错 ``No module named 'cairo'``</strong></p>
+<p>A: 没有安装 Cairo 依赖。执行 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pycairo</span></code>。如果安装失败，请参考上方各平台注意事项。</p>
+<p><strong>Q: 运行后窗口一闪而过</strong></p>
+<p>A: 检查代码中是否有 <code class="docutils literal notranslate"><span class="pre">cm.mainloop()</span></code>。如果缺少主循环，程序会立即退出。</p>
+<p><strong>Q: 窗口显示但不响应鼠标</strong></p>
+<p>A: 确认 SDL2 事件循环在工作。在 <code class="docutils literal notranslate"><span class="pre">mainloop()</span></code> 之前添加以下代码测试：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_click</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Clicked: </span><span class="si">{</span><span class="n">event</span><span class="o">.</span><span class="n">mouse_pos</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="n">button</span><span class="o">.</span><span class="n">place</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>  <span class="c1"># 使用指定大小</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">button</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>                  <span class="c1"># → (200, 50)</span>
+<span class="n">window</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">event_types</span><span class="o">.</span><span class="n">MouseClick</span><span class="p">,</span> <span class="n">on_click</span><span class="p">)</span>
 </pre></div>
-</div>
-</section>
-<section id="id7">
-<h2>布局支持状态<a class="headerlink" href="#id7" title="链接到此标题。">¶</a></h2>
-<div class="admonition caution">
-<p class="admonition-title">小心</p>
-<p>Charmy 目前 <strong>只支持</strong> <code class="docutils literal notranslate"><span class="pre">place</span></code> 布局。
-自动布局（如 <code class="docutils literal notranslate"><span class="pre">pack</span></code>、<code class="docutils literal notranslate"><span class="pre">grid</span></code>）的 <code class="docutils literal notranslate"><span class="pre">ManagedLayoutProfile</span></code> 基类已经定义，
-但尚未实现具体布局算法。</p>
-<p>如果你需要自动布局，目前只能通过手动计算位置来实现：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 手动实现垂直排列</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="n">btn</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Button</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">btn</span><span class="o">.</span><span class="n">place</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span>
-    <span class="n">y</span> <span class="o">+=</span> <span class="mi">40</span>
-</pre></div>
-</div>
-</div>
-<div class="admonition seealso">
-<p class="admonition-title">参见</p>
-<p>布局相关 API 细节请参考 <a class="reference internal" href="../api/widgets/widget.html"><span class="doc">widget 模块</span></a> 和
-<a class="reference internal" href="../api/utils/layout_profiles.html"><span class="doc">layout_profiles 模块</span></a>。</p>
 </div>
 </section>
 </section>
@@ -482,23 +426,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="drawing.html">
+          <a class="next-page" href="first_app.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">自定义绘图</div>
+                <div class="title">第一个应用</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="event_handling.html">
+          <a class="prev-page" href="index.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">事件处理</div>
+                <div class="title">快速开始</div>
                 
               </div>
             </a>
@@ -532,14 +476,12 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">布局与定位</a><ul>
-<li><a class="reference internal" href="#id2">坐标系</a></li>
-<li><a class="reference internal" href="#place">绝对位置 (<code class="docutils literal notranslate"><span class="pre">place</span></code>)</a></li>
-<li><a class="reference internal" href="#id3">相对位置与绝对位置</a></li>
-<li><a class="reference internal" href="#id4">容器系统</a></li>
-<li><a class="reference internal" href="#id5">上下文管理器</a></li>
-<li><a class="reference internal" href="#id6">控件大小</a></li>
-<li><a class="reference internal" href="#id7">布局支持状态</a></li>
+<li><a class="reference internal" href="#">安装 Charmy</a><ul>
+<li><a class="reference internal" href="#pip">使用 pip 安装（推荐）</a></li>
+<li><a class="reference internal" href="#id1">从源码安装</a></li>
+<li><a class="reference internal" href="#id2">后端依赖</a></li>
+<li><a class="reference internal" href="#id3">验证安装</a></li>
+<li><a class="reference internal" href="#id4">常见问题</a></li>
 </ul>
 </li>
 </ul>

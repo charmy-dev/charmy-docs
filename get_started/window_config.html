@@ -3,10 +3,10 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="索引" href="../genindex.html"><link rel="search" title="搜索" href="../search.html"><link rel="next" title="第一个应用" href="first_app.html"><link rel="prev" title="快速开始" href="index.html">
+<link rel="index" title="索引" href="../genindex.html"><link rel="search" title="搜索" href="../search.html"><link rel="next" title="自定义应用设置" href="custom_app_settings.html"><link rel="prev" title="第一个应用" href="first_app.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>安装 Charmy - Charmy GUI 0.1.0 文档</title>
+        <title>窗口配置 - Charmy GUI 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -200,9 +200,9 @@
   <p class="caption" role="heading"><span class="caption-text">主要内容：</span></p>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">快速开始</a><input aria-label="Toggle navigation of 快速开始" checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">安装 Charmy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html">安装 Charmy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="first_app.html">第一个应用</a></li>
-<li class="toctree-l2"><a class="reference internal" href="window_config.html">窗口配置</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">窗口配置</a></li>
 <li class="toctree-l2"><a class="reference internal" href="custom_app_settings.html">自定义应用设置</a></li>
 <li class="toctree-l2"><a class="reference internal" href="event_handling.html">事件处理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="layout.html">布局与定位</a></li>
@@ -285,12 +285,12 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="https://github.com/XiangQinxi/charmy/blob/master/docs/source/getstarted/install.rst?plain=true" title="View this page">
+  <a class="muted-link" href="https://github.com/XiangQinxi/charmy/blob/master/docs/source/get_started/window_config.rst?plain=true" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/XiangQinxi/charmy/edit/master/docs/source/getstarted/install.rst" rel="edit" title="Edit this page">
+  <a class="muted-link" href="https://github.com/XiangQinxi/charmy/edit/master/docs/source/get_started/window_config.rst" rel="edit" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -307,116 +307,91 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="charmy">
-<h1>安装 Charmy<a class="headerlink" href="#charmy" title="链接到此标题。">¶</a></h1>
+          <section id="id1">
+<h1>窗口配置<a class="headerlink" href="#id1" title="链接到此标题。">¶</a></h1>
+<p>你可以通过属性来读取和修改窗口的各项配置。所有属性修改会 <strong>实时同步</strong> 到后端窗口。</p>
 <div class="admonition caution">
 <p class="admonition-title">小心</p>
-<p>Python 版本要求 <strong>&gt;= 3.11</strong>！</p>
+<p>窗口属性必须在 <code class="docutils literal notranslate"><span class="pre">mainloop()</span></code> 之前或事件回调中设置。
+如果在主循环运行期间从非 UI 线程修改属性，可能导致未定义行为。</p>
 </div>
-<section id="pip">
-<h2>使用 pip 安装（推荐）<a class="headerlink" href="#pip" title="链接到此标题。">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>charmy-gui
-</pre></div>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">警告</p>
-<p>项目仍处于早期开发阶段，可能尚未发布到 PyPI。
-如果上方命令失败，请使用下面的源码安装方式。</p>
-</div>
-</section>
-<section id="id1">
-<h2>从源码安装<a class="headerlink" href="#id1" title="链接到此标题。">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/XiangQinxi/charmy.git
-<span class="nb">cd</span><span class="w"> </span>charmy
-pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">备注</p>
-<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> 会以可编辑模式安装，你对源码的修改会即时生效，
-适合开发和调试。</p>
-</div>
-</section>
 <section id="id2">
-<h2>后端依赖<a class="headerlink" href="#id2" title="链接到此标题。">¶</a></h2>
-<p>Charmy 将底层图形框架抽象为 <strong>后端</strong> 。目前唯一可用的后端是 <strong>Genesis</strong> ，
-它使用 SDL2 创建窗口、Cairo 进行 2D 渲染。</p>
-<p>安装 Genesis 后端所需的依赖：</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pysdl2<span class="w"> </span>pysdl2-dll<span class="w"> </span>pycairo
+<h2>窗口标题<a class="headerlink" href="#id2" title="链接到此标题。">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">window</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Window</span><span class="p">()</span>
+<span class="n">window</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;MyWindow&quot;</span>          <span class="c1"># 设置标题，立即更新窗口标题栏</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">window</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>               <span class="c1"># 读取当前标题</span>
 </pre></div>
-</div>
-<p>各平台注意事项：</p>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>平台</p></th>
-<th class="head"><p>注意事项</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Windows</p></td>
-<td><dl class="simple">
-<dt>通常直接 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> 即可，无需额外配置。</dt><dd><p>如果 <code class="docutils literal notranslate"><span class="pre">pycairo</span></code> 安装失败，尝试从 <a class="reference external" href="https://github.com/pygobject/pycairo">https://github.com/pygobject/pycairo</a> 下载 wheel。</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td><p>macOS</p></td>
-<td><dl class="simple">
-<dt>可能需要先安装 Cairo 库： <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">cairo</span></code></dt><dd><p>然后再 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pycairo</span></code></p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td><p>Linux (Debian/Ubuntu)</p></td>
-<td><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">libcairo2-dev</span> <span class="pre">pkg-config</span></code></dt><dd><p>然后再 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pycairo</span></code></p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td><p>Linux (Fedora/RHEL)</p></td>
-<td><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">install</span> <span class="pre">cairo-devel</span> <span class="pre">pkg-config</span></code></dt><dd><p>然后再 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pycairo</span></code></p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="admonition note">
-<p class="admonition-title">备注</p>
-<p><code class="docutils literal notranslate"><span class="pre">pysdl2-dll</span></code> 包含了 SDL2 的预编译动态库，通常情况下不需要手动安装 SDL2。
-如果遇到 SDL2 相关的错误，可以尝试从 <a class="reference external" href="https://libsdl.org">https://libsdl.org</a> 下载最新版本的 SDL2。</p>
 </div>
 </section>
 <section id="id3">
-<h2>验证安装<a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h2>
-<p>创建一个 Python 文件，写入以下代码并运行：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">charmy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cm</span>
-
-<span class="n">window</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">160</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Charmy GUI&quot;</span><span class="p">)</span>
-<span class="n">cm</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+<h2>窗口大小<a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">window</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>          <span class="c1"># 设置大小 (width, height)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">window</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>                <span class="c1"># 读取大小</span>
 </pre></div>
 </div>
-<p>如果出现一个灰色窗口，说明安装成功！</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>修改 <code class="docutils literal notranslate"><span class="pre">size</span></code> 属性会触发后端的 <code class="docutils literal notranslate"><span class="pre">set_size()</span></code> 方法，同时重新初始化 Cairo 画布
+（调用 <code class="docutils literal notranslate"><span class="pre">cairo_reinit_surface()</span></code>）。因此窗口上已有的绘制内容会被清空。</p>
+</div>
 </section>
 <section id="id4">
-<h2>常见问题<a class="headerlink" href="#id4" title="链接到此标题。">¶</a></h2>
-<p><strong>Q: 导入 charmy 时报错 ``No module named 'sdl2'``</strong></p>
-<p>A: 没有安装 SDL2 依赖。执行 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pysdl2</span> <span class="pre">pysdl2-dll</span></code></p>
-<p><strong>Q: 导入 charmy 时报错 ``No module named 'cairo'``</strong></p>
-<p>A: 没有安装 Cairo 依赖。执行 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pycairo</span></code>。如果安装失败，请参考上方各平台注意事项。</p>
-<p><strong>Q: 运行后窗口一闪而过</strong></p>
-<p>A: 检查代码中是否有 <code class="docutils literal notranslate"><span class="pre">cm.mainloop()</span></code>。如果缺少主循环，程序会立即退出。</p>
-<p><strong>Q: 窗口显示但不响应鼠标</strong></p>
-<p>A: 确认 SDL2 事件循环在工作。在 <code class="docutils literal notranslate"><span class="pre">mainloop()</span></code> 之前添加以下代码测试：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_click</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Clicked: </span><span class="si">{</span><span class="n">event</span><span class="o">.</span><span class="n">mouse_pos</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">window</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">event_types</span><span class="o">.</span><span class="n">MouseClick</span><span class="p">,</span> <span class="n">on_click</span><span class="p">)</span>
+<h2>窗口位置<a class="headerlink" href="#id4" title="链接到此标题。">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">window</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>           <span class="c1"># 设置位置 (x, y)，相对于屏幕左上角</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">window</span><span class="o">.</span><span class="n">pos</span><span class="p">)</span>                 <span class="c1"># 读取位置</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>窗口位置由后端 SDL2 管理，<code class="docutils literal notranslate"><span class="pre">pos</span></code> setter 会调用 <code class="docutils literal notranslate"><span class="pre">SDL_SetWindowPosition</span></code>。
+Genesis 后端会在窗口初始化时自动同步 SDL2 的窗口位置到 Charmy。</p>
+</div>
+</section>
+<section id="id5">
+<h2>窗口背景<a class="headerlink" href="#id5" title="链接到此标题。">¶</a></h2>
+<p>背景使用 (R, G, B) 或 (R, G, B, A) 元组表示，值范围为 0-255：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">window</span><span class="o">.</span><span class="n">background</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>      <span class="c1"># 白色背景（不透明）</span>
+<span class="n">window</span><span class="o">.</span><span class="n">background</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>       <span class="c1"># 半透明黑色背景（A=200）</span>
+<span class="n">window</span><span class="o">.</span><span class="n">background</span> <span class="o">=</span> <span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>      <span class="c1"># 灰色背景（默认值）</span>
+</pre></div>
+</div>
+<p>背景色修改会触发窗口重绘。如果设置为透明背景（A=0），
+后端仍会绘制一个透明层，但不会遮挡后面的内容。</p>
+</section>
+<section id="id6">
+<h2>窗口图标<a class="headerlink" href="#id6" title="链接到此标题。">¶</a></h2>
+<p>图标支持多种格式：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 从文件路径设置</span>
+<span class="n">window</span><span class="o">.</span><span class="n">icon</span> <span class="o">=</span> <span class="s2">&quot;path/to/icon.png&quot;</span>
+
+<span class="c1"># 从 bytes 数据设置</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;icon.png&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">icon</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># 从 PIL Image 对象设置</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;icon.png&quot;</span><span class="p">)</span>
+<span class="n">window</span><span class="o">.</span><span class="n">icon</span> <span class="o">=</span> <span class="n">img</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Genesis 后端通过 SDL2 的 <code class="docutils literal notranslate"><span class="pre">SDL_SetWindowIcon</span></code> 设置图标，
+内部将图标数据写入临时文件再加载。图标格式需要 SDL2 支持的类型（通常是 PNG 或 BMP）。</p>
+</div>
+</section>
+<section id="id7">
+<h2>其他窗口属性<a class="headerlink" href="#id7" title="链接到此标题。">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 窗口可见性（只读）</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">window</span><span class="o">.</span><span class="n">visible</span><span class="p">)</span>             <span class="c1"># True / False</span>
+
+<span class="c1"># 窗口是否存活（只读，调用 destroy() 后为 False）</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">window</span><span class="o">.</span><span class="n">_alive</span><span class="p">)</span>              <span class="c1"># 注意：以下划线开头的属性为内部属性</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">参见</p>
+<p>更多窗口相关的 API 请参考 <a class="reference internal" href="../api/widgets/window.html"><span class="doc">WindowEntity</span></a> 的自动生成文档。</p>
 </div>
 </section>
 </section>
@@ -426,23 +401,23 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="first_app.html">
+          <a class="next-page" href="custom_app_settings.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">第一个应用</div>
+                <div class="title">自定义应用设置</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="index.html">
+          <a class="prev-page" href="first_app.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">快速开始</div>
+                <div class="title">第一个应用</div>
                 
               </div>
             </a>
@@ -476,12 +451,13 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">安装 Charmy</a><ul>
-<li><a class="reference internal" href="#pip">使用 pip 安装（推荐）</a></li>
-<li><a class="reference internal" href="#id1">从源码安装</a></li>
-<li><a class="reference internal" href="#id2">后端依赖</a></li>
-<li><a class="reference internal" href="#id3">验证安装</a></li>
-<li><a class="reference internal" href="#id4">常见问题</a></li>
+<li><a class="reference internal" href="#">窗口配置</a><ul>
+<li><a class="reference internal" href="#id2">窗口标题</a></li>
+<li><a class="reference internal" href="#id3">窗口大小</a></li>
+<li><a class="reference internal" href="#id4">窗口位置</a></li>
+<li><a class="reference internal" href="#id5">窗口背景</a></li>
+<li><a class="reference internal" href="#id6">窗口图标</a></li>
+<li><a class="reference internal" href="#id7">其他窗口属性</a></li>
 </ul>
 </li>
 </ul>

@@ -3,10 +3,10 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="索引" href="../genindex.html"><link rel="search" title="搜索" href="../search.html"><link rel="next" title="工作原理" href="../how_does_it_work/index.html"><link rel="prev" title="自定义绘图" href="drawing.html">
+<link rel="index" title="索引" href="../genindex.html"><link rel="search" title="搜索" href="../search.html"><link rel="next" title="安装 Charmy" href="install.html"><link rel="prev" title="Charmy GUI 文档" href="../index.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>调试与故障排查 - Charmy GUI 0.1.0 文档</title>
+        <title>快速开始 - Charmy GUI 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -179,7 +179,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
@@ -199,7 +199,7 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">主要内容：</span></p>
 <ul class="current">
-<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">快速开始</a><input aria-label="Toggle navigation of 快速开始" checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">快速开始</a><input aria-label="Toggle navigation of 快速开始" checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="install.html">安装 Charmy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="first_app.html">第一个应用</a></li>
 <li class="toctree-l2"><a class="reference internal" href="window_config.html">窗口配置</a></li>
@@ -207,7 +207,7 @@
 <li class="toctree-l2"><a class="reference internal" href="event_handling.html">事件处理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="layout.html">布局与定位</a></li>
 <li class="toctree-l2"><a class="reference internal" href="drawing.html">自定义绘图</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">调试与故障排查</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">调试与故障排查</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../how_does_it_work/index.html">工作原理</a><input aria-label="Toggle navigation of 工作原理" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -285,12 +285,12 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="https://github.com/XiangQinxi/charmy/blob/master/docs/source/getstarted/debugging.rst?plain=true" title="View this page">
+  <a class="muted-link" href="https://github.com/XiangQinxi/charmy/blob/master/docs/source/get_started/index.rst?plain=true" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/XiangQinxi/charmy/edit/master/docs/source/getstarted/debugging.rst" rel="edit" title="Edit this page">
+  <a class="muted-link" href="https://github.com/XiangQinxi/charmy/edit/master/docs/source/get_started/index.rst" rel="edit" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -302,172 +302,98 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
           <section id="id1">
-<h1>调试与故障排查<a class="headerlink" href="#id1" title="链接到此标题。">¶</a></h1>
-<p>Charmy 提供了一些调试工具来帮助你排查问题。</p>
-<section id="id2">
-<h2>调试标志<a class="headerlink" href="#id2" title="链接到此标题。">¶</a></h2>
-<p>在 <code class="docutils literal notranslate"><span class="pre">cm.const.DEBUG_FLAGS</span></code> 中提供了几个调试开关：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">charmy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cm</span>
-
-<span class="c1"># ── 1. 显示控件边界框 ─────────────────────────────────</span>
-<span class="c1"># 每个控件的边界会显示为红色半透明矩形</span>
-<span class="n">cm</span><span class="o">.</span><span class="n">const</span><span class="o">.</span><span class="n">DEBUG_FLAGS</span><span class="o">.</span><span class="n">DRAW_OBJECTS_BOUNDARY</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="c1"># ── 2. 降低帧率便于观察 ───────────────────────────────</span>
-<span class="c1"># 每帧后等待 0.5 秒，方便观察绘制过程</span>
-<span class="n">cm</span><span class="o">.</span><span class="n">const</span><span class="o">.</span><span class="n">DEBUG_FLAGS</span><span class="o">.</span><span class="n">WAIT_AFTER_EACH_FRAME</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="c1"># 也可以设置为自定义秒数</span>
-<span class="n">cm</span><span class="o">.</span><span class="n">const</span><span class="o">.</span><span class="n">DEBUG_FLAGS</span><span class="o">.</span><span class="n">WAIT_AFTER_EACH_FRAME</span> <span class="o">=</span> <span class="mf">0.1</span>   <span class="c1"># 每秒约 10 帧</span>
-
-<span class="c1"># ── 3. 标记重绘区域 ─────────────────────────────────</span>
-<span class="c1"># 每次重绘的区域会显示为紫色半透明矩形</span>
-<span class="n">cm</span><span class="o">.</span><span class="n">const</span><span class="o">.</span><span class="n">DEBUG_FLAGS</span><span class="o">.</span><span class="n">MARK_REDRAWS</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="c1"># 在设置调试标志后再创建窗口</span>
-<span class="n">window</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">))</span>
-<span class="n">button</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;调试&quot;</span><span class="p">)</span>
-<span class="n">button</span><span class="o">.</span><span class="n">place</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">40</span><span class="p">))</span>
-<span class="n">cm</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
-</pre></div>
+<h1>快速开始<a class="headerlink" href="#id1" title="链接到此标题。">¶</a></h1>
+<p>带你快速上手 Charmy！</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">快速开始：</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">安装 Charmy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#pip">使用 pip 安装（推荐）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#id1">从源码安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#id2">后端依赖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#id3">验证安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#id4">常见问题</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="first_app.html">第一个应用</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="first_app.html#charmy">1. 导入 Charmy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first_app.html#id2">2. 创建窗口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first_app.html#id3">3. 添加按钮</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first_app.html#id4">4. 运行应用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first_app.html#id5">完整的代码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first_app.html#id6">更复杂的例子：绑定事件</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="window_config.html">窗口配置</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="window_config.html#id2">窗口标题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window_config.html#id3">窗口大小</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window_config.html#id4">窗口位置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window_config.html#id5">窗口背景</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window_config.html#id6">窗口图标</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window_config.html#id7">其他窗口属性</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="custom_app_settings.html">自定义应用设置</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="custom_app_settings.html#id2">1. 环境变量设置（导入前）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_app_settings.html#id3">2. 调试标志（运行时）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_app_settings.html#id4">3. 主循环帧率控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_app_settings.html#id5">4. 自定义后端行为</a></li>
+</ul>
+</li>
+</ul>
 </div>
-</section>
-<section id="genesis">
-<h2>Genesis 后端调试标志<a class="headerlink" href="#genesis" title="链接到此标题。">¶</a></h2>
-<p>Genesis 后端（ <code class="docutils literal notranslate"><span class="pre">charmy/backend/genesis.py</span></code> ）也有自己的调试标志：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">charmy.backend</span><span class="w"> </span><span class="kn">import</span> <span class="n">genesis</span>
-
-<span class="c1"># 绘制文字边界框（红色半透明）</span>
-<span class="n">genesis</span><span class="o">.</span><span class="n">DEBUG_FLAGS</span><span class="o">.</span><span class="n">DRAW_CAIRO_STOCK_TEXT_BOUND</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="c1"># 强制闭合形状</span>
-<span class="n">genesis</span><span class="o">.</span><span class="n">DEBUG_FLAGS</span><span class="o">.</span><span class="n">FORCE_CLOSE_SHAPE</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="c1"># 观察形状绘制过程（会逐步绘制每条边）</span>
-<span class="n">genesis</span><span class="o">.</span><span class="n">DEBUG_FLAGS</span><span class="o">.</span><span class="n">OBSERVE_SHAPE_DRAWING</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="c1"># 检查形状是否闭合（检测不连续的点）</span>
-<span class="n">genesis</span><span class="o">.</span><span class="n">DEBUG_FLAGS</span><span class="o">.</span><span class="n">WARN_UNCLOSED_SHAPES</span> <span class="o">=</span> <span class="kc">True</span>
-</pre></div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">深入进阶：</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="event_handling.html">事件处理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="event_handling.html#id2">基本用法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event_handling.html#widget-on">装饰器写法 <code class="docutils literal notranslate"><span class="pre">&#64;widget.on()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="event_handling.html#id3">事件对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event_handling.html#id4">条件过滤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event_handling.html#id5">事件链</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event_handling.html#id6">解绑事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event_handling.html#id7">多线程事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event_handling.html#id8">窗口事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event_handling.html#id9">内部事件与用户事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event_handling.html#id10">可用的事件类型一览</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">布局与定位</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="layout.html#id2">坐标系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="layout.html#place">绝对位置 (<code class="docutils literal notranslate"><span class="pre">place</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="layout.html#id3">相对位置与绝对位置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="layout.html#id4">容器系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="layout.html#id5">上下文管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="layout.html#id6">控件大小</a></li>
+<li class="toctree-l2"><a class="reference internal" href="layout.html#id7">布局支持状态</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="drawing.html">自定义绘图</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="drawing.html#id2">基本概念</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawing.html#id3">绘制线条</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawing.html#id4">绘制形状</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawing.html#id5">绘制文字</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawing.html#id6">透明度与纹理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawing.html#id7">偏移与锚点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drawing.html#svg">SVG 路径绘制</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">调试与故障排查</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html#id2">调试标志</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html#genesis">Genesis 后端调试标志</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html#id3">运行测试用例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html#id4">常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html#id5">配置文件参考</a></li>
+</ul>
+</li>
+</ul>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">警告</p>
-<p>这些调试标志会显著影响性能，只应在调试时使用。</p>
-</div>
-</section>
-<section id="id3">
-<h2>运行测试用例<a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h2>
-<p>项目 <code class="docutils literal notranslate"><span class="pre">tests/</span></code> 目录下有一些手动测试脚本，可以用来验证功能是否正常：</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># 图形绘制测试（绘制线条、形状、文字）</span>
-python<span class="w"> </span>tests/graphics.py
-
-<span class="c1"># Button 测试</span>
-python<span class="w"> </span>tests/button.py
-
-<span class="c1"># 事件系统测试</span>
-python<span class="w"> </span>tests/event.py
-
-<span class="c1"># SVG 路径解析测试</span>
-python<span class="w"> </span>tests/svg.py
-
-<span class="c1"># 形状碰撞检测测试</span>
-python<span class="w"> </span>tests/shape_hit_test.py
-</pre></div>
-</div>
-</section>
-<section id="id4">
-<h2>常见问题<a class="headerlink" href="#id4" title="链接到此标题。">¶</a></h2>
-<p><strong>Q: 窗口不显示</strong></p>
-<p>A: 检查是否调用了 <code class="docutils literal notranslate"><span class="pre">cm.mainloop()</span></code> 。如果没有主循环，程序会立即退出。</p>
-<p><strong>Q: 窗口显示了但按钮不响应点击</strong></p>
-<p>A: 可能的原因：</p>
-<ol class="arabic simple">
-<li><p>确认按钮在窗口的可视范围内</p></li>
-<li><p>检查按钮尺寸是否太小</p></li>
-<li><p>事件循环需要正常工作——确认 SDL2 事件被正确接收</p></li>
-<li><p>测试事件是否传递： <code class="docutils literal notranslate"><span class="pre">window.bind(cm.event_types.MouseClick,</span> <span class="pre">lambda</span> <span class="pre">e:</span> <span class="pre">print(f&quot;点击</span> <span class="pre">{e.mouse_pos}&quot;))</span></code></p></li>
-<li><p>如果还没绑定事件，请通过 <code class="docutils literal notranslate"><span class="pre">bind()</span></code> 方法绑定，而不是直接调用 <code class="docutils literal notranslate"><span class="pre">on_click</span></code></p></li>
-<li><p>检查是否有其他控件覆盖在按钮上方</p></li>
-</ol>
-<p><strong>Q: 点击按钮没有调用 on_click</strong></p>
-<p>A: Button 的 <code class="docutils literal notranslate"><span class="pre">on_click</span></code> 参数在初始化时绑定到 <code class="docutils literal notranslate"><span class="pre">MouseClick</span></code> 事件，
-条件是 <code class="docutils literal notranslate"><span class="pre">{&quot;button&quot;:</span> <span class="pre">0}</span></code> （鼠标左键）。确保：</p>
-<ol class="arabic simple">
-<li><p>鼠标事件被正确桥接到 Charmy（确认 Genesis 后端的 <code class="docutils literal notranslate"><span class="pre">sdl2_handle_event()</span></code> 在工作）</p></li>
-<li><p>按钮没有被其他控件遮挡</p></li>
-<li><p>在 <code class="docutils literal notranslate"><span class="pre">on_click</span></code> 之前没有抛出异常</p></li>
-</ol>
-<p><strong>Q: 窗口闪烁或绘制异常</strong></p>
-<p>A: 可能的原因：</p>
-<ol class="arabic simple">
-<li><p>检查是否有多个窗口同时更新</p></li>
-<li><p>减少每帧的重绘区域数量</p></li>
-<li><p>确认 Cairo 和 SDL2 的尺寸一致</p></li>
-<li><p>尝试启用 <code class="docutils literal notranslate"><span class="pre">DEBUG_FLAGS.MARK_REDRAWS</span></code> 观察重绘区域</p></li>
-</ol>
-<p><strong>Q: 出现 ``RecursionError`` 或 ``Recursion depth exceeded``</strong></p>
-<p>A: 这通常是由于后端类之间的循环引用导致的：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Backend</span><span class="o">.</span><span class="n">WindowBase</span><span class="o">.</span><span class="n">Backend</span><span class="o">.</span><span class="n">WindowBase</span><span class="o">...</span> <span class="n">无限链</span>
-</pre></div>
-</div>
-<p>文档构建时已在 <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> 中设置了 <code class="docutils literal notranslate"><span class="pre">sys.setrecursionlimit(5000)</span></code> 来解决。
-如果运行其他脚本时遇到此问题，也需要增加递归限制。</p>
-<p><strong>Q: ``import charmy`` 报错 ``No module named 'sdl2'``</strong></p>
-<p>A: 未安装 SDL2 依赖。执行 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pysdl2</span> <span class="pre">pysdl2-dll</span></code> 。</p>
-<p><strong>Q: ``import charmy`` 报错 ``No module named 'cairo'``</strong></p>
-<p>A: 未安装 Cairo 依赖。执行 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pycairo</span></code> 。</p>
-<p><strong>Q: 如何查看控件之间的覆盖关系？</strong></p>
-<p>A: 启用 <code class="docutils literal notranslate"><span class="pre">DRAW_OBJECTS_BOUNDARY</span></code> 调试标志，
-Charmy 会为每个控件绘制红色边界框，方便观察控件位置和大小。</p>
-<p><strong>Q: 如何查看事件触发的顺序？</strong></p>
-<p>A: 在事件回调中添加打印语句来跟踪：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">button</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">event_types</span><span class="o">.</span><span class="n">MousePress</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pressed: </span><span class="si">{</span><span class="n">e</span><span class="o">.</span><span class="n">button</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
-<span class="n">button</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">event_types</span><span class="o">.</span><span class="n">MouseRelease</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Released: </span><span class="si">{</span><span class="n">e</span><span class="o">.</span><span class="n">button</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
-<span class="n">button</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">event_types</span><span class="o">.</span><span class="n">MouseClick</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Clicked: </span><span class="si">{</span><span class="n">e</span><span class="o">.</span><span class="n">button</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
-<span class="n">button</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">event_types</span><span class="o">.</span><span class="n">MouseEnter</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Entered&quot;</span><span class="p">))</span>
-<span class="n">button</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">event_types</span><span class="o">.</span><span class="n">MouseLeave</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Left&quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-<p>结合 <code class="docutils literal notranslate"><span class="pre">mainloop(0.5)</span></code> 降低帧率，可以清晰地观察事件触发顺序。</p>
-</section>
-<section id="id5">
-<h2>配置文件参考<a class="headerlink" href="#id5" title="链接到此标题。">¶</a></h2>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>文件/模块</p></th>
-<th class="head"><p>用途</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">charmy/const.py</span></code></p></td>
-<td><p>全局常量、DEBUG_FLAGS</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">charmy/backend/genesis.py</span></code></p></td>
-<td><p>Genesis 后端、后端级 DEBUG_FLAGS</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">charmy/event.py</span></code></p></td>
-<td><p>事件处理系统</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">charmy/graphics.py</span></code></p></td>
-<td><p>图形层对象</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">charmy/styles/shape.py</span></code></p></td>
-<td><p>线条和形状定义</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">charmy/styles/texture.py</span></code></p></td>
-<td><p>纹理和颜色定义</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
 </section>
 
         </article>
@@ -475,23 +401,23 @@ Charmy 会为每个控件绘制红色边界框，方便观察控件位置和大�
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../how_does_it_work/index.html">
+          <a class="next-page" href="install.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">工作原理</div>
+                <div class="title">安装 Charmy</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="drawing.html">
+          <a class="prev-page" href="../index.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">自定义绘图</div>
+                <div class="title">Home</div>
                 
               </div>
             </a>
@@ -513,31 +439,8 @@ Charmy 会为每个控件绘制红色边界框，方便观察控件位置和大�
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">调试与故障排查</a><ul>
-<li><a class="reference internal" href="#id2">调试标志</a></li>
-<li><a class="reference internal" href="#genesis">Genesis 后端调试标志</a></li>
-<li><a class="reference internal" href="#id3">运行测试用例</a></li>
-<li><a class="reference internal" href="#id4">常见问题</a></li>
-<li><a class="reference internal" href="#id5">配置文件参考</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
