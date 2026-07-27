@@ -64,3 +64,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # 部署目标分支
           publish_branch: gh-pages
+          # CNAME
+          cname: charmy.bash-sudo.su
