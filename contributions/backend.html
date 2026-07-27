@@ -426,8 +426,8 @@
 <section id="id6">
 <h4>手动引入并加载后端<a class="headerlink" href="#id6" title="链接到此标题。">¶</a></h4>
 <p>本节将会描述如何手动引入后端包并将其加载。</p>
-<p>首先，您需要加载后端。在文件头的<code class="docutils literal notranslate"><span class="pre">import</span></code>段，引入您的后端包，然后取得<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类，这将是整个后端的入口点。注意，您并不需要显式地声明新变量并存储<code class="docutils literal notranslate"><span class="pre">Backend</span></code>。</p>
-<p>在此步骤中，我们假设您已经引入了Charmy，如果尚未引入，则请至文件头的<code class="docutils literal notranslate"><span class="pre">import</span></code>段将其引入。此时请将取得<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类传入<code class="docutils literal notranslate"><span class="pre">charmy.CharmyManager()</span></code>，作为参数来实例化一个<code class="docutils literal notranslate"><span class="pre">CharmyManager</span></code>（下称“管理器”）。</p>
+<p>首先，您需要引入您要加载的后端。在文件头的<code class="docutils literal notranslate"><span class="pre">import</span></code>段，引入您的后端包，然后取得<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类，这将是整个后端的入口点。注意，您并不需要显式地声明新变量并存储<code class="docutils literal notranslate"><span class="pre">Backend</span></code>。</p>
+<p>在此步骤中，我们假设您已经引入了Charmy，如果尚未引入，则请至文件头的<code class="docutils literal notranslate"><span class="pre">import</span></code>段将其引入。此时请将取得的<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类传入<code class="docutils literal notranslate"><span class="pre">charmy.CharmyManager()</span></code>，作为参数来实例化一个<code class="docutils literal notranslate"><span class="pre">CharmyManager</span></code>（下称“管理器”）。</p>
 <p>此管理器所管理的所有窗口将会基于您所给定的后端。</p>
 <p>如果您决定在此应用中只使用这一个后端，那么此时可以直接跳入您的GUI逻辑。Charmy在初始化窗口时，会自动检查可用的管理器。如果只有一个可用，则会自动选定它。</p>
 <p>如果您决定在此应用中使用多个后端，例如（包括但不限于）：同时提供一个本地GUI和一个远程的WebUI界面，那么您需要为每个后端初始化一个管理器，然后为每个窗口指定所使用的管理器。</p>
@@ -451,6 +451,7 @@
 </section>
 <section id="charmy">
 <h4>由Charmy自动搜索并加载，手动或自动选定后端<a class="headerlink" href="#charmy" title="链接到此标题。">¶</a></h4>
+<p>本节将会描述如何透过Charmy的后端加载器引入用户透过pip安装的后端，或令其自动选择最合适的后端。</p>
 <blockquote>
 <div><p>注意：本节依据设计所写，部分功能尚未实现。</p>
 </div></blockquote>
