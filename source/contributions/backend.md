@@ -123,16 +123,39 @@ Charmy提供了一种允许方便且优雅的途径来加载自定义后端，�
 
 在您引入Charmy时，并不会加载任何后端（包括默认后端），若要手动指定后端，您需要在程式创建第一个窗口之前，手动创建`CharmyManager`实例，并指定要使用的后端。下文将会详细描述。
 
-#### 手动引入并加载
+#### 手动引入并加载后端
 
 本节将会描述如何手动引入后端包并将其加载。
 
-首先，您需要加载后端。在文件头`import`段，引入您的后端包，然后取得`Backend`类，这将是整个后端的入口点。注意，您并不需要显式地声明新变量并存储`Backend`。
+首先，您需要加载后端。在文件头的`import`段，引入您的后端包，然后取得`Backend`类，这将是整个后端的入口点。注意，您并不需要显式地声明新变量并存储`Backend`。
 
-在此步骤中，我们假设您已经引入了Charmy，如果尚未引入，则请至文件`import`段将其引入。此时请将取得`Backend`类传入`charmy.CharmyManager()`，作为参数来实例化一`CharmyManager`。
+在此步骤中，我们假设您已经引入了Charmy，如果尚未引入，则请至文件`import`段将其引入。此时请将取得`Backend`类传入`charmy.CharmyManager()`，作为参数来实例化一个`CharmyManager`。
 
 此`CharmyManager`所管理的所有窗口将会基于您所给定的后端。
 
 如果您决定在此应用中只使用这一个后端，那么此时可以直接跳入您的GUI逻辑。Charmy在初始化窗口时，会自动检查可用的`CharmyManager`。如果只有一个 `CharmyManager`可用，则会自动选定它。
 
 如果您决定在此应用中使用多个后端，例如（包括但不限于）：同时提供一个本地GUI和一个远程的WebUI界面，那么您需要为每个后端初始化一个 `CharmyManager`，然后为每个窗口指定所使用的 `CharmyManager`。
+
+```python
+# The order of importing Charmy and backend does not matter
+import your_local_backend
+import your_web_backend
+import charmy
+
+my_local_manager = charmy.CharmyManager(your_local_backend.Backend)
+my_web_manager = charmy.CharmyManager(your_web_backend.Backend)
+
+local_gui_window = charmy.Window(my_local_manager)
+remote_webui_window = charmy.Window(my_web_manager)
+
+charmy.mainloop()
+```
+
+#### 由Charmy自动搜索并加载，手动或自动选定后端
+
+> 注意：本节依据设计所写，部分功能尚未实现。
+
+Charmy将会提供一个后端加载器，在`charmy.backend.loader` 中提供。后端加载器会提供用于加载后端的 `load_backend`函数，支持手动指定或自动搜索后端。
+
+此加载器会搜索用户透过pip安装的所有后端库，然后，默认情况下自动选择最合适的后端（此时可能会参考环境变量），或者加载调用者指定的后端。
