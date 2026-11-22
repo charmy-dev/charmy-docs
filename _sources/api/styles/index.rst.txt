@@ -12,7 +12,6 @@ charmy.styles
    :maxdepth: 2
 
    shape
-   style
    text_style
    texture
    theme

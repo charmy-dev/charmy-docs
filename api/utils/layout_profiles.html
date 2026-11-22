@@ -3,15 +3,15 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="索引" href="../../genindex.html"><link rel="search" title="搜索" href="../../search.html"><link rel="next" title="svg" href="svg.html"><link rel="prev" title="geo_math" href="geo_math.html">
+<link rel="index" title="索引" href="../../genindex.html"><link rel="search" title="搜索" href="../../search.html"><link rel="next" title="marks" href="marks.html"><link rel="prev" title="geo_math" href="geo_math.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 9.2.0 and Furo 2025.12.19 -->
         <title>layout_profiles - Charmy GUI 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=6a604523" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
@@ -230,7 +230,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../object.html">object</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../styles/index.html">charmy.styles</a><input aria-label="Toggle navigation of charmy.styles" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../styles/shape.html">shape</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../styles/style.html">style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../styles/text_style.html">text_style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../styles/texture.html">texture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../styles/theme.html">theme</a></li>
@@ -242,6 +241,10 @@
 <li class="toctree-l3"><a class="reference internal" href="event_types.html">event_types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geo_math.html">geo_math</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">layout_profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="marks.html">marks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="misc_globals.html">misc_globals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="misc_utils.html">misc_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="on_setattr.html">on_setattr</a></li>
 <li class="toctree-l3"><a class="reference internal" href="svg.html">svg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="type_checking.html">type_checking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="var.html">var</a></li>
@@ -311,75 +314,144 @@
 <h1>layout_profiles<a class="headerlink" href="#layout-profiles" title="链接到此标题。">¶</a></h1>
 <pre  class="mermaid">
         classDiagram
-  LayoutProfile &lt;|-- ManagedLayoutProfile
-  LayoutProfile &lt;|-- PlaceProfile
+  EventHandling &lt;|-- LayoutProfile
+  LayoutProfile &lt;|-- ManagedLayout
+  LayoutProfile &lt;|-- PlaceLayout
+  ManagedLayout &lt;|-- LinearLayout
     </pre><dl class="py class" id="module-charmy.utils.layout_profiles">
 <dt class="sig sig-object py" id="charmy.utils.layout_profiles.LayoutProfile">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.layout_profiles.</span></span><span class="sig-name descname"><span class="pre">LayoutProfile</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.LayoutProfile" title="链接到此定义。">¶</a></dt>
-<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.layout_profiles.</span></span><span class="sig-name descname"><span class="pre">LayoutProfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.layout_profiles.LayoutProfile" title="链接到此定义。">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="../event.html#charmy.event.EventHandling" title="charmy.event.EventHandling"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventHandling</span></code></a></p>
 <p>Base class of all layout profiles.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="charmy.utils.layout_profiles.LayoutProfile.type">
-<span class="sig-name descname"><span class="pre">type</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'nolayout'</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.LayoutProfile.type" title="链接到此定义。">¶</a></dt>
+<span class="sig-name descname"><span class="pre">type</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_typing.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'nolayout'</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.LayoutProfile.type" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="charmy.utils.layout_profiles.LayoutProfile.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.layout_profiles.LayoutProfile.__init__" title="链接到此定义。">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.layout_profiles.LayoutProfile.__init__" title="链接到此定义。">¶</a></dt>
+<dd><p>The overwritten __init__ function.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="charmy.utils.layout_profiles.PlaceLayout">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.layout_profiles.</span></span><span class="sig-name descname"><span class="pre">PlaceLayout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_widget.Widget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_shape.Point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_typing.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">_shape.Size</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.layout_profiles.PlaceLayout" title="链接到此定义。">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#charmy.utils.layout_profiles.LayoutProfile" title="charmy.utils.layout_profiles.LayoutProfile"><code class="xref py py-class docutils literal notranslate"><span class="pre">LayoutProfile</span></code></a></p>
+<p>Place layout profile, to directly specify the position and size of the widget.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="charmy.utils.layout_profiles.PlaceLayout.type">
+<span class="sig-name descname"><span class="pre">type</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_typing.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'place'</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.PlaceLayout.type" title="链接到此定义。">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="charmy.utils.layout_profiles.PlaceLayout.subject">
+<span class="sig-name descname"><span class="pre">subject</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_widget.Widget</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.PlaceLayout.subject" title="链接到此定义。">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="charmy.utils.layout_profiles.PlaceLayout.pos">
+<span class="sig-name descname"><span class="pre">pos</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_shape.Point</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.PlaceLayout.pos" title="链接到此定义。">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="charmy.utils.layout_profiles.PlaceLayout.size">
+<span class="sig-name descname"><span class="pre">size</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_typing.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">_shape.Size</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.PlaceLayout.size" title="链接到此定义。">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="charmy.utils.layout_profiles.PlaceLayout.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_widget.Widget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_shape.Point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_typing.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">_shape.Size</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.utils.layout_profiles.PlaceLayout.__init__" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="charmy.utils.layout_profiles.PlaceProfile">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.layout_profiles.</span></span><span class="sig-name descname"><span class="pre">PlaceProfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_shape.Point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">_shape.Size</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.layout_profiles.PlaceProfile" title="链接到此定义。">¶</a></dt>
+<dt class="sig sig-object py" id="charmy.utils.layout_profiles.ManagedLayout">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.layout_profiles.</span></span><span class="sig-name descname"><span class="pre">ManagedLayout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_widget.Widget</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.layout_profiles.ManagedLayout" title="链接到此定义。">¶</a></dt>
 <dd><p>基类：<a class="reference internal" href="#charmy.utils.layout_profiles.LayoutProfile" title="charmy.utils.layout_profiles.LayoutProfile"><code class="xref py py-class docutils literal notranslate"><span class="pre">LayoutProfile</span></code></a></p>
-<p>Place profile, to directly specify the position and size of the widget.</p>
+<p>Base class of maneged layouts. Should never be used directly.</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.utils.layout_profiles.PlaceProfile.type">
-<span class="sig-name descname"><span class="pre">type</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'place'</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.PlaceProfile.type" title="链接到此定义。">¶</a></dt>
+<dt class="sig sig-object py" id="charmy.utils.layout_profiles.ManagedLayout.type">
+<span class="sig-name descname"><span class="pre">type</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_typing.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'managed'</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.ManagedLayout.type" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.utils.layout_profiles.PlaceProfile.pos">
-<span class="sig-name descname"><span class="pre">pos</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_shape.Point</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.PlaceProfile.pos" title="链接到此定义。">¶</a></dt>
+<dt class="sig sig-object py" id="charmy.utils.layout_profiles.ManagedLayout.subject">
+<span class="sig-name descname"><span class="pre">subject</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_widget.Widget</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.ManagedLayout.subject" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.utils.layout_profiles.PlaceProfile.size">
-<span class="sig-name descname"><span class="pre">size</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">_shape.Size</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.PlaceProfile.size" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="charmy.utils.layout_profiles.ManagedLayout.pos">
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">pos</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_shape.Point</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.ManagedLayout.pos" title="链接到此定义。">¶</a></dt>
+<dd><p>Nope!</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="charmy.utils.layout_profiles.ManagedLayout.size">
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">size</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_shape.Size</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.ManagedLayout.size" title="链接到此定义。">¶</a></dt>
+<dd><p>Nope!</p>
+</dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="charmy.utils.layout_profiles.PlaceProfile.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_shape.Point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">_shape.Size</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.utils.layout_profiles.PlaceProfile.__init__" title="链接到此定义。">¶</a></dt>
+<dt class="sig sig-object py" id="charmy.utils.layout_profiles.ManagedLayout.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.utils.layout_profiles.ManagedLayout.update" title="链接到此定义。">¶</a></dt>
+<dd><p>Update widget layout info in this managed layout.</p>
+<p>Note that this is not compulsory for all managed layouts. In such cases, this function will
+do nothing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="charmy.utils.layout_profiles.ManagedLayout.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_widget.Widget</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.utils.layout_profiles.ManagedLayout.__init__" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="charmy.utils.layout_profiles.ManagedLayoutProfile">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.layout_profiles.</span></span><span class="sig-name descname"><span class="pre">ManagedLayoutProfile</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.ManagedLayoutProfile" title="链接到此定义。">¶</a></dt>
-<dd><p>基类：<a class="reference internal" href="#charmy.utils.layout_profiles.LayoutProfile" title="charmy.utils.layout_profiles.LayoutProfile"><code class="xref py py-class docutils literal notranslate"><span class="pre">LayoutProfile</span></code></a></p>
+<dt class="sig sig-object py" id="charmy.utils.layout_profiles.LinearLayout">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.layout_profiles.</span></span><span class="sig-name descname"><span class="pre">LinearLayout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_widget.Widget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand_priority</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stretch_share_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.layout_profiles.LinearLayout" title="链接到此定义。">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#charmy.utils.layout_profiles.ManagedLayout" title="charmy.utils.layout_profiles.ManagedLayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">ManagedLayout</span></code></a></p>
+<p>Linear layout profile.</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.utils.layout_profiles.ManagedLayoutProfile.type">
-<span class="sig-name descname"><span class="pre">type</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'managed'</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.ManagedLayoutProfile.type" title="链接到此定义。">¶</a></dt>
+<dt class="sig sig-object py" id="charmy.utils.layout_profiles.LinearLayout.type">
+<span class="sig-name descname"><span class="pre">type</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_typing.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'linear'</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.LinearLayout.type" title="链接到此定义。">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="charmy.utils.layout_profiles.LinearLayout.expand_priority">
+<span class="sig-name descname"><span class="pre">expand_priority</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-1</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.LinearLayout.expand_priority" title="链接到此定义。">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="charmy.utils.layout_profiles.LinearLayout.stretch_share_ratio">
+<span class="sig-name descname"><span class="pre">stretch_share_ratio</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.LinearLayout.stretch_share_ratio" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="charmy.utils.layout_profiles.ManagedLayoutProfile.pos">
-<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">pos</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_shape.Point</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.ManagedLayoutProfile.pos" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="charmy.utils.layout_profiles.ManagedLayoutProfile.size">
-<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">size</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_shape.Size</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.ManagedLayoutProfile.size" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="charmy.utils.layout_profiles.LinearLayout.pos">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">pos</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_shape.Point</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.LinearLayout.pos" title="链接到此定义。">¶</a></dt>
+<dd><p>Calculated pos for the widget by the linear layout.</p>
+</dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="charmy.utils.layout_profiles.ManagedLayoutProfile.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.utils.layout_profiles.ManagedLayoutProfile.__init__" title="链接到此定义。">¶</a></dt>
+<dt class="sig sig-object py" id="charmy.utils.layout_profiles.LinearLayout.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_widget.Widget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand_priority</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stretch_share_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.utils.layout_profiles.LinearLayout.__init__" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="charmy.utils.layout_profiles.LinearLayout.size">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">size</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_shape.Size</span></span><a class="headerlink" href="#charmy.utils.layout_profiles.LinearLayout.size" title="链接到此定义。">¶</a></dt>
+<dd><p>Calculated size for the widget by the linear layout.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="charmy.utils.layout_profiles.LinearLayout.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.layout_profiles.LinearLayout.update" title="链接到此定义。">¶</a></dt>
+<dd><p>Update boundaries of all widgets in their parent container.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -390,12 +462,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="svg.html">
+          <a class="next-page" href="marks.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">svg</div>
+                <div class="title">marks</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -446,18 +518,31 @@
 <li><a class="reference internal" href="#charmy.utils.layout_profiles.LayoutProfile.__init__"><code class="docutils literal notranslate"><span class="pre">LayoutProfile.__init__()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#charmy.utils.layout_profiles.PlaceProfile"><code class="docutils literal notranslate"><span class="pre">PlaceProfile</span></code></a><ul>
-<li><a class="reference internal" href="#charmy.utils.layout_profiles.PlaceProfile.type"><code class="docutils literal notranslate"><span class="pre">PlaceProfile.type</span></code></a></li>
-<li><a class="reference internal" href="#charmy.utils.layout_profiles.PlaceProfile.pos"><code class="docutils literal notranslate"><span class="pre">PlaceProfile.pos</span></code></a></li>
-<li><a class="reference internal" href="#charmy.utils.layout_profiles.PlaceProfile.size"><code class="docutils literal notranslate"><span class="pre">PlaceProfile.size</span></code></a></li>
-<li><a class="reference internal" href="#charmy.utils.layout_profiles.PlaceProfile.__init__"><code class="docutils literal notranslate"><span class="pre">PlaceProfile.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.layout_profiles.PlaceLayout"><code class="docutils literal notranslate"><span class="pre">PlaceLayout</span></code></a><ul>
+<li><a class="reference internal" href="#charmy.utils.layout_profiles.PlaceLayout.type"><code class="docutils literal notranslate"><span class="pre">PlaceLayout.type</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.layout_profiles.PlaceLayout.subject"><code class="docutils literal notranslate"><span class="pre">PlaceLayout.subject</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.layout_profiles.PlaceLayout.pos"><code class="docutils literal notranslate"><span class="pre">PlaceLayout.pos</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.layout_profiles.PlaceLayout.size"><code class="docutils literal notranslate"><span class="pre">PlaceLayout.size</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.layout_profiles.PlaceLayout.__init__"><code class="docutils literal notranslate"><span class="pre">PlaceLayout.__init__()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#charmy.utils.layout_profiles.ManagedLayoutProfile"><code class="docutils literal notranslate"><span class="pre">ManagedLayoutProfile</span></code></a><ul>
-<li><a class="reference internal" href="#charmy.utils.layout_profiles.ManagedLayoutProfile.type"><code class="docutils literal notranslate"><span class="pre">ManagedLayoutProfile.type</span></code></a></li>
-<li><a class="reference internal" href="#charmy.utils.layout_profiles.ManagedLayoutProfile.pos"><code class="docutils literal notranslate"><span class="pre">ManagedLayoutProfile.pos</span></code></a></li>
-<li><a class="reference internal" href="#charmy.utils.layout_profiles.ManagedLayoutProfile.size"><code class="docutils literal notranslate"><span class="pre">ManagedLayoutProfile.size</span></code></a></li>
-<li><a class="reference internal" href="#charmy.utils.layout_profiles.ManagedLayoutProfile.__init__"><code class="docutils literal notranslate"><span class="pre">ManagedLayoutProfile.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.layout_profiles.ManagedLayout"><code class="docutils literal notranslate"><span class="pre">ManagedLayout</span></code></a><ul>
+<li><a class="reference internal" href="#charmy.utils.layout_profiles.ManagedLayout.type"><code class="docutils literal notranslate"><span class="pre">ManagedLayout.type</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.layout_profiles.ManagedLayout.subject"><code class="docutils literal notranslate"><span class="pre">ManagedLayout.subject</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.layout_profiles.ManagedLayout.pos"><code class="docutils literal notranslate"><span class="pre">ManagedLayout.pos</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.layout_profiles.ManagedLayout.size"><code class="docutils literal notranslate"><span class="pre">ManagedLayout.size</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.layout_profiles.ManagedLayout.update"><code class="docutils literal notranslate"><span class="pre">ManagedLayout.update()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.layout_profiles.ManagedLayout.__init__"><code class="docutils literal notranslate"><span class="pre">ManagedLayout.__init__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#charmy.utils.layout_profiles.LinearLayout"><code class="docutils literal notranslate"><span class="pre">LinearLayout</span></code></a><ul>
+<li><a class="reference internal" href="#charmy.utils.layout_profiles.LinearLayout.type"><code class="docutils literal notranslate"><span class="pre">LinearLayout.type</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.layout_profiles.LinearLayout.expand_priority"><code class="docutils literal notranslate"><span class="pre">LinearLayout.expand_priority</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.layout_profiles.LinearLayout.stretch_share_ratio"><code class="docutils literal notranslate"><span class="pre">LinearLayout.stretch_share_ratio</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.layout_profiles.LinearLayout.pos"><code class="docutils literal notranslate"><span class="pre">LinearLayout.pos</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.layout_profiles.LinearLayout.__init__"><code class="docutils literal notranslate"><span class="pre">LinearLayout.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.layout_profiles.LinearLayout.size"><code class="docutils literal notranslate"><span class="pre">LinearLayout.size</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.layout_profiles.LinearLayout.update"><code class="docutils literal notranslate"><span class="pre">LinearLayout.update()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -478,8 +563,10 @@
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/translations.js?v=540d3cec"></script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../../_static/design-tabs.js?v=fcb327ea"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+
 
 
 

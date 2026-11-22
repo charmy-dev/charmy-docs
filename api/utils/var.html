@@ -5,13 +5,13 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="索引" href="../../genindex.html"><link rel="search" title="搜索" href="../../search.html"><link rel="next" title="charmy.widgets" href="../widgets/index.html"><link rel="prev" title="type_checking" href="type_checking.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 9.2.0 and Furo 2025.12.19 -->
         <title>var - Charmy GUI 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=6a604523" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
@@ -230,7 +230,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../object.html">object</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../styles/index.html">charmy.styles</a><input aria-label="Toggle navigation of charmy.styles" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../styles/shape.html">shape</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../styles/style.html">style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../styles/text_style.html">text_style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../styles/texture.html">texture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../styles/theme.html">theme</a></li>
@@ -242,6 +241,10 @@
 <li class="toctree-l3"><a class="reference internal" href="event_types.html">event_types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geo_math.html">geo_math</a></li>
 <li class="toctree-l3"><a class="reference internal" href="layout_profiles.html">layout_profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="marks.html">marks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="misc_globals.html">misc_globals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="misc_utils.html">misc_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="on_setattr.html">on_setattr</a></li>
 <li class="toctree-l3"><a class="reference internal" href="svg.html">svg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="type_checking.html">type_checking</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">var</a></li>
@@ -312,24 +315,29 @@
 <pre  class="mermaid">
         classDiagram
   EventHandling &lt;|-- Var
+  Generic &lt;|-- Query
   Generic &lt;|-- Var
     </pre><p id="module-charmy.utils.var">Charmy vars.</p>
-<p>These are used to implement thing like C(++) pointers. A var will be able to be referenced or 
+<p>This module contains Var and Query, which are used for referencing in Python.</p>
+<p>Vars are used to implement thing like C(++) pointers. A var will be able to be referenced or
 modified from somewhere else, providing experience like C(++) pointers.</p>
+<p>Starting from commit 2708f2f, this module also provides a Query class for realtime referencing the
+return value of a specific callable (like class properties, but may be used outside classes), with
+an interface that is similar to Vars.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="charmy.utils.var.Var">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.var.</span></span><span class="sig-name descname"><span class="pre">Var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">default_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">VarType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.var.Var" title="链接到此定义。">¶</a></dt>
 <dd><p>基类：<a class="reference internal" href="../event.html#charmy.event.EventHandling" title="charmy.event.EventHandling"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventHandling</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">VarType</span></code>]</p>
 <p>Aimed to provide experience like C vars with pointers.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>default_value: The initial _value of the variable.
-value_type: The type of the variable.</p>
-</dd>
-</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="charmy.utils.var.Var.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">default_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">VarType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.var.Var.__init__" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
+<dd><p>To initialize a var.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>default_value: The initial _value of the variable</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="charmy.utils.var.Var.value">
@@ -339,18 +347,62 @@ value_type: The type of the variable.</p>
 
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="charmy.utils.var.Query">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.var.</span></span><span class="sig-name descname"><span class="pre">Query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">VarType</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.var.Query" title="链接到此定义。">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">VarType</span></code>]</p>
+<p>To reference the realtime return value of a function.</p>
+<p>When taking the value, its usage is same as Var:
+.. code-block:: python</p>
+<blockquote>
+<div><p>Query(...).value
+var.unpack_var(Query(...))</p>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="charmy.utils.var.Query.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">VarType</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.var.Query.__init__" title="链接到此定义。">¶</a></dt>
+<dd><p>To initialize a Query object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>func</strong> -- The callable to query when getting the value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="charmy.utils.var.Query.value">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">VarType</span></span><a class="headerlink" href="#charmy.utils.var.Query.value" title="链接到此定义。">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="charmy.utils.var.unpack_var">
-<span class="sig-prename descclassname"><span class="pre">charmy.utils.var.</span></span><span class="sig-name descname"><span class="pre">unpack_var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var_or_val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#charmy.utils.var.Var" title="charmy.utils.var.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">[</span></span><span class="pre">VarType</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">VarType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">VarType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.utils.var.unpack_var" title="链接到此定义。">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">charmy.utils.var.</span></span><span class="sig-name descname"><span class="pre">unpack_var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var_or_val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">VarType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#charmy.utils.var.Var" title="charmy.utils.var.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">[</span></span><span class="pre">VarType</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#charmy.utils.var.Query" title="charmy.utils.var.Query"><span class="pre">Query</span></a><span class="p"><span class="pre">[</span></span><span class="pre">VarType</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">VarType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.utils.var.unpack_var" title="链接到此定义。">¶</a></dt>
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">charmy.utils.var.</span></span><span class="sig-name descname"><span class="pre">unpack_var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var_or_val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#charmy.utils.var.Var" title="charmy.utils.var.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">[</span></span><span class="pre">VarType</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">VarType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">VarType</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">VarType</span></span></span></dt>
-<dd><p>To convert a var to its value if param 1 is a var, otherwise return the param 1 as-is.</p>
+<span class="sig-prename descclassname"><span class="pre">charmy.utils.var.</span></span><span class="sig-name descname"><span class="pre">unpack_var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var_or_val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">VarType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#charmy.utils.var.Var" title="charmy.utils.var.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">[</span></span><span class="pre">VarType</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#charmy.utils.var.Query" title="charmy.utils.var.Query"><span class="pre">Query</span></a><span class="p"><span class="pre">[</span></span><span class="pre">VarType</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">VarType</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">VarType</span></span></span></dt>
+<dd><p>To extract the value from param 1 if it is a var or query, otherwise return it as-is.</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>var_or_val</strong> -- The var to dispatch or the value to return as-is</p></li>
 <li><p><strong>default</strong> -- Value to return if the value of the var is False</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="charmy.utils.var.resolve_references">
+<span class="sig-prename descclassname"><span class="pre">charmy.utils.var.</span></span><span class="sig-name descname"><span class="pre">resolve_references</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">original</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">VarType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#charmy.utils.var.Var" title="charmy.utils.var.Var"><span class="pre">Var</span></a><span class="p"><span class="pre">[</span></span><span class="pre">VarType</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#charmy.utils.var.Query" title="charmy.utils.var.Query"><span class="pre">Query</span></a><span class="p"><span class="pre">[</span></span><span class="pre">VarType</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">VarType</span></span></span><a class="headerlink" href="#charmy.utils.var.resolve_references" title="链接到此定义。">¶</a></dt>
+<dd><p>Replace nested Vars and Queries in containers and object attributes.</p>
+<p>Please note that this is a vibed module!</p>
+<p>Objects with no possible Var or Query attributes are returned unchanged.
+Mutable values are updated in place; immutable containers are rebuilt when a child changes.
+Cycles are stopped by identity and active Query tracking.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>original</strong> -- The object to perform operations on</p>
 </dd>
 </dl>
 </dd></dl>
@@ -418,7 +470,13 @@ value_type: The type of the variable.</p>
 <li><a class="reference internal" href="#charmy.utils.var.Var.value"><code class="docutils literal notranslate"><span class="pre">Var.value</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#charmy.utils.var.Query"><code class="docutils literal notranslate"><span class="pre">Query</span></code></a><ul>
+<li><a class="reference internal" href="#charmy.utils.var.Query.__init__"><code class="docutils literal notranslate"><span class="pre">Query.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.var.Query.value"><code class="docutils literal notranslate"><span class="pre">Query.value</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#charmy.utils.var.unpack_var"><code class="docutils literal notranslate"><span class="pre">unpack_var()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.var.resolve_references"><code class="docutils literal notranslate"><span class="pre">resolve_references()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -437,8 +495,10 @@ value_type: The type of the variable.</p>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/translations.js?v=540d3cec"></script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../../_static/design-tabs.js?v=fcb327ea"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+
 
 
 

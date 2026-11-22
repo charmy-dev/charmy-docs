@@ -5,13 +5,13 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="索引" href="../genindex.html"><link rel="search" title="搜索" href="../search.html"><link rel="prev" title="后端开发指南" href="backend.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 9.2.0 and Furo 2025.12.19 -->
         <title>组件开发 - Charmy GUI 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
@@ -230,7 +230,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/object.html">object</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../api/styles/index.html">charmy.styles</a><input aria-label="Toggle navigation of charmy.styles" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../api/styles/shape.html">shape</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api/styles/style.html">style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/styles/text_style.html">text_style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/styles/texture.html">texture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/styles/theme.html">theme</a></li>
@@ -242,6 +241,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/event_types.html">event_types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/geo_math.html">geo_math</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/layout_profiles.html">layout_profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils/marks.html">marks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils/misc_globals.html">misc_globals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils/misc_utils.html">misc_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils/on_setattr.html">on_setattr</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/svg.html">svg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/type_checking.html">type_checking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/var.html">var</a></li>
@@ -317,7 +320,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Button</span><span class="p">(</span><span class="n">Widget</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
                  <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Button&quot;</span><span class="p">,</span>
+                 <span class="n">text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Button"</span><span class="p">,</span>
                  <span class="n">on_click</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Callable</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
                  <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -325,7 +328,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">text</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">on_click</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Callable</span> <span class="o">=</span> <span class="n">on_click</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">theme</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">Theme</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;normal&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"normal"</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_components</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">DrawnShape</span><span class="p">,</span> <span class="n">DrawnText</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">DrawnShape</span><span class="p">(</span>
@@ -342,15 +345,15 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span>
             <span class="n">_event_types</span><span class="o">.</span><span class="n">MouseClick</span><span class="p">,</span> 
-            <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_click</span><span class="p">(),</span> <span class="p">{</span><span class="s2">&quot;button&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="n">_is_internal</span><span class="o">=</span><span class="kc">True</span>
+            <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_click</span><span class="p">(),</span> <span class="p">{</span><span class="s2">"button"</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="n">_is_internal</span><span class="o">=</span><span class="kc">True</span>
             <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span>
             <span class="n">_event_types</span><span class="o">.</span><span class="n">MouseEnter</span><span class="p">,</span> 
-            <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s2">&quot;hover&quot;</span><span class="p">),</span> <span class="n">_is_internal</span><span class="o">=</span><span class="kc">True</span>
+            <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s2">"hover"</span><span class="p">),</span> <span class="n">_is_internal</span><span class="o">=</span><span class="kc">True</span>
             <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span>
             <span class="n">_event_types</span><span class="o">.</span><span class="n">MouseLeave</span><span class="p">,</span> 
-            <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s2">&quot;normal&quot;</span><span class="p">),</span> <span class="n">_is_internal</span><span class="o">=</span><span class="kc">True</span>
+            <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s2">"normal"</span><span class="p">),</span> <span class="n">_is_internal</span><span class="o">=</span><span class="kc">True</span>
             <span class="p">)</span>
 </pre></div>
 </div>
@@ -358,7 +361,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Button</span><span class="p">(</span><span class="n">Widget</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
                  <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Button&quot;</span><span class="p">,</span>
+                 <span class="n">text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Button"</span><span class="p">,</span>
                  <span class="n">on_click</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Callable</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
                  <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -369,7 +372,7 @@
 </div>
 <p>然后记录下按钮的主题与状态，主题用于设置按钮的样式，状态用于记录按钮当前的交互状态（如正常、悬停、按下等）。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">theme</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">Theme</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;normal&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"normal"</span>
 </pre></div>
 </div>
 <section id="id3">
@@ -392,7 +395,7 @@
 </div>
 <p>基本元素中，第一个参数为绘制的容器，也就是窗口实例，一般填写<code class="docutils literal notranslate"><span class="pre">self.root_container</span></code>，将指向该组件所在的窗口实例。剩下具体的参数请参考 <a class="reference internal" href="../api/graphics.html"><span class="doc">graphics</span></a>。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">DrawnObject</span><span class="p">(</span><span class="n">CharmyObject</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class of drawn objects in Charmy.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Base class of drawn objects in Charmy."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">:</span> <span class="n">WindowEntity</span><span class="p">):</span>
         <span class="o">...</span>
@@ -413,15 +416,15 @@
 <p>接下来需要使用<code class="docutils literal notranslate"><span class="pre">bind</span></code>来绑定事件，从而触发<code class="docutils literal notranslate"><span class="pre">点击</span></code>事件，或触发<code class="docutils literal notranslate"><span class="pre">碰到鼠标</span></code>更新<code class="docutils literal notranslate"><span class="pre">state</span></code>以刷新样式，更多请参阅<a class="reference internal" href="../api/event.html"><span class="doc">event</span></a>。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span>
             <span class="n">MouseClick</span><span class="p">,</span> 
-            <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_click</span><span class="p">(),</span> <span class="p">{</span><span class="s2">&quot;button&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="n">_is_internal</span><span class="o">=</span><span class="kc">True</span>
+            <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_click</span><span class="p">(),</span> <span class="p">{</span><span class="s2">"button"</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="n">_is_internal</span><span class="o">=</span><span class="kc">True</span>
             <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span>
             <span class="n">MouseEnter</span><span class="p">,</span> 
-            <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s2">&quot;hover&quot;</span><span class="p">),</span> <span class="n">_is_internal</span><span class="o">=</span><span class="kc">True</span>
+            <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s2">"hover"</span><span class="p">),</span> <span class="n">_is_internal</span><span class="o">=</span><span class="kc">True</span>
             <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span>
             <span class="n">MouseLeave</span><span class="p">,</span> 
-            <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s2">&quot;normal&quot;</span><span class="p">),</span> <span class="n">_is_internal</span><span class="o">=</span><span class="kc">True</span>
+            <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s2">"normal"</span><span class="p">),</span> <span class="n">_is_internal</span><span class="o">=</span><span class="kc">True</span>
             <span class="p">)</span>
 </pre></div>
 </div>
@@ -445,27 +448,27 @@
 <h3>组件更新部分<a class="headerlink" href="#id5" title="链接到此标题。">¶</a></h3>
 <p>组件的更新部分是组件开发中最重要的一环，组件的更新方法会在组件状态发生变化时被调用，用于重新设定元素的参数以重绘组件。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span><span class="w"> </span><span class="nf">_update_components</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="n">DrawnObject</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Components (drawn objects) that make up the button.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Components (drawn objects) that make up the button."""</span>
         <span class="c1"># Make background shape</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_components</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> \
             <span class="n">AnyShape</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_negotiate_profile_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="s2">&quot;shape&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">profiles</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_negotiate_profile_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="s2">"shape"</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span>
                 <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_components</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">texture</span> <span class="o">=</span> \
-            <span class="n">Texture</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="n">curr_style</span><span class="p">[</span><span class="s2">&quot;background&quot;</span><span class="p">])</span>
+            <span class="n">Texture</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="n">curr_style</span><span class="p">[</span><span class="s2">"background"</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_components</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">border_width</span> <span class="o">=</span> \
-            <span class="n">curr_style</span><span class="p">[</span><span class="s2">&quot;border_width&quot;</span><span class="p">]</span>
+            <span class="n">curr_style</span><span class="p">[</span><span class="s2">"border_width"</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_components</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">border_texture</span> <span class="o">=</span> \
-            <span class="n">Texture</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="n">curr_style</span><span class="p">[</span><span class="s2">&quot;border_texture&quot;</span><span class="p">])</span>
+            <span class="n">Texture</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="n">curr_style</span><span class="p">[</span><span class="s2">"border_texture"</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_components</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">offset</span> <span class="o">=</span> \
             <span class="bp">self</span><span class="o">.</span><span class="n">abs_pos</span>
         <span class="c1"># Drawn text</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_components</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> \
             <span class="bp">self</span><span class="o">.</span><span class="n">text</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_components</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">style</span> <span class="o">=</span> \
-            <span class="n">TextStyle</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="n">curr_style</span><span class="p">[</span><span class="s2">&quot;text_style&quot;</span><span class="p">])</span>
+            <span class="n">TextStyle</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="n">curr_style</span><span class="p">[</span><span class="s2">"text_style"</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_components</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">texture</span> <span class="o">=</span> \
-            <span class="n">Texture</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="n">curr_style</span><span class="p">[</span><span class="s2">&quot;text_texture&quot;</span><span class="p">])</span>
+            <span class="n">Texture</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="n">curr_style</span><span class="p">[</span><span class="s2">"text_texture"</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_components</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">offset</span> <span class="o">=</span> \
             <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">abs_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_components</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">boundary</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">//</span> <span class="mi">2</span><span class="p">),</span> 
              <span class="bp">self</span><span class="o">.</span><span class="n">abs_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_components</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">boundary</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">//</span> <span class="mi">2</span><span class="p">))</span>
@@ -550,6 +553,6 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/translations.js?v=540d3cec"></script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
     </body>
 </html>

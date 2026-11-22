@@ -5,13 +5,13 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="索引" href="../genindex.html"><link rel="search" title="搜索" href="../search.html"><link rel="next" title="API 参考" href="../api/index.html"><link rel="prev" title="抽象层" href="abstraction_layer.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 9.2.0 and Furo 2025.12.19 -->
         <title>消息循环（事件循环） - Charmy GUI 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
@@ -230,7 +230,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/object.html">object</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../api/styles/index.html">charmy.styles</a><input aria-label="Toggle navigation of charmy.styles" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../api/styles/shape.html">shape</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api/styles/style.html">style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/styles/text_style.html">text_style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/styles/texture.html">texture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/styles/theme.html">theme</a></li>
@@ -242,6 +241,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/event_types.html">event_types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/geo_math.html">geo_math</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/layout_profiles.html">layout_profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils/marks.html">marks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils/misc_globals.html">misc_globals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils/misc_utils.html">misc_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils/on_setattr.html">on_setattr</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/svg.html">svg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/type_checking.html">type_checking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/var.html">var</a></li>
@@ -356,7 +359,7 @@
 
 <span class="c1"># 手动指定 manager</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">charmy.cmm</span><span class="w"> </span><span class="kn">import</span> <span class="n">CharmyManager</span>
-<span class="n">manager</span> <span class="o">=</span> <span class="n">CharmyManager</span><span class="p">(</span><span class="s2">&quot;genesis&quot;</span><span class="p">)</span>
+<span class="n">manager</span> <span class="o">=</span> <span class="n">CharmyManager</span><span class="p">(</span><span class="s2">"genesis"</span><span class="p">)</span>
 <span class="n">window</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">manager</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -461,10 +464,10 @@
 <h3>条件绑定<a class="headerlink" href="#id7" title="链接到此标题。">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">bind()</span></code> 支持按条件过滤事件：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">button</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">event_types</span><span class="o">.</span><span class="n">MouseClick</span><span class="p">,</span> <span class="n">on_click</span><span class="p">,</span>
-            <span class="n">conditions</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;button&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>  <span class="c1"># 只响应左键</span>
+            <span class="n">conditions</span><span class="o">=</span><span class="p">{</span><span class="s2">"button"</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>  <span class="c1"># 只响应左键</span>
 
 <span class="n">button</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">event_types</span><span class="o">.</span><span class="n">MouseClick</span><span class="p">,</span> <span class="n">on_right_click</span><span class="p">,</span>
-            <span class="n">conditions</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;button&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>  <span class="c1"># 只响应右键</span>
+            <span class="n">conditions</span><span class="o">=</span><span class="p">{</span><span class="s2">"button"</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>  <span class="c1"># 只响应右键</span>
 </pre></div>
 </div>
 </section>
@@ -480,7 +483,7 @@
     <span class="c1"># 耗时操作，不会阻塞 UI</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;任务完成&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"任务完成"</span><span class="p">)</span>
 
 <span class="n">button</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">event_types</span><span class="o">.</span><span class="n">MouseClick</span><span class="p">,</span> <span class="n">heavy_task</span><span class="p">,</span> <span class="n">multithread</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -500,7 +503,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">CharmyManager</span><span class="o">.</span><span class="n">instances</span><span class="p">)</span>     <span class="c1"># 所有 Manager 实例</span>
 
 <span class="c1"># 通过 ID 查找实例</span>
-<span class="n">btn</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Button</span><span class="o">.</span><span class="n">instances</span><span class="p">[</span><span class="s2">&quot;Button0&quot;</span><span class="p">]</span>
+<span class="n">btn</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Button</span><span class="o">.</span><span class="n">instances</span><span class="p">[</span><span class="s2">"Button0"</span><span class="p">]</span>
 
 <span class="c1"># 实例被销毁后自动从列表移除（WeakSet）</span>
 <span class="k">del</span> <span class="n">btn</span>  <span class="c1"># Button0 不再出现在 .instances 中</span>
@@ -599,6 +602,6 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/translations.js?v=540d3cec"></script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
     </body>
 </html>

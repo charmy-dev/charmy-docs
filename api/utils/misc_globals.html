@@ -3,15 +3,15 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="索引" href="../../genindex.html"><link rel="search" title="搜索" href="../../search.html"><link rel="next" title="text_style" href="text_style.html"><link rel="prev" title="shape" href="shape.html">
+<link rel="index" title="索引" href="../../genindex.html"><link rel="search" title="搜索" href="../../search.html"><link rel="next" title="misc_utils" href="misc_utils.html"><link rel="prev" title="marks" href="marks.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>style - Charmy GUI 0.1.0 文档</title>
+    <!-- Generated with Sphinx 9.2.0 and Furo 2025.12.19 -->
+        <title>misc_globals - Charmy GUI 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=6a604523" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
@@ -179,7 +179,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
@@ -228,23 +228,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../event.html">event</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../graphics.html">graphics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../object.html">object</a></li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">charmy.styles</a><input aria-label="Toggle navigation of charmy.styles" checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="shape.html">shape</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">style</a></li>
-<li class="toctree-l3"><a class="reference internal" href="text_style.html">text_style</a></li>
-<li class="toctree-l3"><a class="reference internal" href="texture.html">texture</a></li>
-<li class="toctree-l3"><a class="reference internal" href="theme.html">theme</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../styles/index.html">charmy.styles</a><input aria-label="Toggle navigation of charmy.styles" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../styles/shape.html">shape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../styles/text_style.html">text_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../styles/texture.html">texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../styles/theme.html">theme</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../this.html">this</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../utils/index.html">charmy.utils</a><input aria-label="Toggle navigation of charmy.utils" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../utils/caching.html">caching</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../utils/event_types.html">event_types</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../utils/geo_math.html">geo_math</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../utils/layout_profiles.html">layout_profiles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../utils/svg.html">svg</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../utils/type_checking.html">type_checking</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../utils/var.html">var</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">charmy.utils</a><input aria-label="Toggle navigation of charmy.utils" checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="caching.html">caching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="event_types.html">event_types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geo_math.html">geo_math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layout_profiles.html">layout_profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="marks.html">marks</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">misc_globals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="misc_utils.html">misc_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="on_setattr.html">on_setattr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="svg.html">svg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="type_checking.html">type_checking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="var.html">var</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../widgets/index.html">charmy.widgets</a><input aria-label="Toggle navigation of charmy.widgets" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -285,12 +288,12 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="https://github.com/XiangQinxi/charmy/blob/master/docs/source/api/styles/style.rst?plain=true" title="View this page">
+  <a class="muted-link" href="https://github.com/XiangQinxi/charmy/blob/master/docs/source/api/utils/misc_globals.rst?plain=true" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/XiangQinxi/charmy/edit/master/docs/source/api/styles/style.rst" rel="edit" title="Edit this page">
+  <a class="muted-link" href="https://github.com/XiangQinxi/charmy/edit/master/docs/source/api/utils/misc_globals.rst" rel="edit" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -302,76 +305,37 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="style">
-<h1>style<a class="headerlink" href="#style" title="链接到此标题。">¶</a></h1>
-<dl class="py class" id="module-charmy.styles.style">
-<dt class="sig sig-object py" id="charmy.styles.style.DEBUG_FLAGS">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.styles.style.</span></span><span class="sig-name descname"><span class="pre">DEBUG_FLAGS</span></span><a class="headerlink" href="#charmy.styles.style.DEBUG_FLAGS" title="链接到此定义。">¶</a></dt>
-<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.styles.style.DEBUG_FLAGS.FILL_VARS_DEBUG_OUTPUT">
-<span class="sig-name descname"><span class="pre">FILL_VARS_DEBUG_OUTPUT</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></span><a class="headerlink" href="#charmy.styles.style.DEBUG_FLAGS.FILL_VARS_DEBUG_OUTPUT" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="charmy.styles.style.StateStyle">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.styles.style.</span></span><span class="sig-name descname"><span class="pre">StateStyle</span></span><a class="headerlink" href="#charmy.styles.style.StateStyle" title="链接到此定义。">¶</a></dt>
-<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="charmy.styles.style.StyleSheet">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.styles.style.</span></span><span class="sig-name descname"><span class="pre">StyleSheet</span></span><a class="headerlink" href="#charmy.styles.style.StyleSheet" title="链接到此定义。">¶</a></dt>
-<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="charmy.styles.style.fill_vars">
-<span class="sig-prename descclassname"><span class="pre">charmy.styles.style.</span></span><span class="sig-name descname"><span class="pre">fill_vars</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_typing.Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theme</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_typing.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">cm.styles.theme.Theme</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_typing.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">cm.window.WindowEntity</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">cm.widgets.Container</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widget</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_typing.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">cm.Widget</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">_typing.Any</span></span></span><a class="headerlink" href="#charmy.styles.style.fill_vars" title="链接到此定义。">¶</a></dt>
-<dd><p>To replace vars in a style value.</p>
-<dl class="field-list simple">
-<dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>style_value</strong> -- The style value containing the var</p></li>
-<li><p><strong>theme</strong> -- Theme currently used</p></li>
-<li><p><strong>window</strong> -- Current window</p></li>
-<li><p><strong>widget</strong> -- Current widget</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
+          <section id="misc-globals">
+<h1>misc_globals<a class="headerlink" href="#misc-globals" title="链接到此标题。">¶</a></h1>
+<span class="target" id="module-charmy.utils.misc_globals"></span></section>
 
         </article>
       </div>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="text_style.html">
+          <a class="next-page" href="misc_utils.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">text_style</div>
+                <div class="title">misc_utils</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="shape.html">
+          <a class="prev-page" href="marks.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">shape</div>
+                <div class="title">marks</div>
                 
               </div>
             </a>
@@ -393,33 +357,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">style</a><ul>
-<li><a class="reference internal" href="#charmy.styles.style.DEBUG_FLAGS"><code class="docutils literal notranslate"><span class="pre">DEBUG_FLAGS</span></code></a><ul>
-<li><a class="reference internal" href="#charmy.styles.style.DEBUG_FLAGS.FILL_VARS_DEBUG_OUTPUT"><code class="docutils literal notranslate"><span class="pre">DEBUG_FLAGS.FILL_VARS_DEBUG_OUTPUT</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#charmy.styles.style.StateStyle"><code class="docutils literal notranslate"><span class="pre">StateStyle</span></code></a></li>
-<li><a class="reference internal" href="#charmy.styles.style.StyleSheet"><code class="docutils literal notranslate"><span class="pre">StyleSheet</span></code></a></li>
-<li><a class="reference internal" href="#charmy.styles.style.fill_vars"><code class="docutils literal notranslate"><span class="pre">fill_vars()</span></code></a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
@@ -431,6 +370,6 @@
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/translations.js?v=540d3cec"></script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../../_static/design-tabs.js?v=fcb327ea"></script>
     </body>
 </html>

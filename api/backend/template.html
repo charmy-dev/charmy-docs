@@ -5,13 +5,13 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="索引" href="../../genindex.html"><link rel="search" title="搜索" href="../../search.html"><link rel="next" title="utils" href="utils.html"><link rel="prev" title="loader" href="loader.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 9.2.0 and Furo 2025.12.19 -->
         <title>template - Charmy GUI 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=6a604523" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
@@ -230,7 +230,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../object.html">object</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../styles/index.html">charmy.styles</a><input aria-label="Toggle navigation of charmy.styles" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../styles/shape.html">shape</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../styles/style.html">style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../styles/text_style.html">text_style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../styles/texture.html">texture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../styles/theme.html">theme</a></li>
@@ -242,6 +241,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../utils/event_types.html">event_types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/geo_math.html">geo_math</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/layout_profiles.html">layout_profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/marks.html">marks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/misc_globals.html">misc_globals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/misc_utils.html">misc_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/on_setattr.html">on_setattr</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/svg.html">svg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/type_checking.html">type_checking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/var.html">var</a></li>
@@ -584,8 +587,8 @@ window: The WindowBase to draw line</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="charmy.backend.template.Backend.TextBase.get_text_bound">
-<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_text_bound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">drawn_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../graphics.html#charmy.graphics.DrawnText" title="charmy.graphics.DrawnText"><span class="pre">DrawnText</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.backend.template.Backend.TextBase.get_text_bound" title="链接到此定义。">¶</a></dt>
+<dt class="sig sig-object py" id="charmy.backend.template.Backend.TextBase.get_text_size">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_text_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">drawn_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../graphics.html#charmy.graphics.DrawnText" title="charmy.graphics.DrawnText"><span class="pre">DrawnText</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#charmy.backend.template.Backend.TextBase.get_text_size" title="链接到此定义。">¶</a></dt>
 <dd><p>To get the text's boundary when it is rendered by a specific backend.</p>
 </dd></dl>
 
@@ -732,7 +735,7 @@ window: The WindowBase to draw line</p>
 <li><a class="reference internal" href="#charmy.backend.template.Backend.TextBase"><code class="docutils literal notranslate"><span class="pre">Backend.TextBase</span></code></a><ul>
 <li><a class="reference internal" href="#charmy.backend.template.Backend.TextBase.__init__"><code class="docutils literal notranslate"><span class="pre">Backend.TextBase.__init__()</span></code></a></li>
 <li><a class="reference internal" href="#charmy.backend.template.Backend.TextBase.draw_text"><code class="docutils literal notranslate"><span class="pre">Backend.TextBase.draw_text()</span></code></a></li>
-<li><a class="reference internal" href="#charmy.backend.template.Backend.TextBase.get_text_bound"><code class="docutils literal notranslate"><span class="pre">Backend.TextBase.get_text_bound()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.backend.template.Backend.TextBase.get_text_size"><code class="docutils literal notranslate"><span class="pre">Backend.TextBase.get_text_size()</span></code></a></li>
 <li><a class="reference internal" href="#charmy.backend.template.Backend.TextBase.supports"><code class="docutils literal notranslate"><span class="pre">Backend.TextBase.supports</span></code></a></li>
 </ul>
 </li>
@@ -759,8 +762,10 @@ window: The WindowBase to draw line</p>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/translations.js?v=540d3cec"></script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../../_static/design-tabs.js?v=fcb327ea"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+
 
 
 

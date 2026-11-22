@@ -5,13 +5,13 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="索引" href="../../genindex.html"><link rel="search" title="搜索" href="../../search.html"><link rel="next" title="geo_math" href="geo_math.html"><link rel="prev" title="caching" href="caching.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 9.2.0 and Furo 2025.12.19 -->
         <title>event_types - Charmy GUI 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=6a604523" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
@@ -230,7 +230,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../object.html">object</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../styles/index.html">charmy.styles</a><input aria-label="Toggle navigation of charmy.styles" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../styles/shape.html">shape</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../styles/style.html">style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../styles/text_style.html">text_style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../styles/texture.html">texture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../styles/theme.html">theme</a></li>
@@ -242,6 +241,10 @@
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">event_types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geo_math.html">geo_math</a></li>
 <li class="toctree-l3"><a class="reference internal" href="layout_profiles.html">layout_profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="marks.html">marks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="misc_globals.html">misc_globals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="misc_utils.html">misc_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="on_setattr.html">on_setattr</a></li>
 <li class="toctree-l3"><a class="reference internal" href="svg.html">svg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="type_checking.html">type_checking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="var.html">var</a></li>
@@ -314,6 +317,7 @@
   CharmyObject &lt;|-- Event
   Event &lt;|-- DelayTriggered
   Event &lt;|-- EventTriggered
+  Event &lt;|-- LayoutChanged
   Event &lt;|-- MouseInteractEvent
   Event &lt;|-- MouseRawEvent
   Event &lt;|-- ProfileChanged
@@ -423,7 +427,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="charmy.utils.event_types.WidgetUpdate">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.event_types.</span></span><span class="sig-name descname"><span class="pre">WidgetUpdate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_EventHandling</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redraw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">_shape.ShapeRange</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.event_types.WidgetUpdate" title="链接到此定义。">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.event_types.</span></span><span class="sig-name descname"><span class="pre">WidgetUpdate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_EventHandling</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redraw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">_shape.RectRange</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.event_types.WidgetUpdate" title="链接到此定义。">¶</a></dt>
 <dd><p>基类：<a class="reference internal" href="#charmy.utils.event_types.WidgetEvent" title="charmy.utils.event_types.WidgetEvent"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetEvent</span></code></a></p>
 <p>Will be generated when a widget or window is updated.</p>
 <section id="note-on-param-subject">
@@ -441,12 +445,12 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="charmy.utils.event_types.WidgetUpdate.redraw">
-<span class="sig-name descname"><span class="pre">redraw</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">_shape.ShapeRange</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></span><a class="headerlink" href="#charmy.utils.event_types.WidgetUpdate.redraw" title="链接到此定义。">¶</a></dt>
+<span class="sig-name descname"><span class="pre">redraw</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">_shape.RectRange</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></span><a class="headerlink" href="#charmy.utils.event_types.WidgetUpdate.redraw" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="charmy.utils.event_types.WidgetUpdate.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_EventHandling</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redraw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">_shape.ShapeRange</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.utils.event_types.WidgetUpdate.__init__" title="链接到此定义。">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_EventHandling</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redraw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">_shape.RectRange</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.utils.event_types.WidgetUpdate.__init__" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 </section>
@@ -481,7 +485,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="charmy.utils.event_types.WidgetConfigure">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.event_types.</span></span><span class="sig-name descname"><span class="pre">WidgetConfigure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_EventHandling</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs_changed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.event_types.WidgetConfigure" title="链接到此定义。">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.event_types.</span></span><span class="sig-name descname"><span class="pre">WidgetConfigure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_EventHandling</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_changed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_typing.Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.event_types.WidgetConfigure" title="链接到此定义。">¶</a></dt>
 <dd><p>基类：<a class="reference internal" href="#charmy.utils.event_types.WidgetEvent" title="charmy.utils.event_types.WidgetEvent"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetEvent</span></code></a></p>
 <p>Will be generated when a widget or window has its configuration changed.</p>
 <dl class="py attribute">
@@ -490,8 +494,13 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.utils.event_types.WidgetConfigure.attrs_changed">
-<span class="sig-name descname"><span class="pre">attrs_changed</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></span><a class="headerlink" href="#charmy.utils.event_types.WidgetConfigure.attrs_changed" title="链接到此定义。">¶</a></dt>
+<dt class="sig sig-object py" id="charmy.utils.event_types.WidgetConfigure.item_changed">
+<span class="sig-name descname"><span class="pre">item_changed</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#charmy.utils.event_types.WidgetConfigure.item_changed" title="链接到此定义。">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="charmy.utils.event_types.WidgetConfigure.old_value">
+<span class="sig-name descname"><span class="pre">old_value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_typing.Any</span></span><a class="headerlink" href="#charmy.utils.event_types.WidgetConfigure.old_value" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -501,14 +510,14 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="charmy.utils.event_types.WidgetConfigure.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_EventHandling</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs_changed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.utils.event_types.WidgetConfigure.__init__" title="链接到此定义。">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_EventHandling</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_changed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_typing.Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.utils.event_types.WidgetConfigure.__init__" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="charmy.utils.event_types.WidgetResize">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.event_types.</span></span><span class="sig-name descname"><span class="pre">WidgetResize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_EventHandling</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_shape.Size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_typing.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">_shape.Size</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.event_types.WidgetResize" title="链接到此定义。">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.event_types.</span></span><span class="sig-name descname"><span class="pre">WidgetResize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_EventHandling</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_shape.Size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_shape.Size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.event_types.WidgetResize" title="链接到此定义。">¶</a></dt>
 <dd><p>基类：<a class="reference internal" href="#charmy.utils.event_types.WidgetEvent" title="charmy.utils.event_types.WidgetEvent"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetEvent</span></code></a></p>
 <p>Will be generated when a widget or window is resized.</p>
 <dl class="py attribute">
@@ -523,19 +532,19 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="charmy.utils.event_types.WidgetResize.old_size">
-<span class="sig-name descname"><span class="pre">old_size</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_typing.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">_shape.Size</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#charmy.utils.event_types.WidgetResize.old_size" title="链接到此定义。">¶</a></dt>
+<span class="sig-name descname"><span class="pre">old_size</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_shape.Size</span></span><a class="headerlink" href="#charmy.utils.event_types.WidgetResize.old_size" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="charmy.utils.event_types.WidgetResize.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_EventHandling</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_shape.Size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_typing.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">_shape.Size</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.utils.event_types.WidgetResize.__init__" title="链接到此定义。">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_EventHandling</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_shape.Size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_shape.Size</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.utils.event_types.WidgetResize.__init__" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="charmy.utils.event_types.WidgetMove">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.event_types.</span></span><span class="sig-name descname"><span class="pre">WidgetMove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_EventHandling</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_shape.Point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_typing.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">_shape.Point</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.event_types.WidgetMove" title="链接到此定义。">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.event_types.</span></span><span class="sig-name descname"><span class="pre">WidgetMove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_EventHandling</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_shape.Point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_shape.Point</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.event_types.WidgetMove" title="链接到此定义。">¶</a></dt>
 <dd><p>基类：<a class="reference internal" href="#charmy.utils.event_types.WidgetEvent" title="charmy.utils.event_types.WidgetEvent"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetEvent</span></code></a></p>
 <p>Will be generated when a widget or window is moved.</p>
 <dl class="py attribute">
@@ -550,12 +559,12 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="charmy.utils.event_types.WidgetMove.old_pos">
-<span class="sig-name descname"><span class="pre">old_pos</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_typing.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">_shape.Point</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#charmy.utils.event_types.WidgetMove.old_pos" title="链接到此定义。">¶</a></dt>
+<span class="sig-name descname"><span class="pre">old_pos</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_shape.Point</span></span><a class="headerlink" href="#charmy.utils.event_types.WidgetMove.old_pos" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="charmy.utils.event_types.WidgetMove.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_EventHandling</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_shape.Point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_typing.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">_shape.Point</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.utils.event_types.WidgetMove.__init__" title="链接到此定义。">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_EventHandling</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_shape.Point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_shape.Point</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.utils.event_types.WidgetMove.__init__" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -856,8 +865,9 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="charmy.utils.event_types.VarChanged">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.event_types.</span></span><span class="sig-name descname"><span class="pre">VarChanged</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'_var.Var'</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.event_types.VarChanged" title="链接到此定义。">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.event_types.</span></span><span class="sig-name descname"><span class="pre">VarChanged</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_var.Var</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.event_types.VarChanged" title="链接到此定义。">¶</a></dt>
 <dd><p>基类：<a class="reference internal" href="#charmy.utils.event_types.Event" title="charmy.utils.event_types.Event"><code class="xref py py-class docutils literal notranslate"><span class="pre">Event</span></code></a></p>
+<p>Represents that the value of a Var was changed.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="charmy.utils.event_types.VarChanged.type">
 <span class="sig-name descname"><span class="pre">type</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_typing.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'var.changed'</span></span><a class="headerlink" href="#charmy.utils.event_types.VarChanged.type" title="链接到此定义。">¶</a></dt>
@@ -877,8 +887,9 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="charmy.utils.event_types.ProfileChanged">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.event_types.</span></span><span class="sig-name descname"><span class="pre">ProfileChanged</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'_widget.WidgetProfile'</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_changed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'str'</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.event_types.ProfileChanged" title="链接到此定义。">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.event_types.</span></span><span class="sig-name descname"><span class="pre">ProfileChanged</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_widget.WidgetProfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_changed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.event_types.ProfileChanged" title="链接到此定义。">¶</a></dt>
 <dd><p>基类：<a class="reference internal" href="#charmy.utils.event_types.Event" title="charmy.utils.event_types.Event"><code class="xref py py-class docutils literal notranslate"><span class="pre">Event</span></code></a></p>
+<p>Represents that any value of a profile was changed.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="charmy.utils.event_types.ProfileChanged.type">
 <span class="sig-name descname"><span class="pre">type</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_typing.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'profile.changed'</span></span><a class="headerlink" href="#charmy.utils.event_types.ProfileChanged.type" title="链接到此定义。">¶</a></dt>
@@ -902,8 +913,40 @@
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="charmy.utils.event_types.LayoutChanged">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.event_types.</span></span><span class="sig-name descname"><span class="pre">LayoutChanged</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_layout_profiles.LayoutProfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_changed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_typing.Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.event_types.LayoutChanged" title="链接到此定义。">¶</a></dt>
+<dd><p>基类：<a class="reference internal" href="#charmy.utils.event_types.Event" title="charmy.utils.event_types.Event"><code class="xref py py-class docutils literal notranslate"><span class="pre">Event</span></code></a></p>
+<p>Represents that any property of a LayoutProfile was changed.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="charmy.utils.event_types.LayoutChanged.type">
+<span class="sig-name descname"><span class="pre">type</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_typing.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'layout.changed'</span></span><a class="headerlink" href="#charmy.utils.event_types.LayoutChanged.type" title="链接到此定义。">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="charmy.utils.event_types.LayoutChanged.subject">
+<span class="sig-name descname"><span class="pre">subject</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_layout_profiles.LayoutProfile</span></span><a class="headerlink" href="#charmy.utils.event_types.LayoutChanged.subject" title="链接到此定义。">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="charmy.utils.event_types.LayoutChanged.item_changed">
+<span class="sig-name descname"><span class="pre">item_changed</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#charmy.utils.event_types.LayoutChanged.item_changed" title="链接到此定义。">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="charmy.utils.event_types.LayoutChanged.old_value">
+<span class="sig-name descname"><span class="pre">old_value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">_typing.Any</span></span><a class="headerlink" href="#charmy.utils.event_types.LayoutChanged.old_value" title="链接到此定义。">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="charmy.utils.event_types.LayoutChanged.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_layout_profiles.LayoutProfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_changed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_typing.Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.utils.event_types.LayoutChanged.__init__" title="链接到此定义。">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="charmy.utils.event_types.DelayTriggered">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.event_types.</span></span><span class="sig-name descname"><span class="pre">DelayTriggered</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'float'</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'float'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1785142216.2812908</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.event_types.DelayTriggered" title="链接到此定义。">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.utils.event_types.</span></span><span class="sig-name descname"><span class="pre">DelayTriggered</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'float'</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'float'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1795317182.0209768</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.utils.event_types.DelayTriggered" title="链接到此定义。">¶</a></dt>
 <dd><p>基类：<a class="reference internal" href="#charmy.utils.event_types.Event" title="charmy.utils.event_types.Event"><code class="xref py py-class docutils literal notranslate"><span class="pre">Event</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="charmy.utils.event_types.DelayTriggered.type">
@@ -917,12 +960,12 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="charmy.utils.event_types.DelayTriggered.current_time">
-<span class="sig-name descname"><span class="pre">current_time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1785142216.2812908</span></span><a class="headerlink" href="#charmy.utils.event_types.DelayTriggered.current_time" title="链接到此定义。">¶</a></dt>
+<span class="sig-name descname"><span class="pre">current_time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1795317182.0209768</span></span><a class="headerlink" href="#charmy.utils.event_types.DelayTriggered.current_time" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="charmy.utils.event_types.DelayTriggered.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1785142216.2812908</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.utils.event_types.DelayTriggered.__init__" title="链接到此定义。">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1795317182.0209768</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.utils.event_types.DelayTriggered.__init__" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1021,7 +1064,8 @@
 </li>
 <li><a class="reference internal" href="#charmy.utils.event_types.WidgetConfigure"><code class="docutils literal notranslate"><span class="pre">WidgetConfigure</span></code></a><ul>
 <li><a class="reference internal" href="#charmy.utils.event_types.WidgetConfigure.type"><code class="docutils literal notranslate"><span class="pre">WidgetConfigure.type</span></code></a></li>
-<li><a class="reference internal" href="#charmy.utils.event_types.WidgetConfigure.attrs_changed"><code class="docutils literal notranslate"><span class="pre">WidgetConfigure.attrs_changed</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.event_types.WidgetConfigure.item_changed"><code class="docutils literal notranslate"><span class="pre">WidgetConfigure.item_changed</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.event_types.WidgetConfigure.old_value"><code class="docutils literal notranslate"><span class="pre">WidgetConfigure.old_value</span></code></a></li>
 <li><a class="reference internal" href="#charmy.utils.event_types.WidgetConfigure.call_chain"><code class="docutils literal notranslate"><span class="pre">WidgetConfigure.call_chain()</span></code></a></li>
 <li><a class="reference internal" href="#charmy.utils.event_types.WidgetConfigure.__init__"><code class="docutils literal notranslate"><span class="pre">WidgetConfigure.__init__()</span></code></a></li>
 </ul>
@@ -1131,6 +1175,14 @@
 <li><a class="reference internal" href="#charmy.utils.event_types.ProfileChanged.__init__"><code class="docutils literal notranslate"><span class="pre">ProfileChanged.__init__()</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#charmy.utils.event_types.LayoutChanged"><code class="docutils literal notranslate"><span class="pre">LayoutChanged</span></code></a><ul>
+<li><a class="reference internal" href="#charmy.utils.event_types.LayoutChanged.type"><code class="docutils literal notranslate"><span class="pre">LayoutChanged.type</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.event_types.LayoutChanged.subject"><code class="docutils literal notranslate"><span class="pre">LayoutChanged.subject</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.event_types.LayoutChanged.item_changed"><code class="docutils literal notranslate"><span class="pre">LayoutChanged.item_changed</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.event_types.LayoutChanged.old_value"><code class="docutils literal notranslate"><span class="pre">LayoutChanged.old_value</span></code></a></li>
+<li><a class="reference internal" href="#charmy.utils.event_types.LayoutChanged.__init__"><code class="docutils literal notranslate"><span class="pre">LayoutChanged.__init__()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#charmy.utils.event_types.DelayTriggered"><code class="docutils literal notranslate"><span class="pre">DelayTriggered</span></code></a><ul>
 <li><a class="reference internal" href="#charmy.utils.event_types.DelayTriggered.type"><code class="docutils literal notranslate"><span class="pre">DelayTriggered.type</span></code></a></li>
 <li><a class="reference internal" href="#charmy.utils.event_types.DelayTriggered.delay_time"><code class="docutils literal notranslate"><span class="pre">DelayTriggered.delay_time</span></code></a></li>
@@ -1156,8 +1208,10 @@
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/translations.js?v=540d3cec"></script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../../_static/design-tabs.js?v=fcb327ea"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+
 
 
 

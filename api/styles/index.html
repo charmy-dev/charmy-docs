@@ -5,13 +5,13 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="索引" href="../../genindex.html"><link rel="search" title="搜索" href="../../search.html"><link rel="next" title="shape" href="shape.html"><link rel="prev" title="object" href="../object.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 9.2.0 and Furo 2025.12.19 -->
         <title>charmy.styles - Charmy GUI 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=6a604523" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
@@ -230,7 +230,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../object.html">object</a></li>
 <li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">charmy.styles</a><input aria-label="Toggle navigation of charmy.styles" checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="shape.html">shape</a></li>
-<li class="toctree-l3"><a class="reference internal" href="style.html">style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="text_style.html">text_style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="texture.html">texture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="theme.html">theme</a></li>
@@ -242,6 +241,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../utils/event_types.html">event_types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/geo_math.html">geo_math</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/layout_profiles.html">layout_profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/marks.html">marks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/misc_globals.html">misc_globals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/misc_utils.html">misc_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/on_setattr.html">on_setattr</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/svg.html">svg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/type_checking.html">type_checking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/var.html">var</a></li>
@@ -332,15 +335,7 @@
 <li class="toctree-l2"><a class="reference internal" href="shape.html#charmy.styles.shape.ShapeGroup"><code class="docutils literal notranslate"><span class="pre">ShapeGroup</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="style.html">style</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="style.html#charmy.styles.style.DEBUG_FLAGS"><code class="docutils literal notranslate"><span class="pre">DEBUG_FLAGS</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="style.html#charmy.styles.style.StateStyle"><code class="docutils literal notranslate"><span class="pre">StateStyle</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="style.html#charmy.styles.style.StyleSheet"><code class="docutils literal notranslate"><span class="pre">StyleSheet</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="style.html#charmy.styles.style.fill_vars"><code class="docutils literal notranslate"><span class="pre">fill_vars()</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="text_style.html">text_style</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="text_style.html#charmy.styles.text_style.WEIGHT"><code class="docutils literal notranslate"><span class="pre">WEIGHT</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="text_style.html#charmy.styles.text_style.TextStyle"><code class="docutils literal notranslate"><span class="pre">TextStyle</span></code></a></li>
 </ul>
 </li>
@@ -350,6 +345,8 @@
 <li class="toctree-l2"><a class="reference internal" href="texture.html#charmy.styles.texture.Texture"><code class="docutils literal notranslate"><span class="pre">Texture</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="texture.html#charmy.styles.texture.Color"><code class="docutils literal notranslate"><span class="pre">Color</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="texture.html#charmy.styles.texture.Transparent"><code class="docutils literal notranslate"><span class="pre">Transparent</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="texture.html#charmy.styles.texture.Gradient"><code class="docutils literal notranslate"><span class="pre">Gradient</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="texture.html#charmy.styles.texture.LinearGradient"><code class="docutils literal notranslate"><span class="pre">LinearGradient</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="texture.html#charmy.styles.texture.ensure_texture"><code class="docutils literal notranslate"><span class="pre">ensure_texture()</span></code></a></li>
 </ul>
 </li>
@@ -417,6 +414,6 @@
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/translations.js?v=540d3cec"></script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../../_static/design-tabs.js?v=fcb327ea"></script>
     </body>
 </html>

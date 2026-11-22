@@ -5,13 +5,13 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="索引" href="../genindex.html"><link rel="search" title="搜索" href="../search.html"><link rel="next" title="组件开发" href="widget.html"><link rel="prev" title="贡献指南" href="index.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 9.2.0 and Furo 2025.12.19 -->
         <title>后端开发指南 - Charmy GUI 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
@@ -230,7 +230,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/object.html">object</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../api/styles/index.html">charmy.styles</a><input aria-label="Toggle navigation of charmy.styles" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../api/styles/shape.html">shape</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api/styles/style.html">style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/styles/text_style.html">text_style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/styles/texture.html">texture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/styles/theme.html">theme</a></li>
@@ -242,6 +241,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/event_types.html">event_types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/geo_math.html">geo_math</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/layout_profiles.html">layout_profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils/marks.html">marks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils/misc_globals.html">misc_globals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils/misc_utils.html">misc_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils/on_setattr.html">on_setattr</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/svg.html">svg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/type_checking.html">type_checking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/var.html">var</a></li>
@@ -332,15 +335,15 @@
 <section id="backend">
 <h4>编写<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类<a class="headerlink" href="#backend" title="链接到此标题。">¶</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Backend</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">Backend</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The Genesis backend.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""The Genesis backend."""</span>
 
-    <span class="n">name</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>            <span class="s2">&quot;genesis&quot;</span>
-    <span class="n">friendly_name</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>   <span class="s2">&quot;Genesis&quot;</span>
-    <span class="n">version</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>         <span class="s2">&quot;0.1.0&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>            <span class="s2">"genesis"</span>
+    <span class="n">friendly_name</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>   <span class="s2">"Genesis"</span>
+    <span class="n">version</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span>         <span class="s2">"0.1.0"</span>
     <span class="n">author</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">ClassVar</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span>    <span class="o">...</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;APIs are aliased here.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""APIs are aliased here."""</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
     
     <span class="k">def</span><span class="w"> </span><span class="nf">backend_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -361,7 +364,7 @@
 <p>综上所述，具体的实现应当为：后端继承template中对应的<code class="docutils literal notranslate"><span class="pre">*SupportState</span></code>类，然后标记自身支持的特性为<code class="docutils literal notranslate"><span class="pre">True</span></code>，并（可选）标记自身明确不会支持的特性为<code class="docutils literal notranslate"><span class="pre">False</span></code>。</p>
 <p>以下是一个例子，这个后端声明其支持为窗口设定标题与图标，但明确声明其不支持设定窗口在屏幕上的位置。而对于缩放模式等，后端并未明确进行声明，Charmy会将其视为不支持这些特性。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">WindowSupportState</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">WindowSupportState</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Flags all supported window features.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Flags all supported window features."""</span>
     <span class="n">set_title</span>               <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="n">set_icon</span>                <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="n">set_pos</span>                 <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
@@ -374,15 +377,15 @@
 <h4>编写<code class="docutils literal notranslate"><span class="pre">WindowBase</span></code>类<a class="headerlink" href="#windowbase" title="链接到此标题。">¶</a></h4>
 <p>这是后端使用的GUI窗口类接口，应当继承自<code class="docutils literal notranslate"><span class="pre">template.WindowBase</span></code>，并实现必要的功能。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">WindowBase</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">WindowBase</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Window APIs implementation.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Window APIs implementation."""</span>
     <span class="n">supports</span> <span class="o">=</span> <span class="n">WindowSupportState</span><span class="p">()</span>
     <span class="n">Backend</span> <span class="o">=</span> <span class="n">Backend</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">backend</span><span class="p">:</span> <span class="n">template</span><span class="o">.</span><span class="n">Backend</span><span class="p">,</span> <span class="n">charmy_window</span><span class="p">:</span> <span class="n">_window</span><span class="o">.</span><span class="n">WindowEntity</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Creates a window.</span>
+<span class="w">        </span><span class="sd">"""Creates a window.</span>
 
 <span class="sd">        :param backend: The backend that this window uses (can be get from CharmyManager)</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">backend</span><span class="p">,</span> <span class="n">charmy_window</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="o">=</span> <span class="o">...</span>
@@ -402,7 +405,7 @@
 </div>
 <p>首先继承模板类，并设<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类属性为你刚刚编写的<code class="docutils literal notranslate"><span class="pre">Backend</span></code>类，设定<code class="docutils literal notranslate"><span class="pre">supports</span></code>类属性为你刚刚编写的<code class="docutils literal notranslate"><span class="pre">WindowSupportState</span></code>实例。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">WindowBase</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">WindowBase</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Window APIs in Genesis backend.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Window APIs in Genesis backend."""</span>
     <span class="n">supports</span> <span class="o">=</span> <span class="n">WindowSupportState</span><span class="p">()</span>
     <span class="n">Backend</span> <span class="o">=</span> <span class="n">Backend</span>
 </pre></div>
@@ -553,6 +556,6 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/translations.js?v=540d3cec"></script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
     </body>
 </html>

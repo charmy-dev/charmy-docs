@@ -5,13 +5,13 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="索引" href="../../genindex.html"><link rel="search" title="搜索" href="../../search.html"><link rel="next" title="this" href="../this.html"><link rel="prev" title="texture" href="texture.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 9.2.0 and Furo 2025.12.19 -->
         <title>theme - Charmy GUI 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=6a604523" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
@@ -230,7 +230,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../object.html">object</a></li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">charmy.styles</a><input aria-label="Toggle navigation of charmy.styles" checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="shape.html">shape</a></li>
-<li class="toctree-l3"><a class="reference internal" href="style.html">style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="text_style.html">text_style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="texture.html">texture</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">theme</a></li>
@@ -242,6 +241,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../utils/event_types.html">event_types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/geo_math.html">geo_math</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/layout_profiles.html">layout_profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/marks.html">marks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/misc_globals.html">misc_globals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/misc_utils.html">misc_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/on_setattr.html">on_setattr</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/svg.html">svg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/type_checking.html">type_checking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/var.html">var</a></li>
@@ -314,14 +317,17 @@
   CharmyObject &lt;|-- Theme
     </pre><dl class="py class" id="module-charmy.styles.theme">
 <dt class="sig sig-object py" id="charmy.styles.theme.Theme">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.styles.theme.</span></span><span class="sig-name descname"><span class="pre">Theme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">styles</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#charmy.styles.theme.Theme" title="charmy.styles.theme.Theme"><span class="pre">Theme</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.styles.theme.Theme" title="链接到此定义。">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.styles.theme.</span></span><span class="sig-name descname"><span class="pre">Theme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">styles</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#charmy.styles.theme.Theme" title="charmy.styles.theme.Theme"><span class="pre">Theme</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.styles.theme.Theme" title="链接到此定义。">¶</a></dt>
 <dd><p>基类：<a class="reference internal" href="../object.html#charmy.cm_object.CharmyObject" title="charmy.cm_object.CharmyObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharmyObject</span></code></a></p>
 <p>Theme class for CWindow and CWidgets.</p>
+<p>Theme data is stored like a mapping, so <cite>theme[&quot;name&quot;]</cite>, <cite>theme[&quot;styles&quot;]</cite> and 
+<cite>theme.get(&quot;color_palette&quot;, {})</cite> all work. Metadata lives under the keys <cite>name</cite>, 
+<cite>friendly_name</cite>, <cite>base</cite>, <cite>styles</cite> and <cite>color_palette</cite>.</p>
 <section id="example">
 <h2>Example<a class="headerlink" href="#example" title="链接到此标题。">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_theme</span> <span class="o">=</span> <span class="n">CTheme</span><span class="p">({</span><span class="o">&lt;</span><span class="n">Some</span> <span class="n">styles</span><span class="o">&gt;</span><span class="p">})</span>
-<span class="n">my_sub_theme</span> <span class="o">=</span> <span class="n">CTheme</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="s2">&quot;default.light&quot;</span><span class="p">)</span>
-<span class="n">my_external_theme</span> <span class="o">=</span> <span class="n">CTheme</span><span class="p">()</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s2">&quot;./path/to/a/theme.json&quot;</span><span class="p">)</span>
+<span class="n">my_sub_theme</span> <span class="o">=</span> <span class="n">CTheme</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="s2">"default.light"</span><span class="p">)</span>
+<span class="n">my_external_theme</span> <span class="o">=</span> <span class="n">CTheme</span><span class="p">()</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s2">"./path/to/a/theme.json"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This shows examples of creating themes, either from a JSON, a parent theme or a file.</p>
@@ -331,16 +337,16 @@
 </pre></div>
 </div>
 <p>This shows getting all loaded themes, internal themes, and the default theme.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">default_light_theme</span> <span class="o">=</span> <span class="n">CTheme</span><span class="o">.</span><span class="n">find_loaded_theme</span><span class="p">(</span><span class="s2">&quot;default.light&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">CTheme</span><span class="o">.</span><span class="n">validate_theme_existed</span><span class="p">(</span><span class="s2">&quot;default.light&quot;</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Default light theme exists!&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">default_light_theme</span> <span class="o">=</span> <span class="n">CTheme</span><span class="o">.</span><span class="n">find_loaded_theme</span><span class="p">(</span><span class="s2">"default.light"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">CTheme</span><span class="o">.</span><span class="n">validate_theme_existed</span><span class="p">(</span><span class="s2">"default.light"</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Default light theme exists!"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This shows finding a theme and checking if it exists</p>
 <p>重置后我摸改了一些地方，但逻辑、功能应是大差不差的，某些方法名、变量名我改的易读了点</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="charmy.styles.theme.Theme.LOADED_THEMES">
-<span class="sig-name descname"><span class="pre">LOADED_THEMES</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#charmy.styles.theme.Theme" title="charmy.styles.theme.Theme"><span class="pre">Theme</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></span><a class="headerlink" href="#charmy.styles.theme.Theme.LOADED_THEMES" title="链接到此定义。">¶</a></dt>
+<span class="sig-name descname"><span class="pre">LOADED_THEMES</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#charmy.styles.theme.Theme" title="charmy.styles.theme.Theme"><span class="pre">Theme</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[Theme(name='default.light',</span> <span class="pre">keys=['base',</span> <span class="pre">'color_palette',</span> <span class="pre">'friendly_name',</span> <span class="pre">'is_special',</span> <span class="pre">'name',</span> <span class="pre">'styles']),</span> <span class="pre">Theme(name='sun_valley.dark',</span> <span class="pre">keys=['base',</span> <span class="pre">'color_palette',</span> <span class="pre">'friendly_name',</span> <span class="pre">'is_special',</span> <span class="pre">'name',</span> <span class="pre">'styles']),</span> <span class="pre">Theme(name='sun_valley.light',</span> <span class="pre">keys=['base',</span> <span class="pre">'color_palette',</span> <span class="pre">'friendly_name',</span> <span class="pre">'is_special',</span> <span class="pre">'name',</span> <span class="pre">'styles']),</span> <span class="pre">Theme(name='default.dark',</span> <span class="pre">keys=['base',</span> <span class="pre">'color_palette',</span> <span class="pre">'friendly_name',</span> <span class="pre">'is_special',</span> <span class="pre">'name',</span> <span class="pre">'styles'])]</span></span><a class="headerlink" href="#charmy.styles.theme.Theme.LOADED_THEMES" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -350,17 +356,22 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="charmy.styles.theme.Theme.INTERNAL_THEME">
-<span class="sig-name descname"><span class="pre">INTERNAL_THEME</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#charmy.styles.theme.Theme" title="charmy.styles.theme.Theme"><span class="pre">Theme</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></span><a class="headerlink" href="#charmy.styles.theme.Theme.INTERNAL_THEME" title="链接到此定义。">¶</a></dt>
+<span class="sig-name descname"><span class="pre">INTERNAL_THEME</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#charmy.styles.theme.Theme" title="charmy.styles.theme.Theme"><span class="pre">Theme</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'default.dark':</span> <span class="pre">Theme(name='default.dark',</span> <span class="pre">keys=['base',</span> <span class="pre">'color_palette',</span> <span class="pre">'friendly_name',</span> <span class="pre">'is_special',</span> <span class="pre">'name',</span> <span class="pre">'styles']),</span> <span class="pre">'default.light':</span> <span class="pre">Theme(name='default.light',</span> <span class="pre">keys=['base',</span> <span class="pre">'color_palette',</span> <span class="pre">'friendly_name',</span> <span class="pre">'is_special',</span> <span class="pre">'name',</span> <span class="pre">'styles']),</span> <span class="pre">'sun_valley.dark':</span> <span class="pre">Theme(name='sun_valley.dark',</span> <span class="pre">keys=['base',</span> <span class="pre">'color_palette',</span> <span class="pre">'friendly_name',</span> <span class="pre">'is_special',</span> <span class="pre">'name',</span> <span class="pre">'styles']),</span> <span class="pre">'sun_valley.light':</span> <span class="pre">Theme(name='sun_valley.light',</span> <span class="pre">keys=['base',</span> <span class="pre">'color_palette',</span> <span class="pre">'friendly_name',</span> <span class="pre">'is_special',</span> <span class="pre">'name',</span> <span class="pre">'styles'])}</span></span><a class="headerlink" href="#charmy.styles.theme.Theme.INTERNAL_THEME" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="charmy.styles.theme.Theme.DEFAULT_THEME">
-<span class="sig-name descname"><span class="pre">DEFAULT_THEME</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#charmy.styles.theme.Theme" title="charmy.styles.theme.Theme"><span class="pre">Theme</span></a></span><a class="headerlink" href="#charmy.styles.theme.Theme.DEFAULT_THEME" title="链接到此定义。">¶</a></dt>
+<span class="sig-name descname"><span class="pre">DEFAULT_THEME</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#charmy.styles.theme.Theme" title="charmy.styles.theme.Theme"><span class="pre">Theme</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Theme(name='default.light',</span> <span class="pre">keys=['base',</span> <span class="pre">'color_palette',</span> <span class="pre">'friendly_name',</span> <span class="pre">'is_special',</span> <span class="pre">'name',</span> <span class="pre">'styles'])</span></span><a class="headerlink" href="#charmy.styles.theme.Theme.DEFAULT_THEME" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="charmy.styles.theme.Theme.DEFAULT_THEME_FILENAME">
 <span class="sig-name descname"><span class="pre">DEFAULT_THEME_FILENAME</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'light'</span></span><a class="headerlink" href="#charmy.styles.theme.Theme.DEFAULT_THEME_FILENAME" title="链接到此定义。">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="charmy.styles.theme.Theme.STRUCTURAL_PARENT">
+<span class="sig-name descname"><span class="pre">STRUCTURAL_PARENT</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ROOT'</span></span><a class="headerlink" href="#charmy.styles.theme.Theme.STRUCTURAL_PARENT" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -370,19 +381,19 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="charmy.styles.theme.Theme.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">styles</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#charmy.styles.theme.Theme" title="charmy.styles.theme.Theme"><span class="pre">Theme</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.styles.theme.Theme.__init__" title="链接到此定义。">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">styles</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#charmy.styles.theme.Theme" title="charmy.styles.theme.Theme"><span class="pre">Theme</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.styles.theme.Theme.__init__" title="链接到此定义。">¶</a></dt>
 <dd><p>Theme for CWindow and CWidgets.</p>
 <section id="id1">
 <h3>Example<a class="headerlink" href="#id1" title="链接到此标题。">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_theme</span> <span class="o">=</span> <span class="n">CTheme</span><span class="p">({</span><span class="o">&lt;</span><span class="n">Some</span> <span class="n">styles</span><span class="o">&gt;</span><span class="p">})</span>
-<span class="n">my_sub_theme</span> <span class="o">=</span> <span class="n">CTheme</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="s2">&quot;default.light&quot;</span><span class="p">)</span>
-<span class="n">my_external_theme</span> <span class="o">=</span> <span class="n">CTheme</span><span class="p">()</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s2">&quot;./path/to/a/theme.json&quot;</span><span class="p">)</span>
+<span class="n">my_sub_theme</span> <span class="o">=</span> <span class="n">CTheme</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="s2">"default.light"</span><span class="p">)</span>
+<span class="n">my_external_theme</span> <span class="o">=</span> <span class="n">CTheme</span><span class="p">()</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s2">"./path/to/a/theme.json"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This shows examples of creating themes, either from a JSON, a parent theme or a file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">param styles<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Styles of the theme</p>
+<dd class="field-odd"><p>Styles of the theme. When <cite>None</cite>, the default theme's styles are used.</p>
 </dd>
 <dt class="field-even">param parent<span class="colon">:</span></dt>
 <dd class="field-even"><p>Parent theme</p>
@@ -392,12 +403,36 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="charmy.styles.theme.Theme.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#charmy.styles.theme.Theme.get" title="链接到此定义。">¶</a></dt>
+<dd><p>Get a theme data entry, returning default when the key is absent.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="charmy.styles.theme.Theme.keys">
+<span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#charmy.styles.theme.Theme.keys" title="链接到此定义。">¶</a></dt>
+<dd><p>Theme data keys.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="charmy.styles.theme.Theme.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#charmy.styles.theme.Theme.values" title="链接到此定义。">¶</a></dt>
+<dd><p>Theme data values.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="charmy.styles.theme.Theme.items">
+<span class="sig-name descname"><span class="pre">items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#charmy.styles.theme.Theme.items" title="链接到此定义。">¶</a></dt>
+<dd><p>Theme data items.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="charmy.styles.theme.Theme.find_loaded_theme">
-<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">find_loaded_theme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theme_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#charmy.styles.theme.Theme" title="charmy.styles.theme.Theme"><span class="pre">Theme</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="k"><span class="pre">False</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#charmy.styles.theme.Theme.find_loaded_theme" title="链接到此定义。">¶</a></dt>
-<dd><p>Search for a loaded theme by name, returns the CTheme object if found, or False if not.</p>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">find_loaded_theme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theme_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#charmy.styles.theme.Theme" title="charmy.styles.theme.Theme"><span class="pre">Theme</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.styles.theme.Theme.find_loaded_theme" title="链接到此定义。">¶</a></dt>
+<dd><p>Search for a loaded theme by name, returns the CTheme object if found, or None if not.</p>
 <section id="id2">
 <h3>Example<a class="headerlink" href="#id2" title="链接到此标题。">¶</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DEFAULT_THEME</span> <span class="o">=</span> <span class="n">CTheme</span><span class="o">.</span><span class="n">find_loaded_theme</span><span class="p">(</span><span class="s2">&quot;default.light&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DEFAULT_THEME</span> <span class="o">=</span> <span class="n">CTheme</span><span class="o">.</span><span class="n">find_loaded_theme</span><span class="p">(</span><span class="s2">"default.light"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This returns the CTheme object of the default theme to <cite>DEFAULT_THEME</cite>.</p>
@@ -406,7 +441,7 @@
 <dd class="field-odd"><p>Name of the theme to load</p>
 </dd>
 <dt class="field-even">return<span class="colon">:</span></dt>
-<dd class="field-even"><p>The CTheme object if found, otherwise False</p>
+<dd class="field-even"><p>The CTheme object if found, otherwise None</p>
 </dd>
 </dl>
 </section>
@@ -418,7 +453,7 @@
 <dd><p>Validate if the theme with given name existed and loaded.</p>
 <section id="id3">
 <h3>Example<a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CTheme</span><span class="o">.</span><span class="n">validate_theme_existed</span><span class="p">(</span><span class="s2">&quot;default.light&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CTheme</span><span class="o">.</span><span class="n">validate_theme_existed</span><span class="p">(</span><span class="s2">"default.light"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This returns if the theme <cite>default.light</cite> is loaded.</p>
@@ -434,13 +469,76 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="charmy.styles.theme.Theme.rename">
+<span class="sig-name descname"><span class="pre">rename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">friendly_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#charmy.styles.theme.Theme" title="charmy.styles.theme.Theme"><span class="pre">Theme</span></a></span></span><a class="headerlink" href="#charmy.styles.theme.Theme.rename" title="链接到此定义。">¶</a></dt>
+<dd><p>Rename the theme.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> -- The new theme name</p></li>
+<li><p><strong>friendly_name</strong> -- The new friendly name, or None to keep the current one</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return self<span class="colon">:</span></dt>
+<dd class="field-even"><p>The CTheme itself</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="charmy.styles.theme.Theme.set_parent">
+<span class="sig-name descname"><span class="pre">set_parent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#charmy.styles.theme.Theme" title="charmy.styles.theme.Theme"><span class="pre">Theme</span></a></span></span><a class="headerlink" href="#charmy.styles.theme.Theme.set_parent" title="链接到此定义。">¶</a></dt>
+<dd><p>Set the parent of this theme by name.</p>
+<p>The name is looked up right away when the parent is already loaded; otherwise the name is 
+remembered and <cite>resolve_parent()</cite> can attach it later (the built-in theme loader does this 
+in a second pass, so theme files may be loaded in any order).</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>base</strong> -- Name of the parent theme, or <cite>None</cite> / <cite>&quot;ROOT&quot;</cite> for no parent</p>
+</dd>
+<dt class="field-even">Return self<span class="colon">:</span></dt>
+<dd class="field-even"><p>The CTheme itself</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="charmy.styles.theme.Theme.resolve_parent">
+<span class="sig-name descname"><span class="pre">resolve_parent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#charmy.styles.theme.Theme" title="charmy.styles.theme.Theme"><span class="pre">Theme</span></a></span></span><a class="headerlink" href="#charmy.styles.theme.Theme.resolve_parent" title="链接到此定义。">¶</a></dt>
+<dd><p>Look up and attach the parent theme recorded by <cite>set_parent()</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return self<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The CTheme itself</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="charmy.styles.theme.Theme.from_file">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#charmy.styles.theme.Theme" title="charmy.styles.theme.Theme"><span class="pre">Theme</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.styles.theme.Theme.from_file" title="链接到此定义。">¶</a></dt>
+<dd><p>Load a new theme from a theme file and return it.</p>
+<p>Unlike <cite>load_from_file()</cite>, this never renames an existing theme and never leaves a 
+placeholder behind when the file is rejected: it either returns a ready theme or <cite>None</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file_path</strong> -- Path to the theme file</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>The loaded CTheme, or None if the file was rejected</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="charmy.styles.theme.Theme.load_from_file">
-<span class="sig-name descname"><span class="pre">load_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#charmy.styles.theme.Theme" title="charmy.styles.theme.Theme"><span class="pre">Theme</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="k"><span class="pre">False</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#charmy.styles.theme.Theme.load_from_file" title="链接到此定义。">¶</a></dt>
+<span class="sig-name descname"><span class="pre">load_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#charmy.styles.theme.Theme" title="charmy.styles.theme.Theme"><span class="pre">Theme</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#charmy.styles.theme.Theme.load_from_file" title="链接到此定义。">¶</a></dt>
 <dd><p>Load styles to theme from a file.</p>
+<p>Relative paths are resolved against the directory of the file that calls this method, not 
+against the current working directory.</p>
 <section id="id4">
 <h3>Example<a class="headerlink" href="#id4" title="链接到此标题。">¶</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_theme</span> <span class="o">=</span> <span class="n">CTheme</span><span class="p">()</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s2">&quot;./path/to/a/theme.json&quot;</span><span class="p">)</span>
-<span class="n">my_theme</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s2">&quot;./path/to/another/theme.json&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_theme</span> <span class="o">=</span> <span class="n">CTheme</span><span class="p">()</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s2">"./path/to/a/theme.json"</span><span class="p">)</span>
+<span class="n">my_theme</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s2">"./path/to/another/theme.json"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This shows loading a theme to <cite>my_theme</cite> from the theme file at <cite>./path/to/a/theme.json</cite>,
@@ -449,8 +547,8 @@ and change it to theme from <cite>./path/to/another/theme.json</cite> later.</p>
 <dt class="field-odd">param file_path<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Path to the theme file</p>
 </dd>
-<dt class="field-even">return self<span class="colon">:</span></dt>
-<dd class="field-even"><p>The CTheme itself</p>
+<dt class="field-even">return<span class="colon">:</span></dt>
+<dd class="field-even"><p>The CTheme itself, or the already-loaded theme when the name is occupied</p>
 </dd>
 </dl>
 </section>
@@ -546,10 +644,19 @@ another JSON later.</p>
 <li><a class="reference internal" href="#charmy.styles.theme.Theme.INTERNAL_THEME"><code class="docutils literal notranslate"><span class="pre">Theme.INTERNAL_THEME</span></code></a></li>
 <li><a class="reference internal" href="#charmy.styles.theme.Theme.DEFAULT_THEME"><code class="docutils literal notranslate"><span class="pre">Theme.DEFAULT_THEME</span></code></a></li>
 <li><a class="reference internal" href="#charmy.styles.theme.Theme.DEFAULT_THEME_FILENAME"><code class="docutils literal notranslate"><span class="pre">Theme.DEFAULT_THEME_FILENAME</span></code></a></li>
+<li><a class="reference internal" href="#charmy.styles.theme.Theme.STRUCTURAL_PARENT"><code class="docutils literal notranslate"><span class="pre">Theme.STRUCTURAL_PARENT</span></code></a></li>
 <li><a class="reference internal" href="#charmy.styles.theme.Theme.EXPECTED_DATA_TYPE"><code class="docutils literal notranslate"><span class="pre">Theme.EXPECTED_DATA_TYPE</span></code></a></li>
 <li><a class="reference internal" href="#charmy.styles.theme.Theme.__init__"><code class="docutils literal notranslate"><span class="pre">Theme.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.styles.theme.Theme.get"><code class="docutils literal notranslate"><span class="pre">Theme.get()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.styles.theme.Theme.keys"><code class="docutils literal notranslate"><span class="pre">Theme.keys()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.styles.theme.Theme.values"><code class="docutils literal notranslate"><span class="pre">Theme.values()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.styles.theme.Theme.items"><code class="docutils literal notranslate"><span class="pre">Theme.items()</span></code></a></li>
 <li><a class="reference internal" href="#charmy.styles.theme.Theme.find_loaded_theme"><code class="docutils literal notranslate"><span class="pre">Theme.find_loaded_theme()</span></code></a></li>
 <li><a class="reference internal" href="#charmy.styles.theme.Theme.validate_theme_existed"><code class="docutils literal notranslate"><span class="pre">Theme.validate_theme_existed()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.styles.theme.Theme.rename"><code class="docutils literal notranslate"><span class="pre">Theme.rename()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.styles.theme.Theme.set_parent"><code class="docutils literal notranslate"><span class="pre">Theme.set_parent()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.styles.theme.Theme.resolve_parent"><code class="docutils literal notranslate"><span class="pre">Theme.resolve_parent()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.styles.theme.Theme.from_file"><code class="docutils literal notranslate"><span class="pre">Theme.from_file()</span></code></a></li>
 <li><a class="reference internal" href="#charmy.styles.theme.Theme.load_from_file"><code class="docutils literal notranslate"><span class="pre">Theme.load_from_file()</span></code></a></li>
 <li><a class="reference internal" href="#charmy.styles.theme.Theme.load_from_json"><code class="docutils literal notranslate"><span class="pre">Theme.load_from_json()</span></code></a></li>
 </ul>
@@ -572,8 +679,10 @@ another JSON later.</p>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/translations.js?v=540d3cec"></script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../../_static/design-tabs.js?v=fcb327ea"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+
 
 
 

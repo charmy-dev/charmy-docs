@@ -5,13 +5,13 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="索引" href="genindex.html"><link rel="search" title="搜索" href="search.html"><link rel="next" title="快速开始" href="get_started/index.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 9.2.0 and Furo 2025.12.19 -->
         <title>Charmy GUI 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=6a604523" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
@@ -230,7 +230,6 @@
 <li class="toctree-l2"><a class="reference internal" href="api/object.html">object</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="api/styles/index.html">charmy.styles</a><input aria-label="Toggle navigation of charmy.styles" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/styles/shape.html">shape</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/styles/style.html">style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/styles/text_style.html">text_style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/styles/texture.html">texture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/styles/theme.html">theme</a></li>
@@ -242,6 +241,10 @@
 <li class="toctree-l3"><a class="reference internal" href="api/utils/event_types.html">event_types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/utils/geo_math.html">geo_math</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/utils/layout_profiles.html">layout_profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils/marks.html">marks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils/misc_globals.html">misc_globals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils/misc_utils.html">misc_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils/on_setattr.html">on_setattr</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/utils/svg.html">svg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/utils/type_checking.html">type_checking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/utils/var.html">var</a></li>
@@ -309,15 +312,6 @@
         <article role="main" id="furo-main-content">
           <section id="charmy-gui">
 <h1>Charmy GUI 文档<a class="headerlink" href="#charmy-gui" title="链接到此标题。">¶</a></h1>
-<aside class="sidebar">
-<p class="sidebar-title">作者 / XiangQinxi</p>
-<p>来自 <code class="docutils literal notranslate"><span class="pre">中国</span></code> 的一名高中生。</p>
-<img alt="xqx_logo" src="_images/xqx_logo.jpg" />
-<p>&quot;我写的代码就像一坨💩。😭😭&quot;</p>
-</aside>
-<p>欢迎来到 <strong>Charmy GUI</strong> 的文档！</p>
-<p>Charmy 是一个跨平台的 Python GUI 库，采用 <strong>三层架构</strong> 设计，后端可切换，
-在保持轻量的同时实现跨平台桌面应用开发。</p>
 <section id="id1">
 <h2>项目特点<a class="headerlink" href="#id1" title="链接到此标题。">¶</a></h2>
 <ul class="simple">
@@ -353,8 +347,8 @@
 <h2>快速开始<a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">charmy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cm</span>
 
-<span class="n">window</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;我的应用&quot;</span><span class="p">)</span>
-<span class="n">button</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;点我&quot;</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">))</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">"我的应用"</span><span class="p">)</span>
+<span class="n">button</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">"点我"</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"Hello!"</span><span class="p">))</span>
 <span class="n">button</span><span class="o">.</span><span class="n">place</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">40</span><span class="p">))</span>
 
 <span class="n">cm</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
@@ -471,6 +465,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="api/index.html">API 参考</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#charmy.cnm"><code class="docutils literal notranslate"><span class="pre">cnm()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/backend/index.html">charmy.backend</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/backend/genesis.html">genesis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/backend/loader.html">loader</a></li>
@@ -488,9 +483,8 @@
 <li class="toctree-l3"><a class="reference internal" href="api/const.html#charmy.const.DEBUG_FLAGS"><code class="docutils literal notranslate"><span class="pre">DEBUG_FLAGS</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/const.html#charmy.const.Configs"><code class="docutils literal notranslate"><span class="pre">Configs</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/const.html#charmy.const.MOUSE_KEYS"><code class="docutils literal notranslate"><span class="pre">MOUSE_KEYS</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/const.html#charmy.const.ID"><code class="docutils literal notranslate"><span class="pre">ID</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/const.html#charmy.const.DrawingMode"><code class="docutils literal notranslate"><span class="pre">DrawingMode</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/const.html#charmy.const.Orient"><code class="docutils literal notranslate"><span class="pre">Orient</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/const.html#charmy.const.DIRECTIONS"><code class="docutils literal notranslate"><span class="pre">DIRECTIONS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/const.html#charmy.const.FONTWEIGHT"><code class="docutils literal notranslate"><span class="pre">FONTWEIGHT</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="api/event.html">event</a><ul>
@@ -514,7 +508,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="api/styles/index.html">charmy.styles</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/styles/shape.html">shape</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/styles/style.html">style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/styles/text_style.html">text_style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/styles/texture.html">texture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/styles/theme.html">theme</a></li>
@@ -526,6 +519,10 @@
 <li class="toctree-l3"><a class="reference internal" href="api/utils/event_types.html">event_types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/utils/geo_math.html">geo_math</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/utils/layout_profiles.html">layout_profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils/marks.html">marks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils/misc_globals.html">misc_globals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils/misc_utils.html">misc_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils/on_setattr.html">on_setattr</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/utils/svg.html">svg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/utils/type_checking.html">type_checking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/utils/var.html">var</a></li>
@@ -630,6 +627,6 @@
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/translations.js?v=540d3cec"></script>
-    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="_static/design-tabs.js?v=fcb327ea"></script>
     </body>
 </html>

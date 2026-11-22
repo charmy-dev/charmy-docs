@@ -5,13 +5,13 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="索引" href="../genindex.html"><link rel="search" title="搜索" href="../search.html"><link rel="next" title="object" href="object.html"><link rel="prev" title="event" href="event.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 9.2.0 and Furo 2025.12.19 -->
         <title>graphics - Charmy GUI 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
@@ -230,7 +230,6 @@
 <li class="toctree-l2"><a class="reference internal" href="object.html">object</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="styles/index.html">charmy.styles</a><input aria-label="Toggle navigation of charmy.styles" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="styles/shape.html">shape</a></li>
-<li class="toctree-l3"><a class="reference internal" href="styles/style.html">style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="styles/text_style.html">text_style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="styles/texture.html">texture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="styles/theme.html">theme</a></li>
@@ -242,6 +241,10 @@
 <li class="toctree-l3"><a class="reference internal" href="utils/event_types.html">event_types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="utils/geo_math.html">geo_math</a></li>
 <li class="toctree-l3"><a class="reference internal" href="utils/layout_profiles.html">layout_profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils/marks.html">marks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils/misc_globals.html">misc_globals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils/misc_utils.html">misc_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils/on_setattr.html">on_setattr</a></li>
 <li class="toctree-l3"><a class="reference internal" href="utils/svg.html">svg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="utils/type_checking.html">type_checking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="utils/var.html">var</a></li>
@@ -328,13 +331,37 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="charmy.graphics.DrawnObject.draw">
-<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#charmy.graphics.DrawnObject.draw" title="链接到此定义。">¶</a></dt>
+<dt class="sig sig-object py" id="charmy.graphics.DrawnObject.fallback">
+<span class="sig-name descname"><span class="pre">fallback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">redraw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_fallback_from</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#charmy.graphics.DrawnObject" title="charmy.graphics.DrawnObject"><span class="pre">DrawnObject</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.graphics.DrawnObject.fallback" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="charmy.graphics.DrawnObject.stamp">
+<span class="sig-name descname"><span class="pre">stamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">redraw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_fallback_from</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="styles/shape.html#charmy.styles.shape.LinePath.type" title="charmy.styles.shape.LinePath.type"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="styles/shape.html#charmy.styles.shape.LinePath" title="charmy.styles.shape.LinePath"><span class="pre">LinePath</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#charmy.graphics.DrawnObject.stamp" title="链接到此定义。">¶</a></dt>
+<dd><p>Draw the shape using backend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window</strong> -- The window to draw shape to</p></li>
+<li><p><strong>_fallback_from</strong> -- Internal use only, the fallback path</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="charmy.graphics.DrawnObject.boundary">
 <span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">boundary</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#charmy.graphics.DrawnObject.boundary" title="链接到此定义。">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="charmy.graphics.DrawnObject.max_drawn_boundary">
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">max_drawn_boundary</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#charmy.graphics.DrawnObject.max_drawn_boundary" title="链接到此定义。">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="charmy.graphics.DrawnObject.check_backend_supports">
+<span class="sig-name descname"><span class="pre">check_backend_supports</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#charmy.graphics.DrawnObject.check_backend_supports" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -374,18 +401,14 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="charmy.graphics.DrawnLine.draw">
-<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_fallback_from</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="styles/shape.html#charmy.styles.shape.LinePath.type" title="charmy.styles.shape.LinePath.type"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="styles/shape.html#charmy.styles.shape.LinePath" title="charmy.styles.shape.LinePath"><span class="pre">LinePath</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#charmy.graphics.DrawnLine.draw" title="链接到此定义。">¶</a></dt>
-<dd><p>Draw the line.</p>
-<dl class="field-list simple">
-<dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>window</strong> -- The window to draw line to</p></li>
-<li><p><strong>_fallback_from</strong> -- Internal use only, the fallback path</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+<dt class="sig sig-object py" id="charmy.graphics.DrawnLine.check_backend_supports">
+<span class="sig-name descname"><span class="pre">check_backend_supports</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#charmy.graphics.DrawnLine.check_backend_supports" title="链接到此定义。">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="charmy.graphics.DrawnLine.fallback">
+<span class="sig-name descname"><span class="pre">fallback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">redraw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_fallback_from</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="styles/shape.html#charmy.styles.shape.LinePath.type" title="charmy.styles.shape.LinePath.type"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="styles/shape.html#charmy.styles.shape.LinePath" title="charmy.styles.shape.LinePath"><span class="pre">LinePath</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.graphics.DrawnLine.fallback" title="链接到此定义。">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -430,23 +453,20 @@
 <dd><p>Rect boundary of the drawn shape.</p>
 </dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="charmy.graphics.DrawnShape.max_drawn_boundary">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">max_drawn_boundary</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#charmy.graphics.DrawnShape.max_drawn_boundary" title="链接到此定义。">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="charmy.graphics.DrawnShape.copy">
 <span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#charmy.graphics.DrawnShape" title="charmy.graphics.DrawnShape"><span class="pre">DrawnShape</span></a></span></span><a class="headerlink" href="#charmy.graphics.DrawnShape.copy" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="charmy.graphics.DrawnShape.draw">
-<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_fallback_from</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="styles/shape.html#charmy.styles.shape.LinePath.type" title="charmy.styles.shape.LinePath.type"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="styles/shape.html#charmy.styles.shape.LinePath" title="charmy.styles.shape.LinePath"><span class="pre">LinePath</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#charmy.graphics.DrawnShape.draw" title="链接到此定义。">¶</a></dt>
-<dd><p>Draw the shape using backend.</p>
-<dl class="field-list simple">
-<dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>window</strong> -- The window to draw shape to</p></li>
-<li><p><strong>_fallback_from</strong> -- Internal use only, the fallback path</p></li>
-</ul>
-</dd>
-</dl>
+<dt class="sig sig-object py" id="charmy.graphics.DrawnShape.check_backend_supports">
+<span class="sig-name descname"><span class="pre">check_backend_supports</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#charmy.graphics.DrawnShape.check_backend_supports" title="链接到此定义。">¶</a></dt>
+<dd><p>Check if backend supports self.</p>
 </dd></dl>
 
 </dd></dl>
@@ -489,8 +509,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="charmy.graphics.DrawnText.draw">
-<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#charmy.graphics.DrawnText.draw" title="链接到此定义。">¶</a></dt>
+<dt class="sig sig-object py" id="charmy.graphics.DrawnText.stamp">
+<span class="sig-name descname"><span class="pre">stamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">redraw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#charmy.graphics.DrawnText.stamp" title="链接到此定义。">¶</a></dt>
 <dd><p>Draw the text.</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
@@ -562,15 +582,19 @@
 <li><a class="reference internal" href="#">graphics</a><ul>
 <li><a class="reference internal" href="#charmy.graphics.DrawnObject"><code class="docutils literal notranslate"><span class="pre">DrawnObject</span></code></a><ul>
 <li><a class="reference internal" href="#charmy.graphics.DrawnObject.__init__"><code class="docutils literal notranslate"><span class="pre">DrawnObject.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#charmy.graphics.DrawnObject.draw"><code class="docutils literal notranslate"><span class="pre">DrawnObject.draw()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.graphics.DrawnObject.fallback"><code class="docutils literal notranslate"><span class="pre">DrawnObject.fallback()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.graphics.DrawnObject.stamp"><code class="docutils literal notranslate"><span class="pre">DrawnObject.stamp()</span></code></a></li>
 <li><a class="reference internal" href="#charmy.graphics.DrawnObject.boundary"><code class="docutils literal notranslate"><span class="pre">DrawnObject.boundary</span></code></a></li>
+<li><a class="reference internal" href="#charmy.graphics.DrawnObject.max_drawn_boundary"><code class="docutils literal notranslate"><span class="pre">DrawnObject.max_drawn_boundary</span></code></a></li>
+<li><a class="reference internal" href="#charmy.graphics.DrawnObject.check_backend_supports"><code class="docutils literal notranslate"><span class="pre">DrawnObject.check_backend_supports()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#charmy.graphics.DrawnLine"><code class="docutils literal notranslate"><span class="pre">DrawnLine</span></code></a><ul>
 <li><a class="reference internal" href="#charmy.graphics.DrawnLine.__init__"><code class="docutils literal notranslate"><span class="pre">DrawnLine.__init__()</span></code></a></li>
 <li><a class="reference internal" href="#charmy.graphics.DrawnLine.texture"><code class="docutils literal notranslate"><span class="pre">DrawnLine.texture</span></code></a></li>
 <li><a class="reference internal" href="#charmy.graphics.DrawnLine.boundary"><code class="docutils literal notranslate"><span class="pre">DrawnLine.boundary</span></code></a></li>
-<li><a class="reference internal" href="#charmy.graphics.DrawnLine.draw"><code class="docutils literal notranslate"><span class="pre">DrawnLine.draw()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.graphics.DrawnLine.check_backend_supports"><code class="docutils literal notranslate"><span class="pre">DrawnLine.check_backend_supports()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.graphics.DrawnLine.fallback"><code class="docutils literal notranslate"><span class="pre">DrawnLine.fallback()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#charmy.graphics.DrawnShape"><code class="docutils literal notranslate"><span class="pre">DrawnShape</span></code></a><ul>
@@ -578,15 +602,16 @@
 <li><a class="reference internal" href="#charmy.graphics.DrawnShape.texture"><code class="docutils literal notranslate"><span class="pre">DrawnShape.texture</span></code></a></li>
 <li><a class="reference internal" href="#charmy.graphics.DrawnShape.border_texture"><code class="docutils literal notranslate"><span class="pre">DrawnShape.border_texture</span></code></a></li>
 <li><a class="reference internal" href="#charmy.graphics.DrawnShape.boundary"><code class="docutils literal notranslate"><span class="pre">DrawnShape.boundary</span></code></a></li>
+<li><a class="reference internal" href="#charmy.graphics.DrawnShape.max_drawn_boundary"><code class="docutils literal notranslate"><span class="pre">DrawnShape.max_drawn_boundary</span></code></a></li>
 <li><a class="reference internal" href="#charmy.graphics.DrawnShape.copy"><code class="docutils literal notranslate"><span class="pre">DrawnShape.copy()</span></code></a></li>
-<li><a class="reference internal" href="#charmy.graphics.DrawnShape.draw"><code class="docutils literal notranslate"><span class="pre">DrawnShape.draw()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.graphics.DrawnShape.check_backend_supports"><code class="docutils literal notranslate"><span class="pre">DrawnShape.check_backend_supports()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#charmy.graphics.DrawnText"><code class="docutils literal notranslate"><span class="pre">DrawnText</span></code></a><ul>
 <li><a class="reference internal" href="#charmy.graphics.DrawnText.__init__"><code class="docutils literal notranslate"><span class="pre">DrawnText.__init__()</span></code></a></li>
 <li><a class="reference internal" href="#charmy.graphics.DrawnText.texture"><code class="docutils literal notranslate"><span class="pre">DrawnText.texture</span></code></a></li>
 <li><a class="reference internal" href="#charmy.graphics.DrawnText.boundary"><code class="docutils literal notranslate"><span class="pre">DrawnText.boundary</span></code></a></li>
-<li><a class="reference internal" href="#charmy.graphics.DrawnText.draw"><code class="docutils literal notranslate"><span class="pre">DrawnText.draw()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.graphics.DrawnText.stamp"><code class="docutils literal notranslate"><span class="pre">DrawnText.stamp()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -607,8 +632,10 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/translations.js?v=540d3cec"></script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+
 
 
 

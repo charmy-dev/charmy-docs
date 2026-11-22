@@ -1,5 +1,5 @@
 API 参考
-======
+========
 
 .. autoclasstree:: charmy
    :full:
@@ -12,6 +12,7 @@ API 参考
    :maxdepth: 2
 
    backend/index
+   charmy/index
    cmm
    const
    event

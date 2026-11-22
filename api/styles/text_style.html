@@ -3,15 +3,15 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="索引" href="../../genindex.html"><link rel="search" title="搜索" href="../../search.html"><link rel="next" title="texture" href="texture.html"><link rel="prev" title="style" href="style.html">
+<link rel="index" title="索引" href="../../genindex.html"><link rel="search" title="搜索" href="../../search.html"><link rel="next" title="texture" href="texture.html"><link rel="prev" title="shape" href="shape.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 9.2.0 and Furo 2025.12.19 -->
         <title>text_style - Charmy GUI 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=6a604523" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
@@ -230,7 +230,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../object.html">object</a></li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">charmy.styles</a><input aria-label="Toggle navigation of charmy.styles" checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="shape.html">shape</a></li>
-<li class="toctree-l3"><a class="reference internal" href="style.html">style</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">text_style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="texture.html">texture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="theme.html">theme</a></li>
@@ -242,6 +241,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../utils/event_types.html">event_types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/geo_math.html">geo_math</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/layout_profiles.html">layout_profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/marks.html">marks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/misc_globals.html">misc_globals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/misc_utils.html">misc_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/on_setattr.html">on_setattr</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/svg.html">svg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/type_checking.html">type_checking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/var.html">var</a></li>
@@ -312,81 +315,6 @@
 <p id="module-charmy.styles.text_style">Charmy text style module.</p>
 <p>This module is relatively simple, which only contains ability to express fonts.</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="charmy.styles.text_style.WEIGHT">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.styles.text_style.</span></span><span class="sig-name descname"><span class="pre">WEIGHT</span></span><a class="headerlink" href="#charmy.styles.text_style.WEIGHT" title="链接到此定义。">¶</a></dt>
-<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Preset constant values of fontweight.</p>
-<section id="introduction-to-truetype-fontweight">
-<h2>Introduction to TrueType Fontweight<a class="headerlink" href="#introduction-to-truetype-fontweight" title="链接到此标题。">¶</a></h2>
-<p>TrueType fontweight determines the thickness of text. It has some common 
-presets which are listed below. Learn more in [MSDN docs about this](<a class="reference external" href="https://learn.microsoft.com/en-us/dotnet/api/system.windows.fontweights?view=netframework-4.8#remarks">https://learn.microsoft.com/en-us/dotnet/api/system.windows.fontweights?view=netframework-4.8#remarks</a>).</p>
-</section>
-<section id="list-of-presets">
-<h2>List of Presets<a class="headerlink" href="#list-of-presets" title="链接到此标题。">¶</a></h2>
-<p>Thin / Hairline             <cite>THIN</cite>         100    
-Extra Light / Ultra Light   <cite>EXTRALIGHT</cite>   200    
-Light                       <cite>LIGHT</cite>        300    
-Regular                     <cite>REGULAR</cite>      400    
-Medium                      <cite>MEDIUM</cite>       500    
-Semi Bold                   <cite>SEMIBOLD</cite>     600    
-Bold                        <cite>BOLD</cite>         700    
-Extra Bold / Ultra Bold     <cite>EXTRABOLD</cite>    800    
-Black / Heavy               <cite>BLACK</cite>        900    
-Extra Black / Ultra Black   <cite>EXTRABLACK</cite>   950</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.styles.text_style.WEIGHT.THIN">
-<span class="sig-name descname"><span class="pre">THIN</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">100</span></span><a class="headerlink" href="#charmy.styles.text_style.WEIGHT.THIN" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.styles.text_style.WEIGHT.EXTRALIGHT">
-<span class="sig-name descname"><span class="pre">EXTRALIGHT</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">200</span></span><a class="headerlink" href="#charmy.styles.text_style.WEIGHT.EXTRALIGHT" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.styles.text_style.WEIGHT.LIGHT">
-<span class="sig-name descname"><span class="pre">LIGHT</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">300</span></span><a class="headerlink" href="#charmy.styles.text_style.WEIGHT.LIGHT" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.styles.text_style.WEIGHT.REGULAR">
-<span class="sig-name descname"><span class="pre">REGULAR</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">400</span></span><a class="headerlink" href="#charmy.styles.text_style.WEIGHT.REGULAR" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.styles.text_style.WEIGHT.MEDIUM">
-<span class="sig-name descname"><span class="pre">MEDIUM</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">500</span></span><a class="headerlink" href="#charmy.styles.text_style.WEIGHT.MEDIUM" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.styles.text_style.WEIGHT.SEMIBOLD">
-<span class="sig-name descname"><span class="pre">SEMIBOLD</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">600</span></span><a class="headerlink" href="#charmy.styles.text_style.WEIGHT.SEMIBOLD" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.styles.text_style.WEIGHT.BOLD">
-<span class="sig-name descname"><span class="pre">BOLD</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">700</span></span><a class="headerlink" href="#charmy.styles.text_style.WEIGHT.BOLD" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.styles.text_style.WEIGHT.EXTRABOLD">
-<span class="sig-name descname"><span class="pre">EXTRABOLD</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">800</span></span><a class="headerlink" href="#charmy.styles.text_style.WEIGHT.EXTRABOLD" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.styles.text_style.WEIGHT.BLACK">
-<span class="sig-name descname"><span class="pre">BLACK</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">900</span></span><a class="headerlink" href="#charmy.styles.text_style.WEIGHT.BLACK" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.styles.text_style.WEIGHT.EXTRABLACK">
-<span class="sig-name descname"><span class="pre">EXTRABLACK</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">950</span></span><a class="headerlink" href="#charmy.styles.text_style.WEIGHT.EXTRABLACK" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
-
-</section>
-</dd></dl>
-
-<dl class="py class">
 <dt class="sig sig-object py" id="charmy.styles.text_style.TextStyle">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.styles.text_style.</span></span><span class="sig-name descname"><span class="pre">TextStyle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_typing.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_typing.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">400</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">italic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">underlined</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">_draw.DrawnLine</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strikethrough</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">_draw.DrawnLine</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.styles.text_style.TextStyle" title="链接到此定义。">¶</a></dt>
 <dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
@@ -427,44 +355,21 @@ used, default is <cite>False</cite></p></li>
 </section>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.styles.text_style.TextStyle.font">
-<span class="sig-name descname"><span class="pre">font</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#charmy.styles.text_style.TextStyle.font" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.styles.text_style.TextStyle.size">
-<span class="sig-name descname"><span class="pre">size</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#charmy.styles.text_style.TextStyle.size" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.styles.text_style.TextStyle.weight">
-<span class="sig-name descname"><span class="pre">weight</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#charmy.styles.text_style.TextStyle.weight" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.styles.text_style.TextStyle.italic">
-<span class="sig-name descname"><span class="pre">italic</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#charmy.styles.text_style.TextStyle.italic" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.styles.text_style.TextStyle.underlined">
-<span class="sig-name descname"><span class="pre">underlined</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">_draw.DrawnLine</span></span><a class="headerlink" href="#charmy.styles.text_style.TextStyle.underlined" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="charmy.styles.text_style.TextStyle.strikethrough">
-<span class="sig-name descname"><span class="pre">strikethrough</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">_draw.DrawnLine</span></span><a class="headerlink" href="#charmy.styles.text_style.TextStyle.strikethrough" title="链接到此定义。">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="charmy.styles.text_style.TextStyle.from_json">
 <span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">from_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_content</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.styles.text_style.TextStyle.from_json" title="链接到此定义。">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="charmy.styles.text_style.TextStyle.from_profile_value">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">from_profile_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">profile_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_type_checking.ProfileProp</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#charmy.styles.text_style.TextStyle" title="charmy.styles.text_style.TextStyle"><span class="pre">TextStyle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">TextStyleJSON</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#charmy.styles.text_style.TextStyle" title="charmy.styles.text_style.TextStyle"><span class="pre">TextStyle</span></a></span></span><a class="headerlink" href="#charmy.styles.text_style.TextStyle.from_profile_value" title="链接到此定义。">¶</a></dt>
+<dd><p>Load shape from profile value.</p>
+<p>If is JSON, load from JSON, otherwise return as-is.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="charmy.styles.text_style.TextStyle.get_text_boundary">
-<span class="sig-name descname"><span class="pre">get_text_boundary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_typing.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">_backend.Backend</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">_shape.ShapeRange</span></span></span><a class="headerlink" href="#charmy.styles.text_style.TextStyle.get_text_boundary" title="链接到此定义。">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_text_boundary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">_typing.Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">_backend.Backend</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">_shape.RectRange</span></span></span><a class="headerlink" href="#charmy.styles.text_style.TextStyle.get_text_boundary" title="链接到此定义。">¶</a></dt>
 <dd><p>Get boundary of a specific text in this style. (NOT IMPLEMENTED)</p>
 </dd></dl>
 
@@ -486,14 +391,14 @@ used, default is <cite>False</cite></p></li>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="style.html">
+          <a class="prev-page" href="shape.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">style</div>
+                <div class="title">shape</div>
                 
               </div>
             </a>
@@ -528,30 +433,12 @@ used, default is <cite>False</cite></p></li>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">text_style</a><ul>
-<li><a class="reference internal" href="#charmy.styles.text_style.WEIGHT"><code class="docutils literal notranslate"><span class="pre">WEIGHT</span></code></a><ul>
-<li><a class="reference internal" href="#charmy.styles.text_style.WEIGHT.THIN"><code class="docutils literal notranslate"><span class="pre">WEIGHT.THIN</span></code></a></li>
-<li><a class="reference internal" href="#charmy.styles.text_style.WEIGHT.EXTRALIGHT"><code class="docutils literal notranslate"><span class="pre">WEIGHT.EXTRALIGHT</span></code></a></li>
-<li><a class="reference internal" href="#charmy.styles.text_style.WEIGHT.LIGHT"><code class="docutils literal notranslate"><span class="pre">WEIGHT.LIGHT</span></code></a></li>
-<li><a class="reference internal" href="#charmy.styles.text_style.WEIGHT.REGULAR"><code class="docutils literal notranslate"><span class="pre">WEIGHT.REGULAR</span></code></a></li>
-<li><a class="reference internal" href="#charmy.styles.text_style.WEIGHT.MEDIUM"><code class="docutils literal notranslate"><span class="pre">WEIGHT.MEDIUM</span></code></a></li>
-<li><a class="reference internal" href="#charmy.styles.text_style.WEIGHT.SEMIBOLD"><code class="docutils literal notranslate"><span class="pre">WEIGHT.SEMIBOLD</span></code></a></li>
-<li><a class="reference internal" href="#charmy.styles.text_style.WEIGHT.BOLD"><code class="docutils literal notranslate"><span class="pre">WEIGHT.BOLD</span></code></a></li>
-<li><a class="reference internal" href="#charmy.styles.text_style.WEIGHT.EXTRABOLD"><code class="docutils literal notranslate"><span class="pre">WEIGHT.EXTRABOLD</span></code></a></li>
-<li><a class="reference internal" href="#charmy.styles.text_style.WEIGHT.BLACK"><code class="docutils literal notranslate"><span class="pre">WEIGHT.BLACK</span></code></a></li>
-<li><a class="reference internal" href="#charmy.styles.text_style.WEIGHT.EXTRABLACK"><code class="docutils literal notranslate"><span class="pre">WEIGHT.EXTRABLACK</span></code></a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#charmy.styles.text_style.TextStyle"><code class="docutils literal notranslate"><span class="pre">TextStyle</span></code></a><ul>
 <li><a class="reference internal" href="#charmy.styles.text_style.TextStyle.sys_fonts"><code class="docutils literal notranslate"><span class="pre">TextStyle.sys_fonts</span></code></a></li>
 <li><a class="reference internal" href="#charmy.styles.text_style.TextStyle.sys_default"><code class="docutils literal notranslate"><span class="pre">TextStyle.sys_default</span></code></a></li>
 <li><a class="reference internal" href="#charmy.styles.text_style.TextStyle.__init__"><code class="docutils literal notranslate"><span class="pre">TextStyle.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#charmy.styles.text_style.TextStyle.font"><code class="docutils literal notranslate"><span class="pre">TextStyle.font</span></code></a></li>
-<li><a class="reference internal" href="#charmy.styles.text_style.TextStyle.size"><code class="docutils literal notranslate"><span class="pre">TextStyle.size</span></code></a></li>
-<li><a class="reference internal" href="#charmy.styles.text_style.TextStyle.weight"><code class="docutils literal notranslate"><span class="pre">TextStyle.weight</span></code></a></li>
-<li><a class="reference internal" href="#charmy.styles.text_style.TextStyle.italic"><code class="docutils literal notranslate"><span class="pre">TextStyle.italic</span></code></a></li>
-<li><a class="reference internal" href="#charmy.styles.text_style.TextStyle.underlined"><code class="docutils literal notranslate"><span class="pre">TextStyle.underlined</span></code></a></li>
-<li><a class="reference internal" href="#charmy.styles.text_style.TextStyle.strikethrough"><code class="docutils literal notranslate"><span class="pre">TextStyle.strikethrough</span></code></a></li>
 <li><a class="reference internal" href="#charmy.styles.text_style.TextStyle.from_json"><code class="docutils literal notranslate"><span class="pre">TextStyle.from_json()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.styles.text_style.TextStyle.from_profile_value"><code class="docutils literal notranslate"><span class="pre">TextStyle.from_profile_value()</span></code></a></li>
 <li><a class="reference internal" href="#charmy.styles.text_style.TextStyle.get_text_boundary"><code class="docutils literal notranslate"><span class="pre">TextStyle.get_text_boundary()</span></code></a></li>
 </ul>
 </li>
@@ -573,6 +460,6 @@ used, default is <cite>False</cite></p></li>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/translations.js?v=540d3cec"></script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../../_static/design-tabs.js?v=fcb327ea"></script>
     </body>
 </html>

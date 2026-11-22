@@ -5,13 +5,13 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="索引" href="../genindex.html"><link rel="search" title="搜索" href="../search.html"><link rel="next" title="后端开发指南" href="backend.html"><link rel="prev" title="window" href="../api/widgets/window.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 9.2.0 and Furo 2025.12.19 -->
         <title>贡献指南 - Charmy GUI 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
@@ -230,7 +230,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/object.html">object</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../api/styles/index.html">charmy.styles</a><input aria-label="Toggle navigation of charmy.styles" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../api/styles/shape.html">shape</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api/styles/style.html">style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/styles/text_style.html">text_style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/styles/texture.html">texture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/styles/theme.html">theme</a></li>
@@ -242,6 +241,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/event_types.html">event_types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/geo_math.html">geo_math</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/layout_profiles.html">layout_profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils/marks.html">marks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils/misc_globals.html">misc_globals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils/misc_utils.html">misc_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils/on_setattr.html">on_setattr</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/svg.html">svg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/type_checking.html">type_checking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/utils/var.html">var</a></li>
@@ -358,7 +361,7 @@
 <li><p>进行修改并提交。</p></li>
 </ol>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;简要描述你的改动&quot;</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"简要描述你的改动"</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
@@ -444,7 +447,7 @@ python<span class="w"> </span>tests/event.py
 </ul>
 <p>注释风格示例：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">):</span>
-<span class="w">     </span><span class="sd">&quot;&quot;&quot;函数功能简述。</span>
+<span class="w">     </span><span class="sd">"""函数功能简述。</span>
 
 <span class="sd">     Args:</span>
 <span class="sd">         param1 (int): 第一个参数。</span>
@@ -455,10 +458,10 @@ python<span class="w"> </span>tests/event.py
 
 <span class="sd">     Raises:</span>
 <span class="sd">         ValueError: 当 `param1` 等于 `param2` 时抛出。</span>
-<span class="sd">     &quot;&quot;&quot;</span>
+<span class="sd">     """</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">SampleClass</span><span class="p">:</span>
-<span class="w">     </span><span class="sd">&quot;&quot;&quot;类的简要说明。</span>
+<span class="w">     </span><span class="sd">"""类的简要说明。</span>
 
 <span class="sd">     更详细的类说明……</span>
 
@@ -473,10 +476,10 @@ python<span class="w"> </span>tests/event.py
 <span class="sd">     Attributes:</span>
 <span class="sd">         likes_spam (bool): 是否喜欢 SPAM。</span>
 <span class="sd">         eggs (int): 拥有的鸡蛋数量。</span>
-<span class="sd">     &quot;&quot;&quot;</span>
+<span class="sd">     """</span>
 
      <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">likes_spam</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">         </span><span class="sd">&quot;&quot;&quot;初始化 SampleClass。&quot;&quot;&quot;</span>
+<span class="w">         </span><span class="sd">"""初始化 SampleClass。"""</span>
          <span class="bp">self</span><span class="o">.</span><span class="n">likes_spam</span> <span class="o">=</span> <span class="n">likes_spam</span>
          <span class="bp">self</span><span class="o">.</span><span class="n">eggs</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
@@ -565,6 +568,6 @@ python<span class="w"> </span>tests/event.py
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/translations.js?v=540d3cec"></script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
     </body>
 </html>

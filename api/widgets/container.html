@@ -5,13 +5,13 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="索引" href="../../genindex.html"><link rel="search" title="搜索" href="../../search.html"><link rel="next" title="frame" href="frame.html"><link rel="prev" title="button" href="button.html">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 9.2.0 and Furo 2025.12.19 -->
         <title>container - Charmy GUI 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=6a604523" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
@@ -230,7 +230,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../object.html">object</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../styles/index.html">charmy.styles</a><input aria-label="Toggle navigation of charmy.styles" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../styles/shape.html">shape</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../styles/style.html">style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../styles/text_style.html">text_style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../styles/texture.html">texture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../styles/theme.html">theme</a></li>
@@ -242,6 +241,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../utils/event_types.html">event_types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/geo_math.html">geo_math</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/layout_profiles.html">layout_profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/marks.html">marks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/misc_globals.html">misc_globals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/misc_utils.html">misc_utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils/on_setattr.html">on_setattr</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/svg.html">svg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/type_checking.html">type_checking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../utils/var.html">var</a></li>
@@ -315,7 +318,7 @@
     </pre><p id="module-charmy.widgets.container">This module contains all ability of a container to manage layouts.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="charmy.widgets.container.Container">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.widgets.container.</span></span><span class="sig-name descname"><span class="pre">Container</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.widgets.container.Container" title="链接到此定义。">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">charmy.widgets.container.</span></span><span class="sig-name descname"><span class="pre">Container</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">managed_layout_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../styles/shape.html#charmy.styles.shape.LinePath.type" title="charmy.styles.shape.LinePath.type"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../utils/layout_profiles.html#charmy.utils.layout_profiles.ManagedLayout" title="charmy.utils.layout_profiles.ManagedLayout"><span class="pre">ManagedLayout</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;class</span> <span class="pre">'charmy.utils.layout_profiles.LinearLayout'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flex_direction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal[0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">1]</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.widgets.container.Container" title="链接到此定义。">¶</a></dt>
 <dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">CachedClass</span></code></p>
 <p>Container represents a widget's ability to contain and arrange other widgets inside.</p>
 <p>The <cite>Container</cite> class contains the ability of managing widgets within the container, and should 
@@ -323,7 +326,7 @@ be inherited by all types of containers including windows, frames, etc., but not
 instantiated directly.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="charmy.widgets.container.Container.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.widgets.container.Container.__init__" title="链接到此定义。">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">managed_layout_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../styles/shape.html#charmy.styles.shape.LinePath.type" title="charmy.styles.shape.LinePath.type"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../utils/layout_profiles.html#charmy.utils.layout_profiles.ManagedLayout" title="charmy.utils.layout_profiles.ManagedLayout"><span class="pre">ManagedLayout</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;class</span> <span class="pre">'charmy.utils.layout_profiles.LinearLayout'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flex_direction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal[0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">1]</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#charmy.widgets.container.Container.__init__" title="链接到此定义。">¶</a></dt>
 <dd><p>Initialize a container base class.</p>
 <p>The container base class is not supposed to be instantiated directly, make sure you are 
 executing this method during subclassing.</p>
@@ -353,6 +356,25 @@ executing this method during subclassing.</p>
 <dt class="sig sig-object py" id="charmy.widgets.container.Container.add_child">
 <span class="sig-name descname"><span class="pre">add_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="widget.html#charmy.widgets.widget.Widget" title="charmy.widgets.widget.Widget"><span class="pre">widget.Widget</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#charmy.widgets.container.Container.add_child" title="链接到此定义。">¶</a></dt>
 <dd><p>Add a child object.</p>
+<section id="note">
+<h2>Note<a class="headerlink" href="#note" title="链接到此标题。">¶</a></h2>
+<p>The child list is <strong>rebound</strong> rather than mutated in place on purpose. The <cite>layers</cite> 
+cached property is only invalidated through <cite>__setattr__</cite>, so an in-place <cite>append()</cite> would 
+leave the cache stale and the newly added child would never be drawn.</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="charmy.widgets.container.Container.remove_child">
+<span class="sig-name descname"><span class="pre">remove_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="widget.html#charmy.widgets.widget.Widget" title="charmy.widgets.widget.Widget"><span class="pre">widget.Widget</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#charmy.widgets.container.Container.remove_child" title="链接到此定义。">¶</a></dt>
+<dd><p>Remove a child object, so that it is no longer drawn or hit-tested.</p>
+<p>This seem like a vibed function, and I cannot ensure its source.  —— rgzz666</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="charmy.widgets.container.Container.update_layout">
+<span class="sig-name descname"><span class="pre">update_layout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#charmy.widgets.container.Container.update_layout" title="链接到此定义。">¶</a></dt>
+<dd><p>Update layout results.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -433,6 +455,8 @@ executing this method during subclassing.</p>
 <li><a class="reference internal" href="#charmy.widgets.container.Container.abs_pos"><code class="docutils literal notranslate"><span class="pre">Container.abs_pos</span></code></a></li>
 <li><a class="reference internal" href="#charmy.widgets.container.Container.size"><code class="docutils literal notranslate"><span class="pre">Container.size</span></code></a></li>
 <li><a class="reference internal" href="#charmy.widgets.container.Container.add_child"><code class="docutils literal notranslate"><span class="pre">Container.add_child()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.widgets.container.Container.remove_child"><code class="docutils literal notranslate"><span class="pre">Container.remove_child()</span></code></a></li>
+<li><a class="reference internal" href="#charmy.widgets.container.Container.update_layout"><code class="docutils literal notranslate"><span class="pre">Container.update_layout()</span></code></a></li>
 <li><a class="reference internal" href="#charmy.widgets.container.Container.draw_children"><code class="docutils literal notranslate"><span class="pre">Container.draw_children()</span></code></a></li>
 <li><a class="reference internal" href="#charmy.widgets.container.Container.get_mouse_hover"><code class="docutils literal notranslate"><span class="pre">Container.get_mouse_hover()</span></code></a></li>
 </ul>
@@ -455,8 +479,10 @@ executing this method during subclassing.</p>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/translations.js?v=540d3cec"></script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../../_static/design-tabs.js?v=fcb327ea"></script>
     <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+
 
 
 
