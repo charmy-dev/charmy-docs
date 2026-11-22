@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Charmy GUI \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-09 14:09+0800\n"
+"POT-Creation-Date: 2026-11-13 17:56+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -31,38 +31,6 @@ msgstr ""
 msgid ""
 "This module is relatively simple, which only contains ability to express "
 "fonts."
-msgstr ""
-
-#: charmy.styles.text_style.WEIGHT:1 of
-msgid "Preset constant values of fontweight."
-msgstr ""
-
-#: charmy.styles.text_style.WEIGHT:4 of
-msgid "Introduction to TrueType Fontweight"
-msgstr ""
-
-#: charmy.styles.text_style.WEIGHT:5 of
-msgid ""
-"TrueType fontweight determines the thickness of text. It has some common"
-"  presets which are listed below. Learn more in [MSDN docs about "
-"this](https://learn.microsoft.com/en-"
-"us/dotnet/api/system.windows.fontweights?view=netframework-4.8#remarks)."
-msgstr ""
-
-#: charmy.styles.text_style.WEIGHT:9 of
-msgid "List of Presets"
-msgstr ""
-
-#: charmy.styles.text_style.WEIGHT:13 of
-msgid ""
-"Thin / Hairline             `THIN`         100     Extra Light / Ultra "
-"Light   `EXTRALIGHT`   200     Light                       `LIGHT`"
-"        300     Regular                     `REGULAR`      400     Medium"
-"                      `MEDIUM`       500     Semi Bold                   "
-"`SEMIBOLD`     600     Bold                        `BOLD`         700"
-"     Extra Bold / Ultra Bold     `EXTRABOLD`    800     Black / Heavy"
-"               `BLACK`        900     Extra Black / Ultra Black   "
-"`EXTRABLACK`   950"
 msgstr ""
 
 #: charmy.styles.text_style.TextStyle:1 of
@@ -119,7 +87,51 @@ msgid ""
 "`charmy.font.WEIGHT` class, which my be used in the way shown below"
 msgstr ""
 
-#: charmy.styles.text_style.TextStyle.get_text_boundary:1 of
-msgid "Get boundary of a specific text in this style."
+#: charmy.styles.text_style.TextStyle.from_profile_value:1 of
+msgid "Load shape from profile value."
 msgstr ""
+
+#: charmy.styles.text_style.TextStyle.from_profile_value:3 of
+msgid "If is JSON, load from JSON, otherwise return as-is."
+msgstr ""
+
+#: charmy.styles.text_style.TextStyle.get_text_boundary:1 of
+msgid "Get boundary of a specific text in this style. (NOT IMPLEMENTED)"
+msgstr ""
+
+#~ msgid "Preset constant values of fontweight."
+#~ msgstr ""
+
+#~ msgid "Introduction to TrueType Fontweight"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "TrueType fontweight determines the thickness"
+#~ " of text. It has some common  "
+#~ "presets which are listed below. Learn"
+#~ " more in [MSDN docs about "
+#~ "this](https://learn.microsoft.com/en-"
+#~ "us/dotnet/api/system.windows.fontweights?view=netframework-4.8#remarks)."
+#~ msgstr ""
+
+#~ msgid "List of Presets"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Thin / Hairline             `THIN`         100"
+#~ "     Extra Light / Ultra Light   "
+#~ "`EXTRALIGHT`   200     Light                       "
+#~ "`LIGHT`        300     Regular                     "
+#~ "`REGULAR`      400     Medium                      "
+#~ "`MEDIUM`       500     Semi Bold"
+#~ "                   `SEMIBOLD`     600     Bold"
+#~ "                        `BOLD`         700     Extra"
+#~ " Bold / Ultra Bold     `EXTRABOLD`    "
+#~ "800     Black / Heavy               `BLACK`"
+#~ "        900     Extra Black / Ultra "
+#~ "Black   `EXTRABLACK`   950"
+#~ msgstr ""
+
+#~ msgid "Get boundary of a specific text in this style."
+#~ msgstr ""
 

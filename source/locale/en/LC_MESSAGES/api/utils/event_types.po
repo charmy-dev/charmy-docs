@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Charmy GUI \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-09 14:09+0800\n"
+"POT-Creation-Date: 2026-11-13 17:56+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -141,5 +141,17 @@ msgstr ""
 
 #: charmy.utils.event_types.MouseClick:1 of
 msgid "Will be generated when the mouse clicks an EventHandling."
+msgstr ""
+
+#: charmy.utils.event_types.VarChanged:1 of
+msgid "Represents that the value of a Var was changed."
+msgstr ""
+
+#: charmy.utils.event_types.ProfileChanged:1 of
+msgid "Represents that any value of a profile was changed."
+msgstr ""
+
+#: charmy.utils.event_types.LayoutChanged:1 of
+msgid "Represents that any property of a LayoutProfile was changed."
 msgstr ""
 

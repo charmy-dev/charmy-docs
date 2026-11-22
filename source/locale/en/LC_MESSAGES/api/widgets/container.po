@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Charmy GUI \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-09 14:09+0800\n"
+"POT-Creation-Date: 2026-11-13 17:56+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -52,6 +52,22 @@ msgstr ""
 
 #: charmy.widgets.container.Container.add_child:1 of
 msgid "Add a child object."
+msgstr ""
+
+#: charmy.widgets.container.Container.add_child:4 of
+msgid "Note"
+msgstr ""
+
+#: charmy.widgets.container.Container.add_child:5 of
+msgid ""
+"The child list is **rebound** rather than mutated in place on purpose. "
+"The `layers`  cached property is only invalidated through `__setattr__`, "
+"so an in-place `append()` would  leave the cache stale and the newly "
+"added child would never be drawn."
+msgstr ""
+
+#: charmy.widgets.container.Container.remove_child:1 of
+msgid "Remove a child object, so that it is no longer drawn or hit-tested."
 msgstr ""
 
 #: charmy.widgets.container.Container.draw_children:1 of

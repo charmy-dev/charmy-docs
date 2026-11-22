@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, XiangQinxi, rgzz666, littlewhitecloud
+# This file is distributed under the same license as the Charmy GUI package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Charmy GUI \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-13 17:56+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../source/contributions/widget.md:1
+msgid "组件开发"
+msgstr ""
+
+#: ../../source/contributions/widget.md:2
+msgid "组件是指在应用程序中可重用的独立功能模块。它们通常封装了特定的功能和界面元素，使得开发者可以在不同的地方使用相同的组件，而无需重复编写代码。组件化开发有助于提高代码的可维护性、可扩展性和复用性。"
+msgstr ""
+
+#: ../../source/contributions/widget.md:4
+msgid "自定义组件"
+msgstr ""
+
+#: ../../source/contributions/widget.md:5
+msgid "在此将学习如何开发你的自定义组件，我们先从简单的`Button`组件开始。"
+msgstr ""
+
+#: ../../source/contributions/widget.md:7
+msgid "首先继承`Widget`类，并实现`__init__`方法来初始化组件的属性。"
+msgstr ""
+
+#: ../../source/contributions/widget.md:50
+msgid "先写入一些基础的参数数据，按钮自然需要带上`text`和`on_click`参数，`text`是按钮上显示的文字，`on_click`是按钮被点击时触发的回调函数。"
+msgstr ""
+
+#: ../../source/contributions/widget.md:64
+msgid "然后记录下按钮的主题与状态，主题用于设置按钮的样式，状态用于记录按钮当前的交互状态（如正常、悬停、按下等）。"
+msgstr ""
+
+#: ../../source/contributions/widget.md:70
+msgid "组件内部元素设定"
+msgstr ""
+
+#: ../../source/contributions/widget.md:72
+#, python-brace-format
+msgid ""
+"为了开发者快速开发组件，而不接触底层绘制方法，于是采用`components`参数来存储组件的绘制对象，`DrawnShape`用于绘制按钮的形状，`DrawnText`用于绘制按钮上的文字，其余请参考"
+" {doc}`/api/graphics`。"
+msgstr ""
+
+#: ../../source/contributions/widget.md:74
+msgid "将你需要绘制的元素按序存入`_components`中，之后将可以直接使用该组件，能看到绘制出的那些元素。"
+msgstr ""
+
+#: ../../source/contributions/widget.md:91
+#, python-brace-format
+msgid ""
+"基本元素中，第一个参数为绘制的容器，也就是窗口实例，一般填写`self.root_container`，将指向该组件所在的窗口实例。剩下具体的参数请参考"
+" {doc}`/api/graphics`。"
+msgstr ""
+
+#: ../../source/contributions/widget.md:101
+#, python-brace-format
+msgid "例如`DrawnShape`元素，用于绘制预设的形状，第二个参数为形状类型实例（请参考{doc}`/api/styles/shape`），第三个参数为样式。"
+msgstr ""
+
+#: ../../source/contributions/widget.md:103
+msgid "例子中`Rect`是矩形形状，传入两个参数，分别为左上角坐标和右下角坐标，均为元组类型。初始化的适合可以默认输入这个，后续重写更新方法时再根据布局设定位置、大小。"
+msgstr ""
+
+#: ../../source/contributions/widget.md:113
+msgid "组件事件绑定"
+msgstr ""
+
+#: ../../source/contributions/widget.md:114
+#, python-brace-format
+msgid "接下来需要使用`bind`来绑定事件，从而触发`点击`事件，或触发`碰到鼠标`更新`state`以刷新样式，更多请参阅{doc}`/api/event`。"
+msgstr ""
+
+#: ../../source/contributions/widget.md:131
+#, python-brace-format
+msgid "第一个参数为事件类型，请参阅{doc}`/api/utils/event_types`。"
+msgstr ""
+
+#: ../../source/contributions/widget.md:133
+msgid "第二个参数为事件回调函数，当触发该事件类型时就调用该方法，需填入参数以接收回调参数。这里`self.config(state=\"hover\")`用于更新组件状态"
+msgstr ""
+
+#: ../../source/contributions/widget.md:135
+msgid "`multithread`是用来选择是否将事件放入额外线程中，而不是主线程。"
+msgstr ""
+
+#: ../../source/contributions/widget.md:151
+msgid "组件更新部分"
+msgstr ""
+
+#: ../../source/contributions/widget.md:152
+msgid "组件的更新部分是组件开发中最重要的一环，组件的更新方法会在组件状态发生变化时被调用，用于重新设定元素的参数以重绘组件。"
+msgstr ""
+
+#: ../../source/contributions/widget.md:183
+msgid "在该方法里直接设定对应元素的属性，为当前状态对应的样式。"
+msgstr ""
+
+#: ../../source/contributions/widget.md:185
+msgid "...开发中，未完待续"
+msgstr ""
+

@@ -1,0 +1,222 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, XiangQinxi, rgzz666, littlewhitecloud
+# This file is distributed under the same license as the Charmy GUI package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Charmy GUI \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-13 17:56+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../source/contributions/backend.md:1
+msgid "后端开发指南"
+msgstr ""
+
+#: ../../source/contributions/backend.md:3
+msgid "作为多后端的GUI库，Charmy支持使用多种后端来构建应用程序，为了统一接口并确保每个未被支持的功能都有对应的fallback，我们提供了一个可供继承的模板，通常您的后端应当基于此模板开发。以下是模板的基本结构和使用方法。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:5
+msgid "后端的基本结构"
+msgstr ""
+
+#: ../../source/contributions/backend.md:7
+msgid "一个有效的Charmy后端主要应当包含以下几个部分："
+msgstr ""
+
+#: ../../source/contributions/backend.md:9
+msgid "`Backend`类：用于定义后端的基本接口和功能，以及后端的元信息（也就是您的署名处）。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:10
+msgid "各种`*SupportState`类：用于标记当前后端是否支持某些特性。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:11
+msgid "各种`*Base`类：用于定义对应后端的基本接口和功能。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:13
+#, python-brace-format
+msgid "至于细节可以参见{doc}`/api/backend/template`去查阅有哪些类，或者参见{doc}`/how_does_it_work/abstraction_layer`了解详细的介绍。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:15
+msgid "编写后端接口"
+msgstr ""
+
+#: ../../source/contributions/backend.md:17
+msgid "我们将会基于Genesis后端的代码为基础，在本文中讲述如何为Charmy开发一个有效可用的后端。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:19
+msgid ""
+"如果你是扩展后端库开发者，建议使用`charmy-backend-xxx`作为库名。未来将支持自动搜索所有名称以`charmy-"
+"backend-`开头的包，并将其加入备选后端。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:21
+msgid "编写GUI后端接口"
+msgstr ""
+
+#: ../../source/contributions/backend.md:23
+msgid "先要注明后端的基本信息，包括简写名称、具体名称、版本号和作者等。然后继承`template.Backend`类，并实现必要的接口。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:25
+msgid "编写`Backend`类"
+msgstr ""
+
+#: ../../source/contributions/backend.md:44
+msgid "name: 后端的名称，最好为字母+下划线这样的安全格式，用于标识，需确保唯一。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:45
+msgid "friendly_name: 后端的用户友好名称，用于人类阅读，暂无实际用途。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:46
+msgid "version: 后端的版本号，可能用于检查更新等，暂无实际用途。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:47
+msgid "author: 后端的作者列表，暂无实际用途。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:49
+msgid "编写`WindowSupportState`类"
+msgstr ""
+
+#: ../../source/contributions/backend.md:51
+msgid "后端应当注明自己支持哪些后端方法，从而防止开发时出现纰漏。如以下代码，在支持的方法名称前面标注了`True`，不支持的方法标注了`False`。如果你不确定是否支持某个方法，可以先标注为`False`，等后续实现后再改为`True`。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:53
+msgid "如果Charmy的后续更新加入了新的后端特性，而您却没有跟进的话，也并不需要额外添加更新来标记新特性为不支持，因为它们会在模板中默认标记为`False`，然后被继承到您的后端里。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:55
+msgid "综上所述，具体的实现应当为：后端继承template中对应的`*SupportState`类，然后标记自身支持的特性为`True`，并（可选）标记自身明确不会支持的特性为`False`。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:57
+msgid "以下是一个例子，这个后端声明其支持为窗口设定标题与图标，但明确声明其不支持设定窗口在屏幕上的位置。而对于缩放模式等，后端并未明确进行声明，Charmy会将其视为不支持这些特性。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:69
+msgid "编写`WindowBase`类"
+msgstr ""
+
+#: ../../source/contributions/backend.md:71
+msgid "这是后端使用的GUI窗口类接口，应当继承自`template.WindowBase`，并实现必要的功能。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:101
+msgid "首先继承模板类，并设`Backend`类属性为你刚刚编写的`Backend`类，设定`supports`类属性为你刚刚编写的`WindowSupportState`实例。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:110
+msgid "之后，编写一个`__init__`函数。这个初始化函数应当接收两个参数，分别为`backend`用于接收所使用的后端，和`window`用于接收Charmy控件层的窗口对象。您的初始化函数应当实现包括但不限于以下内容：为`super()`进行初始化、调用相关第三方包创建一个窗口、向Charmy控件层汇报窗口位置（透过设定`window`参数中传入的窗口的`_pos`属性）。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:112
+msgid "之后你需要实现`__init__`、`show`、`update`和`close`方法，具体实现方式可以参考其他后端的实现。本文将会持续补充这些内容。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:114
+msgid "如此，您便完成了窗口相关接口的开发。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:116
+msgid "编写图形后端接口"
+msgstr ""
+
+#: ../../source/contributions/backend.md:118
+msgid "等待编写..."
+msgstr ""
+
+#: ../../source/contributions/backend.md:120
+msgid "选定并使用您的后端"
+msgstr ""
+
+#: ../../source/contributions/backend.md:122
+msgid "注意：鉴于本节之内容逐渐完整，并不再适合作为后端开发指南的一部分，故可能未来会被移至别处，届时将会提供超链接供跳转查阅。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:124
+msgid "Charmy提供了一种方便且优雅的途径来加载自定义后端，而并不需要提前设定环境变量（虽然这**可能**也会作为一种备选方式，并在将来实现）。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:126
+msgid "在您引入Charmy时，并不会加载任何后端（包括默认后端），若要手动指定后端，您需要在程式创建第一个窗口之前，手动创建`CharmyManager`实例，并指定要使用的后端。下文将会详细描述。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:128
+msgid "手动引入并加载后端"
+msgstr ""
+
+#: ../../source/contributions/backend.md:130
+msgid "本节将会描述如何手动引入后端包并将其加载。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:132
+msgid "首先，您需要引入您要加载的后端。在文件头的`import`段，引入您的后端包，然后取得`Backend`类，这将是整个后端的入口点。注意，您并不需要显式地声明新变量并存储`Backend`。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:134
+msgid "在此步骤中，我们假设您已经引入了Charmy，如果尚未引入，则请至文件头的`import`段将其引入。此时请将取得的`Backend`类传入`charmy.CharmyManager()`，作为参数来实例化一个`CharmyManager`（下称“管理器”）。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:136
+msgid "此管理器所管理的所有窗口将会基于您所给定的后端。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:138
+msgid "如果您决定在此应用中只使用这一个后端，那么此时可以直接跳入您的GUI逻辑。Charmy在初始化窗口时，会自动检查可用的管理器。如果只有一个可用，则会自动选定它。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:140
+msgid "如果您决定在此应用中使用多个后端，例如（包括但不限于）：同时提供一个本地GUI和一个远程的WebUI界面，那么您需要为每个后端初始化一个管理器，然后为每个窗口指定所使用的管理器。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:142
+msgid "Charmy的后端和管理器为一对多关系，即每个管理器仅可使用一个后端，但您可以使用一个后端创建多个管理器。这样做可能会允许您更方便地为不同作用的窗口分组，但通常我们不会用到这一特性。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:159
+msgid "由Charmy自动搜索并加载，手动或自动选定后端"
+msgstr ""
+
+#: ../../source/contributions/backend.md:161
+msgid "本节将会描述如何透过Charmy的后端加载器引入用户透过pip安装的后端，或令其自动选择最合适的后端。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:163
+msgid "注意：本节依据设计所写，部分功能尚未实现。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:165
+msgid ""
+"Charmy将会提供一个后端加载器，在`charmy.backend.loader` 中提供。后端加载器会提供用于加载后端的 "
+"`load_backend`函数，支持手动指定或自动搜索后端。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:167
+msgid "此加载器会搜索用户透过pip安装的所有后端库，然后，默认情况下自动选择最合适的后端（此时可能会参考环境变量），或者加载调用者指定的后端。"
+msgstr ""
+
+#: ../../source/contributions/backend.md:169
+msgid "鉴于此部分的具体实现尚未定型，将不会提供实例代码。您可以透过Charmy提供的完善的类型提示和自动补全来进行基本探索。"
+msgstr ""
+

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Charmy GUI \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-09 14:09+0800\n"
+"POT-Creation-Date: 2026-11-13 17:56+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -27,7 +27,52 @@ msgstr ""
 msgid "Base class of all layout profiles."
 msgstr ""
 
-#: charmy.utils.layout_profiles.PlaceProfile:1 of
-msgid "Place profile, to directly specify the position and size of the widget."
+#: charmy.utils.on_setattr.later_on_setattr.<locals>.decorator.<locals>.new_init:1
+#: of
+msgid "The overwritten __init__ function."
 msgstr ""
+
+#: charmy.utils.layout_profiles.PlaceProfile:1 of
+msgid ""
+"Place layout profile, to directly specify the position and size of the "
+"widget."
+msgstr ""
+
+#: charmy.utils.layout_profiles.ManagedLayoutProfile:1 of
+msgid "Base class of maneged layouts. Should never be used directly."
+msgstr ""
+
+#: charmy.utils.layout_profiles.ManagedLayoutProfile.pos:1
+#: charmy.utils.layout_profiles.ManagedLayoutProfile.size:1 of
+msgid "Nope!"
+msgstr ""
+
+#: charmy.utils.layout_profiles.ManagedLayoutProfile.update:1 of
+msgid "Update widget layout info in this managed layout."
+msgstr ""
+
+#: charmy.utils.layout_profiles.ManagedLayoutProfile.update:3 of
+msgid ""
+"Note that this is not compulsory for all managed layouts. In such cases, "
+"this function will do nothing."
+msgstr ""
+
+#: charmy.utils.layout_profiles.FlexLayout:1 of
+msgid "Flex layout profile."
+msgstr ""
+
+#: charmy.utils.layout_profiles.FlexLayout.pos:1 of
+msgid "Calculated pos for the widget by the flex layout."
+msgstr ""
+
+#: charmy.utils.layout_profiles.FlexLayout.size:1 of
+msgid "Calculated size for the widget by the flex layout."
+msgstr ""
+
+#: charmy.utils.layout_profiles.FlexLayout.update:1 of
+msgid "Update boundaries of all widgets in their parent container."
+msgstr ""
+
+#~ msgid "Place profile, to directly specify the position and size of the widget."
+#~ msgstr ""
 

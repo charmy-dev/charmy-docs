@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Charmy GUI \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-09 14:14+0800\n"
+"POT-Creation-Date: 2026-11-13 17:56+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -19,11 +19,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: ../../source/index.rst:62
+#: ../../source/index.rst:65
 msgid "主要内容："
 msgstr ""
 
-#: ../../source/index.rst:70
+#: ../../source/index.rst:73
 msgid "其他："
 msgstr ""
 
@@ -96,11 +96,11 @@ msgid "Charmy 处于 **早期开发阶段** （v0.0.1），API 尚未稳定。"
 msgstr ""
 
 #: ../../source/index.rst:35
-msgid "✅ 后端层：完成（Genesis: SDL2 + Cairo）"
+msgid "🚧 后端层：研制中（Genesis: SDL2 + Cairo）"
 msgstr ""
 
 #: ../../source/index.rst:36
-msgid "✅ 图形层：完成（线条、形状、文字绘制）"
+msgid "✅ 图形层：基本完成（线条、形状、文字绘制）"
 msgstr ""
 
 #: ../../source/index.rst:37
@@ -120,19 +120,29 @@ msgid "❌ 主题系统：基础框架存在，尚未接入控件"
 msgstr ""
 
 #: ../../source/index.rst:43
+msgid "Genesis仅作为当前场景下替代方案，后续将会被废弃，因为图形库与GUI库之间兼容性差"
+msgstr ""
+
+#: ../../source/index.rst:46
 msgid "快速开始"
 msgstr ""
 
-#: ../../source/index.rst:56
+#: ../../source/index.rst:59
 msgid "项目渊源"
 msgstr ""
 
-#: ../../source/index.rst:59
+#: ../../source/index.rst:62
 msgid ""
 "项目原名为 **Suzaku**，因底层架构缺陷导致性能问题，重构为现在的 Charmy。 部分设计理念继承自 "
 "Suzaku，代码中保留了一些\"彩蛋\"作为纪念（如 ``skhynix.py``）。"
 msgstr ""
 
 #~ msgid "作者 / 项沁曦 (Xiang Qinxi)"
+#~ msgstr ""
+
+#~ msgid "✅ 后端层：完成（Genesis: SDL2 + Cairo）"
+#~ msgstr ""
+
+#~ msgid "✅ 图形层：完成（线条、形状、文字绘制）"
 #~ msgstr ""
 

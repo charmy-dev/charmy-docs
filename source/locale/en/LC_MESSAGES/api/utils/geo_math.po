@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Charmy GUI \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-09 14:09+0800\n"
+"POT-Creation-Date: 2026-11-13 17:56+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -24,32 +24,56 @@ msgid "geo_math"
 msgstr ""
 
 #: charmy.utils.geo_math:1 of
-msgid "Geometry and math helpers extracted from `charmy.styles.shape`."
+msgid "Geometry and math helpers extracted from `charmy.styles.shape`, and more."
 msgstr ""
 
 #: charmy.utils.geo_math:3 of
 msgid ""
-"This module centralizes math utilities used for shapes: angle "
-"conversions, circle-point computations, arc-to-bezier conversion, and "
-"angle coverage tests."
-msgstr ""
-
-#: charmy.utils.geo_math:7 of
-msgid "!! THIS IS A VIBED MODULE !!"
+"This module centralizes math utilities used for shapes and some other "
+"modules: angle conversions, circle-point computations, arc-to-bezier "
+"conversion, and angle coverage tests."
 msgstr ""
 
 #: charmy.utils.geo_math:8 of
+msgid "!! THIS IS A (MOSTLY) VIBED MODULE !!"
+msgstr ""
+
+#: charmy.utils.geo_math:9 of
 msgid ""
 "This module was mostly vibed by GitHub Copilot, ChatGPT, and Google "
 "Gemini.  It includes geometric knowledge that the core devs (in 2026) "
 "have not learned  yet."
 msgstr ""
 
-#: charmy.utils.geo_math:12 of
+#: charmy.utils.geo_math:13 of
 msgid ""
 "This module is impossible to be completed by three secondary school "
 "students  without the help from third-party, and here, in this era, we "
 "chose AI. We  provide no guarantee for codes this file."
+msgstr ""
+
+#: charmy.utils.geo_math.expand_rectrange:1 of
+msgid "Expand a RectRange to specific directions for specific pixels."
+msgstr ""
+
+#: charmy.utils.geo_math.expand_rectrange:3 of
+msgid "This is the only human-written function in this file currently."
+msgstr ""
+
+#: ../../source/api/utils/geo_math.rst
+msgid "参数"
+msgstr ""
+
+#: charmy.utils.geo_math.expand_rectrange:5 of
+msgid "The original rectrange to expand"
+msgstr ""
+
+#: charmy.utils.geo_math.expand_rectrange:6 of
+msgid "For how much (px)"
+msgstr ""
+
+#: charmy.utils.geo_math.expand_rectrange:7 of
+msgid "In which direction(s)"
 msgstr ""
 
 #: charmy.utils.geo_math.evaluate_quadratic_bezier:1 of
@@ -139,10 +163,6 @@ msgstr ""
 msgid "Flatten a quadratic Bezier curve into a polyline."
 msgstr ""
 
-#: ../../source/api/utils/geo_math.rst
-msgid "参数"
-msgstr ""
-
 #: charmy.utils.geo_math.flatten_cubic_bezier:3
 #: charmy.utils.geo_math.flatten_quadratic_bezier:3 of
 msgid "Approximate maximum angle between adjacent polyline segments, in degrees."
@@ -151,4 +171,17 @@ msgstr ""
 #: charmy.utils.geo_math.flatten_cubic_bezier:1 of
 msgid "Flatten a cubic Bezier curve into a polyline."
 msgstr ""
+
+#~ msgid "Geometry and math helpers extracted from `charmy.styles.shape`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This module centralizes math utilities "
+#~ "used for shapes: angle conversions, "
+#~ "circle-point computations, arc-to-bezier"
+#~ " conversion, and angle coverage tests."
+#~ msgstr ""
+
+#~ msgid "!! THIS IS A VIBED MODULE !!"
+#~ msgstr ""
 

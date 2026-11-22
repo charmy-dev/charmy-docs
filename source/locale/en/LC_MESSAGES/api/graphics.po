@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Charmy GUI \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-09 14:09+0800\n"
+"POT-Creation-Date: 2026-11-13 17:56+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -37,16 +37,28 @@ msgstr ""
 msgid "To represent a drawn object, inherit this class."
 msgstr ""
 
+#: charmy.graphics.DrawnObject.stamp:1 of
+msgid "Draw the shape using backend."
+msgstr ""
+
+#: ../../source/api/graphics.rst charmy.graphics.DrawnText of
+msgid "参数"
+msgstr ""
+
+#: charmy.graphics.DrawnObject.stamp:3 of
+msgid "The window to draw shape to"
+msgstr ""
+
+#: charmy.graphics.DrawnObject.stamp:4 of
+msgid "Internal use only, the fallback path"
+msgstr ""
+
 #: charmy.graphics.DrawnLine:1 of
 msgid "A class used to represent lines drawn to GUI or canvas."
 msgstr ""
 
 #: charmy.graphics.DrawnLine.__init__:1 of
 msgid "Used to express lines drawn on GUI or canvas."
-msgstr ""
-
-#: ../../source/api/graphics.rst charmy.graphics.DrawnText of
-msgid "参数"
 msgstr ""
 
 #: charmy.graphics.DrawnLine.__init__:3 of
@@ -75,18 +87,6 @@ msgstr ""
 
 #: charmy.graphics.DrawnLine.boundary:1 of
 msgid "Rect boundary of the drawn line"
-msgstr ""
-
-#: charmy.graphics.DrawnLine.draw:1 of
-msgid "Draw the line."
-msgstr ""
-
-#: charmy.graphics.DrawnLine.draw:3 of
-msgid "The window to draw line to"
-msgstr ""
-
-#: charmy.graphics.DrawnLine.draw:4 charmy.graphics.DrawnShape.draw:4 of
-msgid "Internal use only, the fallback path"
 msgstr ""
 
 #: charmy.graphics.DrawnShape:1 of
@@ -133,12 +133,8 @@ msgstr ""
 msgid "Rect boundary of the drawn shape."
 msgstr ""
 
-#: charmy.graphics.DrawnShape.draw:1 of
-msgid "Draw the shape using backend."
-msgstr ""
-
-#: charmy.graphics.DrawnShape.draw:3 of
-msgid "The window to draw shape to"
+#: charmy.graphics.DrawnShape.check_backend_supports:1 of
+msgid "Check if backend supports self."
 msgstr ""
 
 #: charmy.graphics.DrawnText:1 of
@@ -187,11 +183,17 @@ msgstr ""
 msgid "Rect boundary of the drawn text."
 msgstr ""
 
-#: charmy.graphics.DrawnText.draw:1 of
+#: charmy.graphics.DrawnText.stamp:1 of
 msgid "Draw the text."
 msgstr ""
 
-#: charmy.graphics.DrawnText.draw:3 of
+#: charmy.graphics.DrawnText.stamp:3 of
 msgid "The window to draw text to"
 msgstr ""
+
+#~ msgid "Draw the line."
+#~ msgstr ""
+
+#~ msgid "The window to draw line to"
+#~ msgstr ""
 

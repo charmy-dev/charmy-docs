@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Charmy GUI \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-09 14:09+0800\n"
+"POT-Creation-Date: 2026-11-13 17:56+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -84,6 +84,10 @@ msgstr ""
 msgid "Texture base class in Charmy."
 msgstr ""
 
+#: charmy.styles.texture.Texture.is_texture_like:1 of
+msgid "Runtime check of TextureLike objects."
+msgstr ""
+
 #: charmy.styles.texture.Texture.find_class_by_type:1 of
 msgid "Find a texture class by line type, return `None` if not found."
 msgstr ""
@@ -123,6 +127,14 @@ msgid ""
 "following is an example for pure colors."
 msgstr ""
 
+#: charmy.styles.texture.Texture.from_profile_value:1 of
+msgid "Load shape from profile value."
+msgstr ""
+
+#: charmy.styles.texture.Texture.from_profile_value:3 of
+msgid "If is JSON, load from JSON, otherwise return as-is."
+msgstr ""
+
 #: charmy.styles.texture.Color:1 of
 msgid "Represents pure colors."
 msgstr ""
@@ -149,6 +161,52 @@ msgstr ""
 msgid "Initialize a Transparent object."
 msgstr ""
 
+#: charmy.styles.texture.Gradient:1 of
+msgid "Gradient base class."
+msgstr ""
+
+#: charmy.styles.texture.LinearGradient:1 of
+msgid "Linear gradient."
+msgstr ""
+
+#: charmy.styles.texture.LinearGradient.__init__:1 of
+msgid "Initialize a linear gradient texture."
+msgstr ""
+
+#: charmy.styles.texture.LinearGradient.__init__:3 of
+msgid "Start point of gradient line"
+msgstr ""
+
+#: charmy.styles.texture.LinearGradient.__init__:4 of
+msgid "End point of gradient line"
+msgstr ""
+
+#: charmy.styles.texture.LinearGradient.__init__:5 of
+#, python-brace-format
+msgid "Colors in the gradient, in form of {ratio: color, ...}"
+msgstr ""
+
+#: charmy.styles.texture.LinearGradient.get_color_at_ratio:1 of
+msgid "To get the color at a specific ratio in linear gradient."
+msgstr ""
+
+#: charmy.styles.texture.LinearGradient.get_color_at_point:3
+#: charmy.styles.texture.LinearGradient.get_color_at_ratio:3 of
+msgid "This is a vibed module."
+msgstr ""
+
+#: charmy.styles.texture.LinearGradient.get_color_at_ratio:5 of
+msgid "The ratio to get color at"
+msgstr ""
+
+#: charmy.styles.texture.LinearGradient.get_color_at_point:1 of
+msgid "To get the color at a specific pixel."
+msgstr ""
+
+#: charmy.styles.texture.LinearGradient.get_color_at_point:5 of
+msgid "The point to get color at"
+msgstr ""
+
 #: charmy.styles.texture.ensure_texture:1 of
 msgid "Convert TextureLike types into Texture objects."
 msgstr ""
@@ -157,11 +215,15 @@ msgstr ""
 msgid "The TextureLike value"
 msgstr ""
 
+#: charmy.styles.texture.ensure_texture:4 of
+msgid "Returns color instead of transparent when set to True"
+msgstr ""
+
 #: charmy.styles.texture.ensure_texture of
 msgid "return texture"
 msgstr ""
 
-#: charmy.styles.texture.ensure_texture:4 of
+#: charmy.styles.texture.ensure_texture:5 of
 msgid "The converted Texture object."
 msgstr ""
 

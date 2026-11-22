@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, XiangQinxi, rgzz666, littlewhitecloud
+# This file is distributed under the same license as the Charmy GUI package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Charmy GUI \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-13 17:56+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../source/api/utils/on_setattr.rst:2
+msgid "on_setattr"
+msgstr ""
+
+#: charmy.utils.on_setattr:1 of
+msgid ""
+"This module allows binding events to __setattr__, but only taking effect "
+"after __init__."
+msgstr ""
+
+#: charmy.utils.on_setattr.later_on_setattr:1 of
+msgid "To bind any function to `__setattr__`."
+msgstr ""
+
+#: charmy.utils.on_setattr.later_on_setattr:3 of
+msgid "on_setattr class decorator factory."
+msgstr ""
+
+#: ../../source/api/utils/on_setattr.rst
+msgid "参数"
+msgstr ""
+
+#: charmy.utils.on_setattr.later_on_setattr:5 of
+msgid "Callable to bind"
+msgstr ""
+
+#: charmy.utils.on_setattr.apply_on_setattr:1 of
+msgid ""
+"To execute `clazz._on_setattr()` each time on `__setattr__` after "
+"`__init__`."
+msgstr ""
+
+#: charmy.utils.on_setattr.apply_on_setattr:3 of
+msgid "apple_on_setattr is a class decorator"
+msgstr ""
+
+#: charmy.utils.on_setattr.apply_on_setattr:5 of
+msgid ""
+"The class to be decorated must have a `_on_setattr` function to bind, "
+"which should take exactly  same args as `__setattr__`."
+msgstr ""
+

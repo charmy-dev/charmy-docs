@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Charmy GUI \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-09 14:09+0800\n"
+"POT-Creation-Date: 2026-11-13 17:56+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -47,18 +47,65 @@ msgstr ""
 msgid "RIGHT: 2"
 msgstr ""
 
-#: charmy.const.ID:1 of
-msgid "ID is an enum to store object ID."
+#: charmy.const.FLEX_DIRECTION:1 of
+msgid "Consts to represent flex directions."
 msgstr ""
 
-#: charmy.const.ID:3 of
-msgid "AUTO: Auto generate ID. NONE: No ID."
+#: charmy.const.FLEX_DIRECTION:3 of
+msgid "ROW / X / HORIZONTAL / H: 0"
 msgstr ""
 
-#: charmy.const.DrawingMode:1 of
+#: charmy.const.FLEX_DIRECTION:4 of
+msgid "COLUMN / Y / VERTICAL / V: 1"
+msgstr ""
+
+#: charmy.const.FONTWEIGHT:1 of
+msgid "Preset constant values of fontweight."
+msgstr ""
+
+#: charmy.const.FONTWEIGHT:4 of
+msgid "Introduction to TrueType Fontweight"
+msgstr ""
+
+#: charmy.const.FONTWEIGHT:5 of
 msgid ""
-"DrawingMode is an enum to store drawing mode. IMMEDIATE(immediate): "
-"IMMEDIATE is an enum to store drawing mode. RETAINED(retained): RETAINED "
-"is an enum to store drawing mode."
+"TrueType fontweight determines the thickness of text. It has some common "
+"presets which are  listed below. Learn more in [MSDN docs about "
+"this](https://learn.microsoft.com/en-"
+"us/dotnet/api/system.windows.fontweights?view=netframework-4.8#remarks)."
 msgstr ""
+
+#: charmy.const.FONTWEIGHT:9 of
+msgid "List of Presets"
+msgstr ""
+
+#: charmy.const.FONTWEIGHT:13 of
+msgid ""
+"Thin / Hairline             `THIN`         100     Extra Light / Ultra "
+"Light   `EXTRALIGHT`   200     Light                       `LIGHT`"
+"        300     Regular                     `REGULAR`      400     Medium"
+"                      `MEDIUM`       500     Semi Bold                   "
+"`SEMIBOLD`     600     Bold                        `BOLD`         700"
+"     Extra Bold / Ultra Bold     `EXTRABOLD`    800     Black / Heavy"
+"               `BLACK`        900     Extra Black / Ultra Black   "
+"`EXTRABLACK`   950"
+msgstr ""
+
+#: charmy.const.FONTWEIGHT:24 of
+msgid "**Note:** Some fontweights might not be supported by all backends!"
+msgstr ""
+
+#~ msgid "ID is an enum to store object ID."
+#~ msgstr ""
+
+#~ msgid "AUTO: Auto generate ID. NONE: No ID."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "DrawingMode is an enum to store "
+#~ "drawing mode. IMMEDIATE(immediate): IMMEDIATE "
+#~ "is an enum to store drawing mode."
+#~ " RETAINED(retained): RETAINED is an enum"
+#~ " to store drawing mode."
+#~ msgstr ""
 

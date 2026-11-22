@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Charmy GUI \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-09 14:09+0800\n"
+"POT-Creation-Date: 2026-11-13 17:56+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -23,17 +23,112 @@ msgstr ""
 msgid "var"
 msgstr ""
 
+#: charmy.utils.var:1 of
+msgid "Charmy vars."
+msgstr ""
+
+#: charmy.utils.var:3 of
+msgid ""
+"This module contains Var and Query, which are used for referencing in "
+"Python."
+msgstr ""
+
+#: charmy.utils.var:5 of
+msgid ""
+"Vars are used to implement thing like C(++) pointers. A var will be able "
+"to be referenced or modified from somewhere else, providing experience "
+"like C(++) pointers."
+msgstr ""
+
+#: charmy.utils.var:8 of
+msgid ""
+"Starting from commit 2708f2f, this module also provides a Query class for"
+" realtime referencing the return value of a specific callable (like class"
+" properties, but may be used outside classes), with an interface that is "
+"similar to Vars."
+msgstr ""
+
 #: charmy.utils.var.Var:1 of
 msgid "Aimed to provide experience like C vars with pointers."
 msgstr ""
 
-#: charmy.utils.var.Var:3 of
+#: charmy.utils.var.Var.__init__:1 of
+msgid "To initialize a var."
+msgstr ""
+
+#: charmy.utils.var.Var.__init__:3 of
 msgid "Args:"
 msgstr ""
 
-#: charmy.utils.var.Var:4 of
-msgid ""
-"default_value: The initial _value of the variable. value_type: The type "
-"of the variable."
+#: charmy.utils.var.Var.__init__:4 of
+msgid "default_value: The initial _value of the variable"
 msgstr ""
+
+#: charmy.utils.var.Var.value:1 of
+msgid "The value stored in the var."
+msgstr ""
+
+#: charmy.utils.var.Query:1 of
+msgid "To reference the realtime return value of a function."
+msgstr ""
+
+#: charmy.utils.var.Query:3 of
+msgid "When taking the value, its usage is same as Var: .. code-block:: python"
+msgstr ""
+
+#: charmy.utils.var.Query:5 of
+msgid "Query(...).value var.unpack_var(Query(...))"
+msgstr ""
+
+#: charmy.utils.var.Query.__init__:1 of
+msgid "To initialize a Query object."
+msgstr ""
+
+#: ../../source/api/utils/var.rst
+msgid "参数"
+msgstr ""
+
+#: charmy.utils.var.Query.__init__:3 of
+msgid "The callable to query when getting the value"
+msgstr ""
+
+#: charmy.utils.var.unpack_var:1 of
+msgid ""
+"To extract the value from param 1 if it is a var or query, otherwise "
+"return it as-is."
+msgstr ""
+
+#: charmy.utils.var.unpack_var:3 of
+msgid "The var to dispatch or the value to return as-is"
+msgstr ""
+
+#: charmy.utils.var.unpack_var:4 of
+msgid "Value to return if the value of the var is False"
+msgstr ""
+
+#: charmy.utils.var.resolve_references:1 of
+msgid "Replace nested Vars and Queries in containers and object attributes."
+msgstr ""
+
+#: charmy.utils.var.resolve_references:3 of
+msgid "Please note that this is a vibed module!"
+msgstr ""
+
+#: charmy.utils.var.resolve_references:5 of
+msgid ""
+"Objects with no possible Var or Query attributes are returned unchanged. "
+"Mutable values are updated in place; immutable containers are rebuilt "
+"when a child changes. Cycles are stopped by identity and active Query "
+"tracking."
+msgstr ""
+
+#: charmy.utils.var.resolve_references:9 of
+msgid "The object to perform operations on"
+msgstr ""
+
+#~ msgid ""
+#~ "default_value: The initial _value of the"
+#~ " variable. value_type: The type of "
+#~ "the variable."
+#~ msgstr ""
 
